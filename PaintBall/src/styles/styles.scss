@@ -1,3 +1,7 @@
+@import "./variable-color.scss";
+@import "./media-screen-variables";
+@import "./sass-variables";
+
 @import "~@angular/material/theming";
 
 /* Importing bootstrap */
@@ -40,4 +44,38 @@ body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+//button generico
+button {
+  border: none;
+  background-color: var(--transparent-grey);
+  margin: 5px;
+}
+
+//navbar
+.mat-toolbar .mat-list-item {
+  cursor: pointer;
+  outline: none;
+}
+.mat-list-base.inline-list {
+  display: flex;
+}
+
+.mat-sidenav-container .mat-sidenav {
+  width: 50%;
+}
+.mat-sidenav-container .mat-sidenav .mat-list-item {
+  cursor: pointer;
+  font-size: $fontLarge;
+  padding: 10px;
+}
+.mat-sidenav-container .mat-sidenav .mat-list-item p {
+  margin: 10px;
 }

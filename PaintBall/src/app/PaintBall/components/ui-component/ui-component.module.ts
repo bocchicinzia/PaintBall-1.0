@@ -15,41 +15,41 @@ import { MatCardModule } from "@angular/material/card";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
-
-
-
-const modulMaterial = [
-  MatFormFieldModule,
-  MatSlideToggleModule,
-  MatExpansionModule,
-  MatToolbarModule,
-  MatListModule,
-  MatIconModule,
-  MatSidenavModule,
-  ReactiveFormsModule,
-  MatButtonModule,
-  MatCardModule,
-  MatDialogModule,
-  MatInputModule,
-  MatCheckboxModule,
-];
-const components = [
-  NavbarComponent,
-];
 @NgModule( {
   declarations: [
-    ...components,
+    UIComponentsModule.components,
   ],
   imports: [
-    ...modulMaterial,
+    UIComponentsModule.material,
     RouterModule,
     FormsModule,
     CommonModule
   ],
   exports: [
-    ...modulMaterial,
-    ...components
+    UIComponentsModule.material,
+    UIComponentsModule.components
   ]
 } )
-export class UIComponentsModule {}
+export class UIComponentsModule {
+  public static material = [
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatSlideToggleModule,
+    MatExpansionModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
+    MatSidenavModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    MatInputModule,
+    MatCheckboxModule,
+  ];
+  public static components = [
+    NavbarComponent
+  ]
+}

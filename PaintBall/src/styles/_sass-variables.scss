@@ -1,0 +1,16 @@
+$fontExtraSmall: 13px;
+$fontNormal: 16px;
+$fontMedium: 18px;
+$fontLarge: 20px;
+$fontExtraSmall: 13px;
+$fontExtraLarge: 22px;
+$fontWeight: 500;
+$labelMarginBottom: 10px;
+$border-radius-small: 5px;
+$card-shadow-color: #00000017;
+$card-box-shadow: 0px 0px 46px 0px $card-shadow-color;
+
+//radial progress component
+$circle-radius: 180px;
+$progress-bar-thickness: 12px;
+$inner-circle-radius: calc(#{$circle-radius} - #{$progress-bar-thickness} * 2);
