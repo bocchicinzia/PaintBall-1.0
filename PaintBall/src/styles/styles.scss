@@ -51,6 +51,9 @@ body {
 *::after {
   box-sizing: border-box;
 }
+*:focus {
+  outline: none;
+}
 
 //button generico
 button {

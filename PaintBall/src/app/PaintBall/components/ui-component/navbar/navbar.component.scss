@@ -76,3 +76,37 @@
 .mobile.active p::after {
   transform: scaleX(1);
 }
+
+//icon close
+.mat-sidenav .mat-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 35px;
+  width: auto;
+  height: auto;
+  z-index: 999;
+}
+
+//hamburgher
+mat-toolbar-row button {
+  position: absolute;
+  right: 5px;
+  & mat-icon {
+    font-size: 40px;
+    width: auto;
+    height: auto;
+  }
+}
+
+//logo
+.logo-navbar {
+  position: absolute;
+  top: 8px;
+  max-width: 80px;
+  max-height: inherit;
+  img {
+    position: relative;
+    width: 55px;
+  }
+}

@@ -1,4 +1,4 @@
-export class Navbar {
+export class MenuNavbar {
   label: string;
   path: string;
 
