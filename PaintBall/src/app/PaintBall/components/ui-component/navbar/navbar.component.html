@@ -13,6 +13,7 @@
     <div fxShow="true" fxHide.lt-md>
       <mat-list class="inline-list">
         <mat-list-item
+          [class.desktop]="!isMobile"
           *ngFor="let menu of menu"
           [routerLink]="menu.path"
           routerLinkActive="active"
@@ -25,9 +26,10 @@
 </mat-toolbar>
 
 <mat-sidenav-container fxFlexFill>
-  <mat-sidenav #sidenav>
+  <mat-sidenav #sidenav class="text-center">
     <!-- <mat-list class="inline-list"> -->
     <mat-list-item
+      [class.mobile]="isMobile"
       *ngFor="let menu of menu"
       [routerLink]="menu.path"
       routerLinkActive="active"

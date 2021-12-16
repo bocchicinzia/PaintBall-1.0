@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from 'src/app/PaintBall/utils/platform.class';
 import { Navbar } from './navbar.class';
 
 @Component( {
@@ -8,9 +9,14 @@ import { Navbar } from './navbar.class';
 } )
 export class NavbarComponent implements OnInit {
   menu: Navbar[] = [];
+  isMobile: boolean;
+
   constructor() {}
 
   ngOnInit(): void {
+    this.isMobile = Platform.isMobile();
+    console.log( this.isMobile );
+
     this.menu = [
       new Navbar( 'Home', 'home' ),
       new Navbar( 'Prezzo', 'prezzo' ),

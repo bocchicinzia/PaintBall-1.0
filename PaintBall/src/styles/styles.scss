@@ -59,23 +59,11 @@ button {
   margin: 5px;
 }
 
-//navbar
-.mat-toolbar .mat-list-item {
-  cursor: pointer;
-  outline: none;
+.mobile .mat-list-item-content {
+  margin: 20px;
 }
-.mat-list-base.inline-list {
-  display: flex;
-}
-
-.mat-sidenav-container .mat-sidenav {
-  width: 50%;
-}
-.mat-sidenav-container .mat-sidenav .mat-list-item {
-  cursor: pointer;
-  font-size: $fontLarge;
+.mobile p {
+  width: fit-content;
   padding: 10px;
-}
-.mat-sidenav-container .mat-sidenav .mat-list-item p {
-  margin: 10px;
+  height: 50px;
 }
