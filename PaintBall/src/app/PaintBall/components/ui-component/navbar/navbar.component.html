@@ -1,4 +1,4 @@
-<mat-toolbar-row>
+<mat-toolbar-row #stickyMenu [class.sticky]="sticky">
   <button mat-icon-button (click)="sidenav.toggle()" [fxShow]="isMobile">
     <mat-icon>menu</mat-icon>
   </button>

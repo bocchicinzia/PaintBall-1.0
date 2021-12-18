@@ -60,11 +60,27 @@ mat-toolbar-row button {
 //logo
 .logo-navbar {
   position: absolute;
-  top: 8px;
+  top: 4px;
   max-width: 80px;
   max-height: inherit;
   img {
     position: relative;
     width: 55px;
   }
+}
+
+@media (max-width: 599px) {
+  .logo-navbar {
+    position: absolute;
+    top: 0;
+  }
+}
+
+//sticky fixed top
+.sticky {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 10;
+  width: 100%;
 }

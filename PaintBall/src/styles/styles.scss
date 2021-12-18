@@ -65,6 +65,8 @@ button {
 //navbar mobile
 .mat-sidenav-container .mat-sidenav {
   width: 70%;
+  position: absolute;
+  top: 200px;
 }
 .mobile .mat-list-item-content {
   margin: 20px;

@@ -1,0 +1,9 @@
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  & img {
+    width: 100%;
+    max-height: 200px;
+    min-height: 200px;
+  }
+}
