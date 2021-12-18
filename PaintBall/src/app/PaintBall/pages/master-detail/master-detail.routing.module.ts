@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { HomePagesComponent } from "./home-pages.component";
+import { MasterDetailComponent } from "./master-detail.component";
 
 const routes: Routes = [
 
   {
     path: "",
-    component: HomePagesComponent,
+    component: MasterDetailComponent,
     children: [
       {
         path: "",
@@ -14,19 +14,19 @@ const routes: Routes = [
       },
       {
         path: "home",
-        component: HomePagesComponent
+        // component: HomePagesComponent
       },
       {
         path: "prezzo",
-        component: HomePagesComponent
+        // component: HomePagesComponent
       },
       {
         path: "galleria",
-        component: HomePagesComponent
+        // component: HomePagesComponent
       },
       {
         path: "contatti",
-        component: HomePagesComponent
+        // component: HomePagesComponent
       }
     ]
   }
@@ -36,4 +36,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild( routes )],
   exports: [RouterModule]
 } )
-export class HomePagesRoutingModule {}
+export class MasterDetailRoutingModule {}

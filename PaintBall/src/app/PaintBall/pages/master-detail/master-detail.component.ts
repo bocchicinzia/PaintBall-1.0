@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
 import { MenuNavbar } from '../../components/ui-component/navbar/menuNavbar.class';
 
 @Component( {
   selector: 'app-home-pages',
-  templateUrl: './home-pages.component.html',
-  styleUrls: ['./home-pages.component.scss']
+  templateUrl: './master-detail.component.html',
+  styleUrls: ['./master-detail.component.scss']
 } )
-export class HomePagesComponent implements OnInit {
+export class MasterDetailComponent implements OnInit {
   menu: MenuNavbar[];
   constructor() {}
 
