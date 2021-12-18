@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { MenuNavbar } from '../../components/ui-component/navbar/menuNavbar.class';
 
 @Component( {
@@ -19,5 +20,4 @@ export class HomePagesComponent implements OnInit {
       new MenuNavbar( 'Contatti', 'contatti' )
     ]
   }
-
 }

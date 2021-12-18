@@ -1,23 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Platform } from 'src/app/PaintBall/utils/platform.class';
-import { MenuNavbar } from './menuNavbar.class';
+import { MenuNavbar } from '../navbar/menuNavbar.class';
 
 @Component( {
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-vertical-menu',
+  templateUrl: './vertical-menu.component.html',
+  styleUrls: ['./vertical-menu.component.scss']
 } )
-export class NavbarComponent implements OnInit {
+export class VerticalMenuComponent implements OnInit {
   @Input() menu: MenuNavbar[] = [];
   @Input() sidenav: MatSidenav;
   isMobile: boolean;
-  opened: MatSidenav;
-
   constructor() {}
 
   ngOnInit(): void {
     this.isMobile = Platform.isMobile();
   }
-
 }

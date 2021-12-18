@@ -1,0 +1,9 @@
+<mat-icon (click)="sidenav.toggle()">close</mat-icon>
+<mat-list-item
+  [class.mobile]="isMobile"
+  *ngFor="let menu of menu"
+  [routerLink]="menu.path"
+  routerLinkActive="active"
+>
+  <p>{{ menu.label }}</p>
+</mat-list-item>

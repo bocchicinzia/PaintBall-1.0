@@ -1,1 +1,13 @@
-<app-navbar [menu]="menu"></app-navbar>
+<mat-toolbar color="transparent">
+  <app-navbar [menu]="menu" [sidenav]="sidenav"></app-navbar>
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav class="text-center">
+    <app-vertical-menu [menu]="menu" [sidenav]="sidenav"></app-vertical-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content fxFlexFill>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

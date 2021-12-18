@@ -16,10 +16,12 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { VerticalMenuComponent } from './vertical-menu/vertical-menu.component';
 
 @NgModule( {
   declarations: [
     UIComponentsModule.components,
+
   ],
   imports: [
     UIComponentsModule.material,
@@ -30,7 +32,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
   exports: [
     UIComponentsModule.material,
     UIComponentsModule.components
-  ]
+  ],
+  providers: []
 } )
 export class UIComponentsModule {
   public static material = [
@@ -50,6 +53,7 @@ export class UIComponentsModule {
     MatCheckboxModule,
   ];
   public static components = [
+    VerticalMenuComponent,
     NavbarComponent
   ]
 }

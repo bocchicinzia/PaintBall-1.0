@@ -1,6 +1,6 @@
 @import "/src/styles/sass-variables";
 
-.mat-toolbar .mat-list-item {
+.mat-list-item {
   cursor: pointer;
   outline: none;
 }
@@ -44,48 +44,6 @@
   display: block;
   content: "";
   border-bottom: solid 3px var(--red-mixed);
-}
-
-//modality mobile
-.mat-sidenav-container .mat-sidenav {
-  width: 70%;
-}
-.mobile {
-  cursor: pointer;
-  font-size: $fontLarge;
-  transition: 0.5s ease;
-  &.active {
-    font-size: $fontExtraLarge + 2;
-    color: var(--red-mixed);
-  }
-}
-
-.mobile p {
-  border: none;
-  transition: transform 250ms ease-in-out;
-  &:after {
-    display: block;
-    content: "";
-    position: relative;
-    bottom: -20px;
-    border-bottom: solid 3px var(--red-mixed);
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-  }
-}
-.mobile.active p::after {
-  transform: scaleX(1);
-}
-
-//icon close
-.mat-sidenav .mat-icon {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 35px;
-  width: auto;
-  height: auto;
-  z-index: 999;
 }
 
 //hamburgher
