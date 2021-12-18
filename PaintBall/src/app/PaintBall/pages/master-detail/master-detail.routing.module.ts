@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { HomePagesComponent } from "../home-pages/home-pages.component";
 import { MasterDetailComponent } from "./master-detail.component";
 
 const routes: Routes = [
@@ -14,19 +15,19 @@ const routes: Routes = [
       },
       {
         path: "home",
-        // component: HomePagesComponent
+        component: HomePagesComponent
       },
       {
         path: "prezzo",
-        // component: HomePagesComponent
+        component: HomePagesComponent
       },
       {
         path: "galleria",
-        // component: HomePagesComponent
+        component: HomePagesComponent
       },
       {
         path: "contatti",
-        // component: HomePagesComponent
+        component: HomePagesComponent
       }
     ]
   }

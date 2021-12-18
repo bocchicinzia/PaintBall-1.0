@@ -6,13 +6,11 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { MasterDetailRoutingModule } from "./master-detail.routing.module";
 import { MasterDetailComponent } from "./master-detail.component";
 import { UIComponentsModule } from "../../components/ui-component/ui-component.module";
+import { HomePagesComponent } from "../home-pages/home-pages.component";
 
-const component = [
-  MasterDetailComponent
-]
 @NgModule( {
   declarations: [
-    ...component
+    MasterDetailModule.component
   ],
   imports: [
     NgbModule,
@@ -23,4 +21,9 @@ const component = [
     CommonModule
   ]
 } )
-export class MasterDetailModule {}
+export class MasterDetailModule {
+  public static component = [
+    HomePagesComponent,
+    MasterDetailComponent
+  ]
+}

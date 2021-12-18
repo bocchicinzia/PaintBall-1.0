@@ -4,6 +4,7 @@
   *ngFor="let menu of menu"
   [routerLink]="menu.path"
   routerLinkActive="active"
+  (click)="sidenav.toggle()"
 >
   <p>{{ menu.label }}</p>
 </mat-list-item>
