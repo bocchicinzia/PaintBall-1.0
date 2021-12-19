@@ -1,4 +1,5 @@
 @import "/src/styles/sass-variables";
+@import "/src/styles/media-screen-variables";
 
 .mat-list-item {
   cursor: pointer;
@@ -69,18 +70,9 @@ mat-toolbar-row button {
   }
 }
 
-@media (max-width: 599px) {
+@media (max-width: $mobile-small) {
   .logo-navbar {
     position: absolute;
     top: 0;
   }
-}
-
-//sticky fixed top
-.sticky {
-  position: fixed;
-  top: 0;
-  overflow: hidden;
-  z-index: 10;
-  width: 100%;
 }

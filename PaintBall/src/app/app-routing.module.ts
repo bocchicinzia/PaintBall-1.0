@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    // canActivate: [AuthGuardService],
     loadChildren: () => import( './PaintBall/paintball.module' ).then( m => m.PaintballModule )
   }
 ];

@@ -41,7 +41,7 @@ $app-dark-theme: mat-dark-theme(
 }
 html,
 body {
-  height: 100%;
+  height: auto;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -54,7 +54,11 @@ body {
 *:focus {
   outline: none;
 }
-
+//mat-sidenav-container master detail
+mat-sidenav-container {
+  position: relative;
+  height: auto !important;
+}
 //button generico
 button {
   border: none;
@@ -65,8 +69,6 @@ button {
 //navbar mobile
 .mat-sidenav-container .mat-sidenav {
   width: 70%;
-  position: absolute;
-  top: 200px;
 }
 .mobile .mat-list-item-content {
   margin: 20px;

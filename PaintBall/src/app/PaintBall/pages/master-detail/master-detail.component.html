@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <app-header></app-header>
-  <mat-toolbar color="transparent">
+  <mat-toolbar [class.sticky]="sticky">
     <app-navbar [menu]="menu" [sidenav]="sidenav"></app-navbar>
   </mat-toolbar>
 </div>
 
 <mat-sidenav-container fxFlexFill>
-  <mat-sidenav #sidenav class="text-center">
+  <mat-sidenav #sidenav class="text-center" [class.sticky-navbar]="sticky">
     <app-vertical-menu [menu]="menu" [sidenav]="sidenav"></app-vertical-menu>
   </mat-sidenav>
 

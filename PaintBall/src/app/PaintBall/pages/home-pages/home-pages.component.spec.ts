@@ -2,24 +2,24 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomePagesComponent } from './home-pages.component';
 
-describe('HomePagesComponent', () => {
+describe( HomePagesComponent.name, () => {
   let component: HomePagesComponent;
   let fixture: ComponentFixture<HomePagesComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HomePagesComponent ]
-    })
-    .compileComponents();
-  });
+  beforeEach( async () => {
+    await TestBed.configureTestingModule( {
+      declarations: [HomePagesComponent]
+    } )
+      .compileComponents();
+  } );
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HomePagesComponent);
+  beforeEach( () => {
+    fixture = TestBed.createComponent( HomePagesComponent );
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  } );
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  it( 'should create', () => {
+    expect( component ).toBeTruthy();
+  } );
+} );
