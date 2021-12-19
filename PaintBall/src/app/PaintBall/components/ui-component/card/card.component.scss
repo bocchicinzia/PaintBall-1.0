@@ -44,3 +44,17 @@
 .card[data-color="red"] {
   background: var(--light-orange);
 }
+@media (max-width: $mobile-small) {
+  .card-description {
+    width: 90%;
+    & .category {
+      font-size: $fontExtraSmall;
+    }
+    & .title {
+      font-size: $fontMedium;
+    }
+    & .description {
+      font-size: $fontNormal;
+    }
+  }
+}
