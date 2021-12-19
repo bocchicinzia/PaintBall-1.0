@@ -100,3 +100,7 @@ app-navbar {
     }
   }
 }
+
+.darkMode .card.card-just-text {
+  box-shadow: var(--shadow-card-description-darkMode);
+}

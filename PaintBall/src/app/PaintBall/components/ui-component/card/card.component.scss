@@ -1,0 +1,46 @@
+@import "/src/styles/sass-variables";
+@import "/src/styles/media-screen-variables";
+
+.content-card {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.card[data-radius="none"] {
+  border-radius: 0px;
+}
+.card {
+  border-radius: 8px;
+  box-shadow: var(--shadow-card-description-lightMode);
+  background-color: var(--white);
+  color: var(--dark-grey);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.card.card-just-text .content {
+  padding: 50px 35px;
+  text-align: center;
+}
+
+.card .category {
+  font-size: $fontNormal;
+  margin-bottom: 0px;
+  color: var(--strong-grey);
+  text-transform: uppercase;
+  font-weight: $fontWeight;
+}
+
+.title {
+  font-size: $fontLarge;
+  font-weight: $fontWeight;
+}
+.card .description {
+  font-size: $fontMedium;
+  color: var(--dark-grey);
+}
+
+.card[data-color="red"] {
+  background: var(--light-orange);
+}

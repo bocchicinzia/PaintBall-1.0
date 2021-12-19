@@ -18,10 +18,11 @@ import { MatInputModule } from "@angular/material/input";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HeaderComponent } from './header/header.component';
 import { VerticalMenuComponent } from "./vertical-menu/vertical-menu.component";
+import { CardComponent } from './card/card.component';
 
 @NgModule( {
   declarations: [
-    UIComponentsModule.components
+    UIComponentsModule.components,
   ],
   imports: [
     UIComponentsModule.material,
@@ -53,6 +54,7 @@ export class UIComponentsModule {
     MatCheckboxModule,
   ];
   public static components = [
+    CardComponent,
     HeaderComponent,
     VerticalMenuComponent,
     NavbarComponent
