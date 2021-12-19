@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Platform } from 'src/app/PaintBall/utils/platform.class';
 import { MenuNavbar } from './menuNavbar.class';
@@ -9,6 +9,10 @@ import { MenuNavbar } from './menuNavbar.class';
   styleUrls: ['./navbar.component.scss']
 } )
 export class NavbarComponent implements OnInit {
+  @Output() themeChange = new EventEmitter();
+  @Output() isDarkOnLoad = new EventEmitter();
+  isDark: boolean = false;
+  theme: any;
 
   @Input() menu: MenuNavbar[] = [];
   @Input() sidenav: MatSidenav;
@@ -19,6 +23,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.isMobile = Platform.isMobile();
+    this.theme = localStorage.getItem( 'theme' );
+    this.isDark = this.theme === 'true' ? true : false;
   }
-
+  changeTheme() {
+    this.isDark = !this.isDark;
+    this.themeChange.emit( this.isDark )
+  }
 }

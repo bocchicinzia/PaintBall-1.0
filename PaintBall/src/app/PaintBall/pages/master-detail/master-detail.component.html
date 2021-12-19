@@ -1,7 +1,11 @@
 <div class="container-fluid">
   <app-header></app-header>
   <mat-toolbar [class.sticky]="sticky">
-    <app-navbar [menu]="menu" [sidenav]="sidenav"></app-navbar>
+    <app-navbar
+      [menu]="menu"
+      [sidenav]="sidenav"
+      (themeChange)="themeChange($event)"
+    ></app-navbar>
   </mat-toolbar>
 </div>
 
