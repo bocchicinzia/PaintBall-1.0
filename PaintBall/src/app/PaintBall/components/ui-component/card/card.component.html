@@ -1,4 +1,4 @@
-<div class="container card-description">
+<div class="container card-description" *ngFor="let c of card">
   <div class="row">
     <div class="content-card">
       <div
@@ -8,11 +8,10 @@
         data-radius="none"
       >
         <div class="content">
-          <h6 class="category">PaintBall</h6>
-          <h4 class="title">Piccola descrizione della nostra attivià</h4>
+          <h6 class="category">{{ c.category }}</h6>
+          <h4 class="title">{{ c.title }}</h4>
           <p class="description">
-            What all of these have in common is that they're pulling information
-            out of the app or the service and making it relevant to the moment.
+            {{ c.description }}
           </p>
         </div>
       </div>
