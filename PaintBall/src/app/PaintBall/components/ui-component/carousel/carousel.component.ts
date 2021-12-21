@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import SwiperCore, { Zoom, Navigation, Autoplay, EffectCoverflow, Pagination } from "swiper";
+import { Carousel } from './carousel.class';
 SwiperCore.use( [Zoom, Navigation, Autoplay, EffectCoverflow, Pagination] );
 
 @Component( {
@@ -9,9 +10,10 @@ SwiperCore.use( [Zoom, Navigation, Autoplay, EffectCoverflow, Pagination] );
   encapsulation: ViewEncapsulation.None
 } )
 export class CarouselComponent implements OnInit {
-
+  @Input() imgUrl: Carousel[];
   constructor() {}
 
   ngOnInit(): void {
+
   }
 }
