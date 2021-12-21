@@ -19,12 +19,14 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { HeaderComponent } from './header/header.component';
 import { VerticalMenuComponent } from "./vertical-menu/vertical-menu.component";
 import { CardComponent } from './card/card.component';
-
+import { CarouselComponent } from './carousel/carousel.component';
+import { SwiperModule } from 'swiper/angular';
 @NgModule( {
   declarations: [
     UIComponentsModule.components,
   ],
   imports: [
+    UIComponentsModule.swiper,
     UIComponentsModule.material,
     RouterModule,
     FormsModule,
@@ -37,6 +39,13 @@ import { CardComponent } from './card/card.component';
   providers: []
 } )
 export class UIComponentsModule {
+  public static components = [
+    CarouselComponent,
+    CardComponent,
+    HeaderComponent,
+    VerticalMenuComponent,
+    NavbarComponent
+  ]
   public static material = [
     FlexLayoutModule,
     MatFormFieldModule,
@@ -53,10 +62,7 @@ export class UIComponentsModule {
     MatInputModule,
     MatCheckboxModule,
   ];
-  public static components = [
-    CardComponent,
-    HeaderComponent,
-    VerticalMenuComponent,
-    NavbarComponent
+  public static swiper = [
+    SwiperModule
   ]
 }

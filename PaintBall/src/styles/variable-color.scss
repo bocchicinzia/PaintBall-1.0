@@ -6,7 +6,7 @@
   --strong-grey: #887979;
   --grey: #b3b3b3;
   --transparent-grey: #b3b3b38a;
-  --grey-icon: hsl(340deg 8% 28%);
+  --grey-icon: rgb(202, 200, 201);
   --red: #f75e62;
   --red-mixed: #d66451;
   --orange: #ed8c66;
@@ -22,4 +22,6 @@
     2px 2px 2px 20px rgba(204, 197, 185, 15%),
     2px 2px 2px 30px rgba(204, 197, 185, 6%),
     2px 2px 2px 35px rgba(204, 197, 185, 2%);
+  --text-shadow-lightMode: rgb(0 0 0 / 70%) 0px 5px 15px;
+  --text-shadow-darkMode: rgba(255, 255, 255, 0.7) 0px 5px 15px;
 }

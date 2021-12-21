@@ -1,0 +1,111 @@
+@import "/src/styles/sass-variables";
+@import "/src/styles/media-screen-variables";
+@import "~swiper/css/bundle";
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: 50em;
+  max-height: 55em;
+  margin-bottom: 65px;
+}
+span.swiper-pagination-bullet {
+  width: 25px;
+  height: 25px;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  width: auto;
+  height: auto;
+  position: absolute;
+  bottom: 140px;
+  top: auto;
+  z-index: 0;
+  &:after {
+    font-size: $fontPrevAndNextCarousel;
+    color: var(--red);
+    text-shadow: var(--text-shadow-lightMode);
+  }
+}
+.swiper-button-prev {
+  left: 40%;
+}
+.swiper-button-next {
+  right: 40%;
+}
+
+.swiper-slide {
+  box-shadow: var(--text-shadow-lightMode);
+  opacity: 0.3;
+  -webkit-transition: opacity 2s ease-in-out;
+  -moz-transition: opacity 2s ease-in-out;
+  -ms-transition: opacity 2s ease-in-out;
+  -o-transition: opacity 2s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  &.swiper-slide-zoomed {
+    z-index: 2 !important;
+  }
+}
+.darkMode .swiper-slide {
+  box-shadow: var(--text-shadow-darkMode);
+}
+
+.swiper-slide.swiper-slide-active {
+  transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  -moz-transition: none;
+  -webkit-transition: none;
+  filter: alpha(opacity=50);
+  opacity: 1;
+}
+
+.darkMode .swiper-button-prev,
+.darkMode .swiper-button-next {
+  &:after {
+    text-shadow: var(--text-shadow-darkMode);
+  }
+}
+
+.swiper-pagination {
+  z-index: 0;
+  & .swiper-pagination-bullet-active {
+    background: var(--red);
+  }
+}
+.darkMode .swiper-pagination-bullet {
+  background: var(--white);
+  &.swiper-pagination-bullet-active {
+    background: var(--red);
+  }
+}
+// .swiper-slide.ng-star-inserted.swiper-slide-visible {
+//   width: 460px;
+//   height: fit-content;
+//   transition: 2s ease;
+// }
+
+// .swiper-slide.ng-star-inserted.swiper-slide-visible.swiper-slide-active {
+//   width: 500px;
+//   height: fit-content;
+// }
+@media (max-width: $mobile-small) {
+  .swiper-button-prev {
+    left: 30%;
+  }
+  .swiper-button-next {
+    right: 30%;
+  }
+}

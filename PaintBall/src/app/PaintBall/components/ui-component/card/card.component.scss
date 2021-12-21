@@ -1,6 +1,9 @@
 @import "/src/styles/sass-variables";
 @import "/src/styles/media-screen-variables";
 
+.card-description {
+  width: 80%;
+}
 .content-card {
   margin-top: 70px;
   margin-bottom: 70px;
@@ -46,7 +49,6 @@
 }
 @media (max-width: $mobile-small) {
   .card-description {
-    width: 90%;
     & .category {
       font-size: $fontExtraSmall;
     }

@@ -16,7 +16,7 @@ export class MasterDetailComponent implements OnInit {
 
   sticky: boolean = false;
   elementPosition: any;
-  constructor( private overlayContainer: OverlayContainer, ) {}
+  constructor( private overlayContainer: OverlayContainer ) {}
 
   ngOnInit(): void {
     this.menu = [
