@@ -100,6 +100,7 @@ app-navbar {
   }
 }
 
-.darkMode .card.card-just-text {
-  box-shadow: var(--shadow-card-description-darkMode);
+//card dark theme
+.darkMode .simple-card mat-card {
+  box-shadow: var(--shadow-card-description-darkMode) !important;
 }

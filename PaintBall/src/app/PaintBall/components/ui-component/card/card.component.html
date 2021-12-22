@@ -1,18 +1,14 @@
-<div class="container-fluid card-description" *ngFor="let c of card">
-  <div class="content-card">
-    <div
-      class="card card-just-text"
-      data-background="color"
-      data-color="red"
-      data-radius="none"
-    >
-      <div class="content">
-        <h6 class="category">{{ c.category }}</h6>
-        <h4 class="title">{{ c.title }}</h4>
-        <p class="description">
-          {{ c.description }}
-        </p>
+<div class="simple-card" *ngFor="let c of card">
+  <mat-card>
+    <mat-card-title-group>
+      <mat-card-title>{{ c.title }}</mat-card-title>
+      <mat-card-subtitle>{{ c.category }}</mat-card-subtitle>
+      <div class="img">
+        <img [src]="c.urlImg" />
       </div>
-    </div>
-  </div>
+    </mat-card-title-group>
+    <mat-card-content>
+      {{ c.description }}
+    </mat-card-content>
+  </mat-card>
 </div>

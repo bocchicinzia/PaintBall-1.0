@@ -14,7 +14,7 @@ export class HomePagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.card = [
-      new Card( 'PaintBall', 'Piccola descrizione della nostra attivià', "What all of these have in common is that they're pulling information out of the app or the service and making it relevant to the moment." )
+      new Card( 'PaintBall', 'Piccola descrizione della nostra attivià', "What all of these have in common is that they're pulling information out of the app or the service and making it relevant to the moment.", 'https://material.angular.io/assets/img/examples/shiba2.jpg' )
     ];
     this.imgUrl = [
       new Carousel( "https://swiperjs.com/demos/images/nature-1.jpg" ),

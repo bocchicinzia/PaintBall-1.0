@@ -1,62 +1,72 @@
-@import "/src/styles/sass-variables";
 @import "/src/styles/media-screen-variables";
 
-.card-description {
-  width: 80%;
-}
-.content-card {
-  margin-top: 70px;
-  margin-bottom: 70px;
+.simple-card {
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  & mat-card {
+    padding: 60px;
+    max-width: 55%;
+    margin: 0 auto;
+    float: none;
+    box-shadow: var(--shadow-card-description-lightMode);
+  }
 }
 
-.card[data-radius="none"] {
-  border-radius: 0px;
+.img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
 }
-.card {
-  border-radius: 8px;
-  box-shadow: var(--shadow-card-description-lightMode);
-  background-color: var(--white);
-  color: var(--dark-grey);
-  margin-bottom: 20px;
+.img img {
+  margin: 0 auto;
   position: relative;
-  z-index: 1;
+  opacity: 0.2;
+  display: block;
+  -webkit-animation-name: escala_imagen;
+  -webkit-animation-duration: 25s;
+  animation-name: escala_imagen;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
 }
 
-.card.card-just-text .content {
-  padding: 50px 35px;
-  text-align: center;
+@keyframes escala_imagen {
+  from {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+  }
 }
 
-.card .category {
-  font-size: $fontNormal;
-  margin-bottom: 0px;
-  color: var(--strong-grey);
-  text-transform: uppercase;
-  font-weight: $fontWeight;
+@media (max-width: $mobile-big) {
+  .simple-card mat-card {
+    padding: 44px;
+    max-width: 70%;
+  }
 }
 
-.title {
-  font-size: $fontLarge;
-  font-weight: $fontWeight;
-}
-.card .description {
-  font-size: $fontMedium;
-  color: var(--dark-grey);
-}
-
-.card[data-color="red"] {
-  background: var(--light-orange);
-}
 @media (max-width: $mobile-small) {
-  .card-description {
-    & .category {
-      font-size: $fontExtraSmall;
-    }
-    & .title {
-      font-size: $fontMedium;
-    }
-    & .description {
-      font-size: $fontNormal;
+  .simple-card {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 59px;
+    margin-bottom: 59px;
+    & mat-card {
+      padding: 70px 25px;
+      max-width: 90%;
     }
   }
 }
