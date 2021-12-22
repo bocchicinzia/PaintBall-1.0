@@ -89,14 +89,13 @@ app-navbar {
   background: #212121a6;
   color: var(--white);
   & .theme {
-    background: var(--white);
     & .mat-icon {
-      background: var(--grey-icon);
-      color: var(--dark-orange);
-      -moz-box-shadow: inset 0 0 6px var(--white);
-      -webkit-box-shadow: inset 0 0 6px var(--white);
-      box-shadow: inset 0 0 6px var(--white);
-      transform: translateY(-1px);
+      color: var(--red);
+      border-radius: 60px;
+      background: #e7ae81;
+      box-shadow: var(--shadow-icon-change-theme-dark);
+      -moz-box-shadow: var(--shadow-icon-change-theme-dark);
+      -webkit-box-shadow: var(--shadow-icon-change-theme-dark);
     }
   }
 }

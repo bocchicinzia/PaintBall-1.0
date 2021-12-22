@@ -24,4 +24,8 @@
     2px 2px 2px 35px rgba(204, 197, 185, 2%);
   --text-shadow-lightMode: rgb(0 0 0 / 70%) 0px 5px 15px;
   --text-shadow-darkMode: rgba(255, 255, 255, 0.7) 0px 5px 15px;
+  --shadow-icon-change-theme-light: 20px 20px 60px #c4946e,
+    -20px -20px 60px #ffc894;
+  --shadow-icon-change-theme-dark: inset 15px 15px 30px #b28663,
+    inset -15px -15px 30px #ffd69f;
 }

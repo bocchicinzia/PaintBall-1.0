@@ -73,9 +73,6 @@ mat-toolbar-row button {
 //icon theme
 .theme {
   margin-right: 100px;
-  outline-offset: 4px;
-  background: var(--grey-icon);
-  padding: 0;
   border-radius: 25%;
   border: none;
   cursor: pointer;
@@ -83,18 +80,19 @@ mat-toolbar-row button {
     width: auto;
     height: auto;
     font-size: $fontIconTheme;
-    background: var(--white);
     padding: 5px 5px;
-    border-radius: 25%;
-    transform: translateY(-5px);
+    border-radius: 50px;
+    background: #e7ae81;
+    box-shadow: var(--shadow-icon-change-theme-light);
   }
 }
 
 .theme:active .mat-icon {
+  transform: scale(0.9);
   -moz-box-shadow: inset 0 0 6px var(--black);
   -webkit-box-shadow: inset 0 0 6px var(--black);
   box-shadow: inset 0 0 6px var(--black);
-  transform: translateY(-1px);
+  // transform: translateY(-1px);
 }
 
 @media (max-width: $mobile-big) {
