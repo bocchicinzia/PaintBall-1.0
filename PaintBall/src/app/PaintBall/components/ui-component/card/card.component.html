@@ -1,14 +1,18 @@
-<div class="simple-card" *ngFor="let c of card">
+<div class="simple-card" *ngIf="model as m">
   <mat-card>
     <mat-card-title-group>
-      <mat-card-title>{{ c.title }}</mat-card-title>
-      <mat-card-subtitle>{{ c.category }}</mat-card-subtitle>
-      <div class="img">
-        <img [src]="c.urlImg" />
+      <mat-card-title
+        ><p>{{ m.title }}</p></mat-card-title
+      >
+      <mat-card-subtitle
+        ><p>{{ m.category }}</p></mat-card-subtitle
+      >
+      <div class="img-background">
+        <img [src]="m.urlBackground" />
       </div>
     </mat-card-title-group>
     <mat-card-content>
-      {{ c.description }}
+      {{ m.description }}
     </mat-card-content>
   </mat-card>
 </div>
