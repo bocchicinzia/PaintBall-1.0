@@ -1,0 +1,23 @@
+@import "./variables-color";
+@import "./sass-variables";
+@import "./media-screen-variables";
+
+:root {
+  --button-radius: 5px;
+  --button-font-weight: 600;
+  --font-medium: #{$fontMedium};
+  --font-large: #{$fontLarge};
+  --font-normal: #{$fontNormal};
+  --font-extra-small: #{$fontExtraSmall};
+  --font-extra-large: #{$fontExtraLarge};
+  --font-weight: #{$fontWeight};
+  --horizontal-row-height: 2px;
+  --horizontal-row-borderRadius: 50%;
+  --h5-font-size: var(--font-large);
+  --h6-font-size: var(--font-medium);
+  --p-font-size: var(--font-normal);
+  --h5-text-color: var(--dark-grey);
+  --h6-text-color: var(--dark-grey);
+  --p-text-color: var(--dark-grey);
+  --buttons-text-transform: uppercase;
+}

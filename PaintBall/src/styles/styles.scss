@@ -1,6 +1,7 @@
-@import "./variable-color.scss";
+@import "./variables-color.scss";
 @import "./media-screen-variables";
 @import "./sass-variables";
+@import "./_variables";
 
 @import "~@angular/material/theming";
 
@@ -54,6 +55,18 @@ body {
 *:focus {
   outline: none;
 }
+
+//style to hr with class hr-horizontal
+.hr-horizontal {
+  text-align: center;
+  height: var(--horizontal-row-height);
+  color: var(--strong-grey);
+  border-top: solid var(--strong-grey);
+  border-radius: var(--horizontal-row-borderRadius);
+  margin-left: 25px !important;
+  margin-right: 25px !important;
+}
+
 //mat-sidenav-container master detail
 mat-sidenav-container {
   position: relative;

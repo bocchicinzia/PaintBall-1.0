@@ -34,3 +34,8 @@ mat-toolbar {
     top: 56px;
   }
 }
+@media (min-width: $mobile-small) {
+  .sticky-navbar {
+    top: 64px;
+  }
+}
