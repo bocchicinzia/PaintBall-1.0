@@ -26,17 +26,27 @@ export class CardComponent implements OnInit {
 
   getAllParagraph() {
     this.paragraphs = this.el.nativeElement.querySelectorAll( '.description' );
-    this.paragraphs[0].classList.add( 'active' );
+    this.paragraphs[0].classList.add( 'animate__fadeInLeftBig' );
+    if ( this.paragraphs[1] ) {
+      for ( let i = 1; i < this.paragraphs.length; i++ ) {
+        this.paragraphs[i].classList.add( 'animate__fadeOutRightBig' );
+      }
+    }
   }
   test( a: any ) {
     this.activeParagraph = this.paragraphs[a];
 
     if ( this.activeParagraph ) {
       this.paragraphs.forEach( ( element: any ) => {
-        element.classList.remove( 'active' )
+        element.classList.remove( 'animate__fadeInLeftBig' );
+        element.classList.add( 'animate__fadeOutRightBig' );
       } );
-      this.activeParagraph.classList.add( 'active' );
+      setTimeout( () => {
+        this.activeParagraph.classList.add( 'animate__fadeInLeftBig' );
+        this.activeParagraph.classList.remove( 'animate__fadeOutRightBig' );
+      }, 500 );
     }
+
   }
 
 }

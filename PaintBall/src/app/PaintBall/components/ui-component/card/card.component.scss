@@ -1,8 +1,6 @@
 @import "/src/styles/media-screen-variables";
-@import "~swiper/css/bundle";
 
 //general Card
-
 .simple-card {
   margin-left: 80px;
   margin-right: 80px;
@@ -60,7 +58,7 @@
   }
 }
 
-// for card with simple image float right
+// for card with carousel float right
 .simple-card mat-card.card-with-img {
   padding: 30px;
   max-width: 100%;
@@ -86,12 +84,9 @@
   }
 }
 
-//animation paragraph
+// paragraph with carousel
 .active-description {
-  display: none;
-  &.active {
-    display: block;
-  }
+  position: absolute;
 }
 
 @media (max-width: $mobile-big) {

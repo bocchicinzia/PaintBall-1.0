@@ -8,6 +8,12 @@
 /* Importing bootstrap */
 @import "~bootstrap/scss/bootstrap";
 
+/* Importing swiper */
+@import "~swiper/css/bundle";
+
+/* Importing animate */
+@import "~animate.css/animate.min.css";
+
 @include mat-core();
 
 $app-primary: mat-palette($mat-teal);
