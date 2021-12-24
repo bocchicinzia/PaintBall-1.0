@@ -2,7 +2,9 @@ import { Card } from "../../components/ui-component/card/card.class";
 
 export class TestModel {
   cards: Card[] = [];
+
   constructor( json: any ) {
+
     this.cards = json.map( ( card: Card ) => {
       return {
         category: card.category,

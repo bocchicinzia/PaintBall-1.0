@@ -1,18 +1,43 @@
 <div class="simple-card" *ngIf="model as m">
-  <mat-card>
+  <mat-card [class.card-with-img]="m.urlImg">
     <mat-card-title-group>
       <mat-card-title
-        ><p>{{ m.title }}</p></mat-card-title
-      >
-      <mat-card-subtitle
-        ><p>{{ m.category }}</p></mat-card-subtitle
-      >
-      <div class="img-background">
+        ><p>{{ m.title }}</p>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <p>{{ m.category }}</p>
+      </mat-card-subtitle>
+      <div [class.img-background]="m.urlBackground" [hidden]="!m.urlBackground">
         <img [src]="m.urlBackground" />
       </div>
     </mat-card-title-group>
     <mat-card-content>
-      {{ m.description }}
+      <div>
+        <p
+          class="description"
+          *ngFor="let desc of m.description; let i = index"
+          [class.active-description]="m.urlImg"
+        >
+          {{ desc }}
+        </p>
+      </div>
+      <div [class.img-inline]="m.urlImg" [hidden]="!m.urlImg">
+        <swiper
+          (indexChange)="test($event)"
+          [effect]="'cards'"
+          [grabCursor]="true"
+          [loop]="true"
+          [autoplay]="{
+            delay: 5000,
+            disableOnInteraction: false
+          }"
+          class="mySwiper"
+        >
+          <ng-template swiperSlide *ngFor="let img of m.urlImg">
+            <img [src]="img" />
+          </ng-template>
+        </swiper>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

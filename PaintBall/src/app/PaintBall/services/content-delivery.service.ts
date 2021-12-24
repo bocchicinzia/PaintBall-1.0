@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Card } from '../components/ui-component/card/card.class';
 import { map } from 'rxjs/operators';
 import { TestModel } from '../pages/home-pages/testModel.model';
 
