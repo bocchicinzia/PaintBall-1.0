@@ -1,6 +1,7 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { MenuNavbar } from '../../components/ui-component/navbar/menuNavbar.class';
+import { ContentDeliveryService } from '../../services/content-delivery.service';
 
 @Component( {
   selector: 'app-home-pages',
@@ -16,15 +17,11 @@ export class MasterDetailComponent implements OnInit {
 
   sticky: boolean = false;
   elementPosition: any;
-  constructor( private overlayContainer: OverlayContainer ) {}
+  constructor( private overlayContainer: OverlayContainer, private contentDeleveryService: ContentDeliveryService ) {}
 
   ngOnInit(): void {
-    this.menu = [
-      new MenuNavbar( 'Home', 'home' ),
-      new MenuNavbar( 'Prezzo', 'prezzo' ),
-      new MenuNavbar( 'Galleria', 'galleria' ),
-      new MenuNavbar( 'Contatti', 'contatti' )
-    ];
+    this.contentDeleveryService.getAllContent( 'vertical-menu', 'vertical-menu' ).subscribe( res => this.menu = res.menu );
+
     this.getTheme = localStorage.getItem( 'theme' );
     this.getTheme === 'true' ? this.theme = true : this.theme = false;
     this.themeChange( this.theme );

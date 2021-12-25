@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Carousel } from '../../components/ui-component/carousel/carousel.class';
 import { ContentDeliveryService } from '../../services/content-delivery.service';
-import { TestModel } from './testModel.model';
+import { TestModel } from '../master-detail/testModel.model';
 
 @Component( {
   selector: 'app-home-pages',

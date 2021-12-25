@@ -1,4 +1,22 @@
 {
+  "vertical-menu": [
+    {
+      "label": "Home",
+      "path": "home"
+    },
+    {
+      "label": "Prezzo",
+      "path": "prezzo"
+    },
+    {
+      "label": "Galleria",
+      "path": "galleria"
+    },
+    {
+      "label": "Contatti",
+      "path": "contatti"
+    }
+  ],
   "card": [
     {
       "category": "PaintBall",
