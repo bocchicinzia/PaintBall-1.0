@@ -1,4 +1,5 @@
 @import "/src/styles/media-screen-variables";
+@import "/src/styles/sass-variables";
 
 //general Card
 .simple-card {
@@ -11,7 +12,7 @@
     max-width: 55%;
     margin: 0 auto;
     float: none;
-    box-shadow: var(--shadow-card-description-lightMode);
+    box-shadow: var(--shadow-card-description-lightMode) !important;
     border: 1px solid var(--red);
   }
 }
@@ -89,10 +90,26 @@
   position: absolute;
 }
 
+@media (max-width: $tablet) {
+  .simple-card .mat-card-title {
+    font-size: $fontLarge;
+  }
+  .active-description {
+    font-size: $fontExtraSmall;
+  }
+}
+
 @media (max-width: $mobile-big) {
-  .simple-card mat-card {
-    padding: 44px;
-    max-width: 70%;
+  .simple-card {
+    margin-left: 20px;
+    margin-right: 20px;
+    & mat-card {
+      padding: 44px;
+      max-width: 70%;
+      & .mat-card-title {
+        max-width: 70%;
+      }
+    }
   }
 }
 
@@ -103,8 +120,24 @@
     margin-top: 59px;
     margin-bottom: 59px;
     & mat-card {
-      padding: 70px 25px;
+      padding: 25px;
       max-width: 90%;
+    }
+  }
+  .simple-card mat-card.card-with-img {
+    padding: 15px;
+    height: 450px;
+    & .mat-card-title {
+      max-width: 60%;
+    }
+    & .active-description {
+      width: 90%;
+      top: 40%;
+    }
+    & .img-inline {
+      top: 0;
+      width: 40%;
+      height: auto;
     }
   }
 }
