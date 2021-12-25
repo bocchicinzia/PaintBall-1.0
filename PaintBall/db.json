@@ -24,5 +24,28 @@
         "https://swiperjs.com/demos/images/nature-4.jpg"
       ]
     }
+  ],
+  "carousel": [
+    {
+      "imgUrl": "https://swiperjs.com/demos/images/nature-1.jpg"
+    },
+    {
+      "imgUrl": "https://swiperjs.com/demos/images/nature-2.jpg"
+    },
+    {
+      "imgUrl": "https://swiperjs.com/demos/images/nature-3.jpg"
+    },
+    {
+      "imgUrl": "https://swiperjs.com/demos/images/nature-4.jpg"
+    },
+    {
+      "imgUrl": "https://swiperjs.com/demos/images/nature-5.jpg"
+    },
+    {
+      "imgUrl": "https://swiperjs.com/demos/images/nature-6.jpg"
+    },
+    {
+      "imgUrl": "https://swiperjs.com/demos/images/nature-7.jpg"
+    }
   ]
 }

@@ -15,16 +15,7 @@ export class HomePagesComponent implements OnInit {
   constructor( private contentDeleveryService: ContentDeliveryService ) {}
 
   ngOnInit(): void {
-    this.contentDeleveryService.getAnyContent( 'card' ).subscribe( res => this.cardDescription = res );
-
-    this.imgUrl = [
-      new Carousel( "https://swiperjs.com/demos/images/nature-1.jpg" ),
-      new Carousel( "https://swiperjs.com/demos/images/nature-2.jpg" ),
-      new Carousel( "https://swiperjs.com/demos/images/nature-3.jpg" ),
-      new Carousel( "https://swiperjs.com/demos/images/nature-4.jpg" ),
-      new Carousel( "https://swiperjs.com/demos/images/nature-5.jpg" ),
-      new Carousel( "https://swiperjs.com/demos/images/nature-6.jpg" ),
-      new Carousel( "https://swiperjs.com/demos/images/nature-7.jpg" )
-    ];
+    this.contentDeleveryService.getAllContent( 'card', 'card' ).subscribe( res => this.cardDescription = res );
+    this.contentDeleveryService.getAllContent( 'carousel', 'carousel' ).subscribe( res => this.imgUrl = res.carousel );
   }
 }

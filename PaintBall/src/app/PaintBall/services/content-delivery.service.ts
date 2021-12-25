@@ -12,15 +12,15 @@ export class ContentDeliveryService {
 
   constructor( private http: HttpClient ) {}
 
-  getAnyContent( projectId: string ): Observable<TestModel> {
+  getAllContent( projectId: string, className: string ): Observable<TestModel> {
     return this.http.get<TestModel>( this.url + projectId ).pipe(
       map( res => {
-        return this.contentMapper( res );
+        return this.contentMapper( res, className );
       } )
     );
   }
 
-  contentMapper( json: any ) {
-    return new TestModel( json );
+  contentMapper( json: any, className: string ) {
+    return new TestModel( json, className );
   }
 }
