@@ -11,11 +11,11 @@ SwiperCore.use( [EffectCards] );
 export class CardComponent implements OnInit {
 
   @Input() model: Card;
-  count: number = 0;
+
   constructor( private el: ElementRef ) {}
+
   paragraphs: any;
   activeParagraph: any;
-  activeParagraphIndex: number = 0;
 
 
   ngOnInit(): void {
@@ -33,14 +33,15 @@ export class CardComponent implements OnInit {
       }
     }
   }
-  test( a: any ) {
-    this.activeParagraph = this.paragraphs[a];
+  test( event: any ) {
+    this.activeParagraph = this.paragraphs[event];
 
     if ( this.activeParagraph ) {
       this.paragraphs.forEach( ( element: any ) => {
         element.classList.remove( 'animate__fadeInLeftBig' );
         element.classList.add( 'animate__fadeOutRightBig' );
       } );
+
       setTimeout( () => {
         this.activeParagraph.classList.add( 'animate__fadeInLeftBig' );
         this.activeParagraph.classList.remove( 'animate__fadeOutRightBig' );
