@@ -10,17 +10,48 @@
 }
 .copy {
   background: var(--red);
-  padding: 15px;
+  & .mat-toolbar-row {
+    height: auto;
+  }
 }
 .follow,
 .sponsor {
   background: var(--grey);
   padding: 25px;
+  & .mat-toolbar-row {
+    height: auto;
+  }
 }
 .follow {
   & img {
     width: 30px;
     transition: 0.8s ease;
+    &:hover {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+  }
+  & .paragraph {
+    border-left: 1px solid var(--negative-grey);
+    border-right: 1px solid var(--negative-grey);
+    padding: 0 25px;
+  }
+}
+.realizedBy span {
+  font-size: $fontExtraSmall !important;
+  & a {
+    color: var(--blue-tag-anchor);
+    &:hover {
+      color: var(--blue-tag-anchor-hover);
+    }
+  }
+}
+
+.sponsor {
+  border-bottom: 1px solid;
+  & img {
+    max-width: 55px;
+    transition: 0.5s ease;
     &:hover {
       opacity: 0.5;
       transform: scale(0.9);
