@@ -21,10 +21,8 @@ export class HomePagesComponent implements OnInit {
     this.contentDeleveryService.getAllContent( 'carousel', 'carousel' ).subscribe( res => this.imgUrl = res.carousel );
 
     this.followUs = [
-      new FollowUs( 'www.instagram.com/painball', 'facebook', './assets/icons/facebook.svg ', 'Potete seguirci anche' ),
-      new FollowUs( 'www.instagram.com/painball', 'facebook', './assets/icons/facebook.svg ', '' ),
-      new FollowUs( 'www.instagram.com/painball', 'facebook', './assets/icons/facebook.svg ', '' ),
-      new FollowUs( 'www.instagram.com/painball', 'facebook', './assets/icons/facebook.svg ', '' )
+      new FollowUs( 'www.facebook.com/painball', 'Facebook', './assets/icons/facebook.svg ', 'Potete seguirci anche sui social' ),
+      new FollowUs( 'www.instagram.com/painball', 'Instagram', './assets/icons/instagram.svg ', '' ),
     ];
   }
 }

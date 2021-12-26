@@ -15,6 +15,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { VerticalMenuComponent } from "./vertical-menu/vertical-menu.component";
 import { CardComponent } from './card/card.component';
@@ -23,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CarouselComponent } from "./carousel/carousel.component";
 import { HeaderComponent } from "./header/header.component";
 
+
 @NgModule( {
   declarations: [
     UIComponentsModule.components,
@@ -30,6 +32,7 @@ import { HeaderComponent } from "./header/header.component";
   imports: [
     UIComponentsModule.swiper,
     UIComponentsModule.material,
+    FlexLayoutModule,
     RouterModule,
     FormsModule,
     CommonModule
@@ -50,7 +53,7 @@ export class UIComponentsModule {
     NavbarComponent
   ]
   public static material = [
-    FlexLayoutModule,
+    MatTooltipModule,
     MatFormFieldModule,
     MatSlideToggleModule,
     MatExpansionModule,

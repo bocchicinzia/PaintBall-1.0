@@ -13,10 +13,13 @@
     </div>
 
     <div *ngIf="followUs !== undefined">
-      <div class="row">
-        <span>{{ followUs[0].paragraph }}</span>
-        <div class="col-1" *ngFor="let follow of followUs">
-          <a [href]="follow.path"
+      <span>{{ followUs[0].paragraph }}</span>
+      <div class="d-flex justify-content-center mt-2">
+        <div *ngFor="let follow of followUs" class="m-2">
+          <a
+            (click)="openUrl(follow.path)"
+            matTooltip="Seguici su {{ follow.label }}"
+            class="btn p-0"
             ><img [src]="follow.icon" [alt]="follow.label"
           /></a>
         </div>
