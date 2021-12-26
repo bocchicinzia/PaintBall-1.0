@@ -1,5 +1,6 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
+import { Copyright } from '../../components/ui-component/footer/model/copyright.class';
 import { MenuNavbar } from '../../components/ui-component/navbar/menuNavbar.class';
 import { ContentDeliveryService } from '../../services/content-delivery.service';
 
@@ -14,6 +15,7 @@ export class MasterDetailComponent implements OnInit {
   getTheme: any;
   theme: boolean;
   menu: MenuNavbar[];
+  copy: Copyright;
 
   sticky: boolean = false;
   elementPosition: any;
@@ -25,6 +27,7 @@ export class MasterDetailComponent implements OnInit {
     this.getTheme = localStorage.getItem( 'theme' );
     this.getTheme === 'true' ? this.theme = true : this.theme = false;
     this.themeChange( this.theme );
+    this.copy = new Copyright( '&copy;', 'Copyright 2022' );
   }
 
   @HostListener( 'window:scroll', ['$event'] )
