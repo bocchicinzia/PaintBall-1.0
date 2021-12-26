@@ -25,7 +25,7 @@ export class MasterDetailComponent implements OnInit {
     this.contentDeleveryService.getAllContent( 'vertical-menu', 'vertical-menu' ).subscribe( res => this.menu = res.menu );
 
     this.getTheme = localStorage.getItem( 'theme' );
-    this.getTheme === 'true' ? this.theme = true : this.theme = false;
+    this.getTheme === 'false' ? this.theme = false : this.theme = true;
     this.themeChange( this.theme );
     this.copy = new Copyright( '&copy;', 'Copyright 2022' );
   }
