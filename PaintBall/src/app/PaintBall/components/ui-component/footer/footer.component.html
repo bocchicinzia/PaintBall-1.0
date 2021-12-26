@@ -1,0 +1,33 @@
+<mat-toolbar
+  class="footer"
+  [ngClass]="{
+    copy: copyright !== undefined,
+    follow: followUs !== undefined,
+    sponsor: sponsor !== undefined
+  }"
+>
+  <mat-toolbar-row *ngIf="copyright || followUs || sponsor">
+    <div *ngIf="copyright !== undefined">
+      <span [innerHTML]="copyright!.label"></span>
+      <span [innerHTML]="copyright!.paragraph"></span>
+    </div>
+
+    <div *ngIf="followUs !== undefined">
+      <div class="row">
+        <span>{{ followUs[0].paragraph }}</span>
+        <div class="col-1" *ngFor="let follow of followUs">
+          <a [href]="follow.path"
+            ><img [src]="follow.icon" [alt]="follow.label"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn btn-icon" *ngIf="sponsor !== undefined">
+      <ng-container *ngFor="let s of sponsor">
+        <span>{{ s.label }}</span>
+        <a [href]="s.path">{{ s.img }}</a>
+      </ng-container>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

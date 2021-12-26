@@ -1,0 +1,29 @@
+@import "/src/styles/sass-variables";
+@import "/src/styles/media-screen-variables";
+
+.footer .mat-toolbar-row {
+  justify-content: center;
+  & span {
+    padding: 5px;
+    font-size: $fontNormal;
+  }
+}
+.copy {
+  background: var(--red);
+  padding: 15px;
+}
+.follow,
+.sponsor {
+  background: var(--grey);
+  padding: 25px;
+}
+.follow {
+  & img {
+    width: 30px;
+    transition: 0.8s ease;
+    &:hover {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+  }
+}

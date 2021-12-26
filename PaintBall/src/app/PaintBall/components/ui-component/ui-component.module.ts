@@ -16,11 +16,13 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { HeaderComponent } from './header/header.component';
 import { VerticalMenuComponent } from "./vertical-menu/vertical-menu.component";
 import { CardComponent } from './card/card.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import { SwiperModule } from 'swiper/angular';
+import { FooterComponent } from './footer/footer.component';
+import { CarouselComponent } from "./carousel/carousel.component";
+import { HeaderComponent } from "./header/header.component";
+
 @NgModule( {
   declarations: [
     UIComponentsModule.components,
@@ -34,12 +36,13 @@ import { SwiperModule } from 'swiper/angular';
   ],
   exports: [
     UIComponentsModule.material,
-    UIComponentsModule.components
+    UIComponentsModule.components,
   ],
   providers: []
 } )
 export class UIComponentsModule {
   public static components = [
+    FooterComponent,
     CarouselComponent,
     CardComponent,
     HeaderComponent,
