@@ -15,7 +15,7 @@ export class MasterDetailComponent implements OnInit {
   getTheme: any;
   theme: boolean;
   menu: MenuNavbar[];
-  copy: Copyright;
+  copy: Copyright[];
 
   sticky: boolean = false;
   elementPosition: any;
@@ -23,11 +23,11 @@ export class MasterDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentDeleveryService.getAllContent( 'vertical-menu', 'vertical-menu' ).subscribe( res => this.menu = res.menu );
+    this.contentDeleveryService.getAllContent( 'footer', 'footer_copyright' ).subscribe( res => this.copy = res.footer_copyright );
 
     this.getTheme = localStorage.getItem( 'theme' );
     this.getTheme === 'false' ? this.theme = false : this.theme = true;
     this.themeChange( this.theme );
-    this.copy = new Copyright( '&copy;', 'Copyright 2022' );
   }
 
   @HostListener( 'window:scroll', ['$event'] )

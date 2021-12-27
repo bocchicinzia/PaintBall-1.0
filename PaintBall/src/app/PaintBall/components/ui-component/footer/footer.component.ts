@@ -11,7 +11,7 @@ import { Sponsor } from './model/sponsor.class';
 export class FooterComponent implements OnInit {
   @Input() sponsor?: Sponsor[];
   @Input() followUs?: FollowUs[];
-  @Input() copyright?: Copyright;
+  @Input() copyright?: Copyright[];
 
   constructor() {}
 

@@ -11,9 +11,9 @@
 >
   <mat-toolbar-row>
     <div *ngIf="copyright !== undefined">
-      <div>
-        <span [innerHTML]="copyright!.label"></span>
-        <span [innerHTML]="copyright!.paragraph"></span>
+      <div *ngFor="let copy of copyright">
+        <span [innerHTML]="copy.label"></span>
+        <span [innerHTML]="copy.paragraph"></span>
       </div>
       <div class="realizedBy">
         <span
