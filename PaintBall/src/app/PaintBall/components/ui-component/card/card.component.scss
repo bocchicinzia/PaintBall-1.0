@@ -130,20 +130,26 @@
       max-width: 90%;
     }
   }
-  .card-with-img mat-card {
-    padding: 15px;
-    height: 450px;
-    & .mat-card-title {
-      max-width: 60%;
-    }
-    & .active-description {
-      width: 90%;
-      top: 40%;
-    }
-    & .img-inline {
-      top: 0;
-      width: 40%;
-      height: auto;
+  .simple-card.card-with-img {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 59px;
+    margin-bottom: 59px;
+    mat-card {
+      padding: 15px;
+      height: 450px;
+      & .mat-card-title {
+        max-width: 60%;
+      }
+      & .active-description {
+        width: 90%;
+        top: 40%;
+      }
+      & .img-inline {
+        top: 0;
+        width: 40%;
+        height: auto;
+      }
     }
   }
 }
