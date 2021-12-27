@@ -94,10 +94,13 @@ span.swiper-pagination-bullet {
 }
 
 @media (max-width: $mobile-small) {
-  .swiper-button-prev {
-    left: 30%;
-  }
-  .swiper-button-next {
-    right: 30%;
+  .swiper {
+    min-height: 30em;
+    & .swiper-scrollbar {
+      background: rgb(255 255 255 / 10%);
+      & .swiper-scrollbar-drag {
+        background: var(--red);
+      }
+    }
   }
 }

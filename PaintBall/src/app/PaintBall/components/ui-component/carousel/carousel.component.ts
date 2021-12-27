@@ -1,8 +1,11 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import SwiperCore, { Zoom, Navigation, Autoplay, EffectCoverflow, Pagination } from "swiper";
+import { Platform } from 'src/app/PaintBall/utils/platform.class';
+import SwiperCore, { Zoom, Navigation, Autoplay, EffectCoverflow, Pagination, Scrollbar } from "swiper";
 import { Carousel } from './carousel.class';
 SwiperCore.use( [Zoom, Navigation, Autoplay, EffectCoverflow, Pagination] );
 
+// install Swiper modules for mobile
+SwiperCore.use( [Scrollbar] );
 @Component( {
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -11,8 +14,10 @@ SwiperCore.use( [Zoom, Navigation, Autoplay, EffectCoverflow, Pagination] );
 } )
 export class CarouselComponent implements OnInit {
   @Input() imgUrl: Carousel[];
+  isMobile: boolean;
   constructor() {}
 
   ngOnInit(): void {
+    this.isMobile = Platform.isMobile();
   }
 }
