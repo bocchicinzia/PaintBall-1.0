@@ -93,9 +93,11 @@ span.swiper-pagination-bullet {
   }
 }
 
-@media (max-width: $mobile-small) {
-  .swiper {
+@media (max-width: $tablet) {
+  .mobile {
     min-height: 30em;
+  }
+  .darkMode .mobile {
     & .swiper-scrollbar {
       background: rgb(255 255 255 / 10%);
       & .swiper-scrollbar-drag {

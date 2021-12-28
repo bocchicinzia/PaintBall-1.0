@@ -23,7 +23,7 @@
       disableOnInteraction: true
     }"
     [zoom]="true"
-    class="mySwiper"
+    class="desktop"
   >
     <ng-template swiperSlide *ngFor="let img of imgUrl">
       <div class="swiper-zoom-container">
@@ -41,7 +41,7 @@
     [scrollbar]="{
       hide: true
     }"
-    class="mySwiper"
+    class="mobile"
   >
     <ng-template swiperSlide *ngFor="let img of imgUrl"
       ><img [src]="img.imgUrl"
