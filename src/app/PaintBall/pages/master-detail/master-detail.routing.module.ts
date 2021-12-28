@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { HomePagesComponent } from "../home-pages/home-pages.component";
+import { PriceComponent } from "../price/price.component";
 import { MasterDetailComponent } from "./master-detail.component";
 
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
       },
       {
         path: "prezzo",
-        component: HomePagesComponent
+        component: PriceComponent
       },
       {
         path: "galleria",
