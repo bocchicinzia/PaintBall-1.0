@@ -128,3 +128,67 @@ app-navbar {
 .darkMode .simple-card mat-card {
   box-shadow: var(--shadow-card-description-darkMode) !important;
 }
+
+// price-card animation border on active tab
+.mat-tab-label {
+  border-left: 0;
+  border-right: 0;
+}
+
+.mat-tab-label-active {
+  border-left: 2px solid var(--dark-orange);
+  border-right: 2px solid var(--dark-orange);
+  opacity: 1 !important;
+  animation: animate 0.5s linear;
+
+  & .mat-tab-label-content {
+    color: var(--red);
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+//size and color tab label
+.darkMode .mat-tab-label-active {
+  opacity: 1;
+  & .mat-tab-label-content {
+    color: var(--red);
+  }
+}
+.mat-tab-label-content {
+  font-size: $fontMedium;
+  color: var(--black);
+}
+.darkMode .mat-tab-label-content {
+  color: var(--white);
+}
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: var(--dark-orange) !important;
+  position: absolute;
+  top: 0;
+}
+
+//body mat-tab
+.mat-tab-body {
+  padding: 50px;
+  margin: 50px;
+}
+@media (max-width: $mobile-small) {
+  .mat-tab-label-content {
+    font-size: $fontExtraSmall;
+  }
+  .mat-tab-body {
+    padding: 0px;
+    margin: 30px;
+  }
+}

@@ -5,7 +5,7 @@ import { MenuNavbar } from '../../components/ui-component/navbar/menuNavbar.clas
 import { ContentDeliveryService } from '../../services/content-delivery.service';
 
 @Component( {
-  selector: 'app-home-pages',
+  selector: 'app-master-detail',
   templateUrl: './master-detail.component.html',
   styleUrls: ['./master-detail.component.scss']
 } )
