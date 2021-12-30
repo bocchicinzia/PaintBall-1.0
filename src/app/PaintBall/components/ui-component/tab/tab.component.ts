@@ -9,11 +9,9 @@ import { CardPriceModel } from '../card-price/card-price-model.class';
 export class TabComponent implements OnInit {
   @Input() cardPrice: CardPriceModel[];
   constructor() {
-    console.log( this.cardPrice );
   }
 
   ngOnInit(): void {
-
   }
 
 }

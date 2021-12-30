@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { CardPriceModel } from './card-price-model.class';
 
 @Component( {
@@ -7,12 +7,9 @@ import { CardPriceModel } from './card-price-model.class';
   styleUrls: ['./card-price.component.scss']
 } )
 export class CardPriceComponent implements OnInit {
-  @Input() cardPrice: CardPriceModel[];
+  @Input() cardPrice: CardPriceModel;
 
-  constructor() { console.log( this.cardPrice ); }
+  constructor() {}
 
-  ngOnInit(): void {
-    console.log( this.cardPrice );
-  }
-
+  ngOnInit(): void {}
 }
