@@ -25,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CarouselComponent } from "./carousel/carousel.component";
 import { HeaderComponent } from "./header/header.component";
 import { CardPriceComponent } from './card-price/card-price.component';
+import { TabComponent } from './tab/tab.component';
 
 
 @NgModule( {
@@ -42,11 +43,11 @@ import { CardPriceComponent } from './card-price/card-price.component';
   exports: [
     UIComponentsModule.material,
     UIComponentsModule.components,
-  ],
-  providers: []
+  ]
 } )
 export class UIComponentsModule {
   public static components = [
+    TabComponent,
     CardPriceComponent,
     FooterComponent,
     CarouselComponent,

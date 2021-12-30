@@ -111,5 +111,66 @@
         }
       ]
     }
+  ],
+  "card-price": [
+    {
+      "title": "content.title",
+      "subtitle": "content.subtitle",
+      "features": [
+        {
+          "feature": "dddddd",
+          "value": "hahahah"
+        },
+        {
+          "feature": "dddddd",
+          "value": "hahahah"
+        }
+      ],
+      "price": 50,
+      "special": "New",
+      "background": "red"
+    },
+    {
+      "title": "fffff",
+      "subtitle": "cgggggg",
+      "features": [
+        {
+          "feature": "gggg",
+          "value": "hahahah"
+        },
+        {
+          "feature": "gggg",
+          "value": "hahahah"
+        },
+        {
+          "feature": "gggg",
+          "value": "hahahah"
+        }
+      ],
+      "price": 30,
+      "special": "Meglior offerta",
+      "background": "green"
+    },
+    {
+      "title": "eeeee",
+      "subtitle": "hhhhh",
+      "features": [
+        {
+          "feature": "kkkk",
+          "value": "qqqqq"
+        },
+        {
+          "feature": "kkkk",
+          "value": "qqqqq"
+        },
+        {
+          "feature": "kkkk",
+          "value": "qqqqq"
+        }
+      ],
+      "price": 10,
+      "special": "",
+      "background": ""
+    }
   ]
 }
