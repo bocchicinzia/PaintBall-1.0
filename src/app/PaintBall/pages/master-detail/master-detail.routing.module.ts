@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { HomePagesComponent } from "../home-pages/home-pages.component";
+import { HomePageComponent } from "../home-pages/home-page.component";
 import { PriceComponent } from "../price/price.component";
 import { MasterDetailComponent } from "./master-detail.component";
 
@@ -16,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: "home",
-        component: HomePagesComponent
+        component: HomePageComponent
       },
       {
         path: "prezzo",
@@ -24,11 +24,11 @@ const routes: Routes = [
       },
       {
         path: "galleria",
-        component: HomePagesComponent
+        component: HomePageComponent
       },
       {
         path: "contatti",
-        component: HomePagesComponent
+        component: HomePageComponent
       }
     ]
   }

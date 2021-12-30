@@ -22,8 +22,8 @@ export class MasterDetailComponent implements OnInit {
   constructor( private overlayContainer: OverlayContainer, private contentDeleveryService: ContentDeliveryService ) {}
 
   ngOnInit(): void {
-    this.contentDeleveryService.getAllContent( 'vertical-menu', 'vertical-menu' ).subscribe( res => this.menu = res.menu );
-    this.contentDeleveryService.getAllContent( 'footer', 'footer_copyright' ).subscribe( res => this.copy = res.footer_copyright );
+    this.contentDeleveryService.getAllContentHomePage( 'vertical-menu', 'vertical-menu' ).subscribe( res => this.menu = res.menu );
+    this.contentDeleveryService.getAllContentHomePage( 'footer', 'footer_copyright' ).subscribe( res => this.copy = res.footer_copyright );
 
     this.getTheme = localStorage.getItem( 'theme' );
     this.getTheme === 'false' ? this.theme = false : this.theme = true;
