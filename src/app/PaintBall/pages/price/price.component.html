@@ -1,1 +1,3 @@
-<app-card-price></app-card-price>
+<ng-container *ngIf="cardPrice | async as c">
+  <app-tab [cardPrice]="c.content"></app-tab>
+</ng-container>

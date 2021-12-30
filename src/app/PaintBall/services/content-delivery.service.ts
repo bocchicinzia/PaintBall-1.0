@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { TestModel } from '../pages/master-detail/testModel.model';
+import { HomePageModel } from '../pages/home-pages/home-page.model';
+import { PricePageModel } from '../pages/price/price-page.model';
 
 @Injectable( {
   providedIn: 'root'
@@ -12,15 +13,30 @@ export class ContentDeliveryService {
 
   constructor( private http: HttpClient ) {}
 
-  getAllContent( projectId: string, className: string ): Observable<TestModel> {
-    return this.http.get<TestModel>( this.url + projectId ).pipe(
+  //home page
+  getAllContentHomePage( projectId: string, className: string ): Observable<HomePageModel> {
+    return this.http.get<HomePageModel>( this.url + projectId ).pipe(
       map( res => {
-        return this.contentMapper( res, className );
+        return this.contentMapperHomePage( res, className );
       } )
     );
   }
 
-  contentMapper( json: any, className: string ) {
-    return new TestModel( json, className );
+  private contentMapperHomePage( json: any, className: string ) {
+    return new HomePageModel( json, className );
+  }
+
+
+  //price page
+  getAllContentPricePage( projectId: string, className: string ): Observable<PricePageModel> {
+    return this.http.get<PricePageModel>( this.url + projectId ).pipe(
+      map( res => {
+        return this.contentMapperPricePage( res, className );
+      } )
+    );
+  }
+
+  private contentMapperPricePage( json: any, className: string ) {
+    return new PricePageModel( json, className );
   }
 }

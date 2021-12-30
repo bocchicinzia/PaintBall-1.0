@@ -2,10 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Platform } from 'src/app/PaintBall/utils/platform.class';
 import SwiperCore, { Zoom, Navigation, Autoplay, EffectCoverflow, Pagination, Scrollbar } from "swiper";
 import { Carousel } from './carousel.class';
-SwiperCore.use( [Zoom, Navigation, Autoplay, EffectCoverflow, Pagination] );
-
-// install Swiper modules for mobile
-SwiperCore.use( [Scrollbar] );
+SwiperCore.use( [Zoom, Navigation, Autoplay, EffectCoverflow, Pagination, Scrollbar] );
 @Component( {
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
