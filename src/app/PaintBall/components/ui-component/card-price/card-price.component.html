@@ -1,93 +1,26 @@
-<div class="container tab-price-card">
-  <mat-tab-group mat-stretch-tabs>
-    <mat-tab label="First">
-      <mat-card class="card-price">
-        <div class="item">
-          <div class="ribbon">Miglior offerta</div>
-          <mat-card-title class="heading">PRO</mat-card-title>
-          <mat-card-subtitle
-            >Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.</mat-card-subtitle
-          >
-          <mat-card-content class="features">
-            <h4>
-              <span class="feature">Full Support</span> :
-              <span class="value">Yes</span>
-            </h4>
-            <h4>
-              <span class="feature">Duration</span> :
-              <span class="value">60 Days</span>
-            </h4>
-            <h4>
-              <span class="feature">Storage</span> :
-              <span class="value">50GB</span>
-            </h4>
-          </mat-card-content>
-          <mat-card-actions class="price">
-            <h4>$50</h4>
-          </mat-card-actions>
+<ng-container *ngIf="cardPrice">
+  <mat-tab *ngFor="let c of cardPrice" label="{{ c.price }} &euro;">
+    <mat-card class="card-price">
+      <div class="item">
+        <div
+          class="ribbon"
+          *ngIf="c.special"
+          [style.background]="c.background ? c.background : ''"
+        >
+          {{ c.special }}
         </div>
-      </mat-card>
-    </mat-tab>
-
-    <mat-tab label="Second">
-      <mat-card class="card-price">
-        <div class="item">
-          <div class="ribbon">Best Value</div>
-          <mat-card-title class="heading">PRO</mat-card-title>
-          <mat-card-subtitle
-            >Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.</mat-card-subtitle
-          >
-          <mat-card-content class="features">
-            <h4>
-              <span class="feature">Full Support</span> :
-              <span class="value">Yes</span>
-            </h4>
-            <h4>
-              <span class="feature">Duration</span> :
-              <span class="value">60 Days</span>
-            </h4>
-            <h4>
-              <span class="feature">Storage</span> :
-              <span class="value">50GB</span>
-            </h4>
-          </mat-card-content>
-          <mat-card-actions class="price">
-            <h4>$50</h4>
-          </mat-card-actions>
-        </div>
-      </mat-card>
-    </mat-tab>
-
-    <mat-tab label="Third">
-      <mat-card class="card-price">
-        <div class="item">
-          <div class="ribbon">Best Value</div>
-          <mat-card-title class="heading">PRO</mat-card-title>
-          <mat-card-subtitle
-            >Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.</mat-card-subtitle
-          >
-          <mat-card-content class="features">
-            <h4>
-              <span class="feature">Full Support</span> :
-              <span class="value">Yes</span>
-            </h4>
-            <h4>
-              <span class="feature">Duration</span> :
-              <span class="value">60 Days</span>
-            </h4>
-            <h4>
-              <span class="feature">Storage</span> :
-              <span class="value">50GB</span>
-            </h4>
-          </mat-card-content>
-          <mat-card-actions class="price">
-            <h4>$50</h4>
-          </mat-card-actions>
-        </div>
-      </mat-card>
-    </mat-tab>
-  </mat-tab-group>
-</div>
+        <mat-card-title class="heading">{{ c.title }}</mat-card-title>
+        <mat-card-subtitle>{{ c.subtitle }}</mat-card-subtitle>
+        <mat-card-content class="features" *ngFor="let f of c.features">
+          <h4>
+            <span class="feature">{{ f.feature }}</span> :
+            <span class="value">{{ f.value }}</span>
+          </h4>
+        </mat-card-content>
+        <mat-card-actions class="price">
+          <h4>{{ c.price }} &euro;</h4>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </mat-tab>
+</ng-container>

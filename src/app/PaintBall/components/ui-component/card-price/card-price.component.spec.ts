@@ -2,24 +2,24 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardPriceComponent } from './card-price.component';
 
-describe('CardPriceComponent', () => {
+describe( CardPriceComponent.name, () => {
   let component: CardPriceComponent;
   let fixture: ComponentFixture<CardPriceComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CardPriceComponent ]
-    })
-    .compileComponents();
-  });
+  beforeEach( async () => {
+    await TestBed.configureTestingModule( {
+      declarations: [CardPriceComponent]
+    } )
+      .compileComponents();
+  } );
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CardPriceComponent);
+  beforeEach( () => {
+    fixture = TestBed.createComponent( CardPriceComponent );
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  } );
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  it( 'should create', () => {
+    expect( component ).toBeTruthy();
+  } );
+} );

@@ -1,12 +1,5 @@
 @import "/src/styles/media-screen-variables";
 
-.tab-price-card {
-  position: relative;
-  top: 50px;
-  margin-top: 50px;
-  margin-bottom: 20%;
-}
-
 .card-price {
   box-shadow: var(--shadow-card-description-lightMode);
   border-top: 2px solid var(--orange);
@@ -44,7 +37,7 @@
     color: var(--white);
     font-weight: bold;
     box-shadow: 0px 2px 3px rgb(136 136 136 / 25%);
-    background: #4dbe3b;
+    // background: #4dbe3b;
     transform: rotate(45deg);
     position: absolute;
     right: -41px;
