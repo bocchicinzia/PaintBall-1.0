@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { GalleryPageComponent } from "../gallery-page/gallery-page.component";
 import { HomePageComponent } from "../home-page/home-page.component";
 import { PriceComponent } from "../price-page/price.component";
 import { MasterDetailComponent } from "./master-detail.component";
@@ -24,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: "galleria",
-        component: HomePageComponent
+        component: GalleryPageComponent
       },
       {
         path: "contatti",

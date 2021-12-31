@@ -9,6 +9,7 @@ import { UIComponentsModule } from "../../components/ui-component/ui-component.m
 import { HomePageComponent } from "../home-page/home-page.component";
 import { ContentDeliveryService } from "../../services/content-delivery.service";
 import { PriceComponent } from "../price-page/price.component";
+import { GalleryPageComponent } from "../gallery-page/gallery-page.component";
 
 @NgModule( {
   declarations: [
@@ -26,6 +27,7 @@ import { PriceComponent } from "../price-page/price.component";
 } )
 export class MasterDetailModule {
   public static component = [
+    GalleryPageComponent,
     PriceComponent,
     HomePageComponent,
     MasterDetailComponent
