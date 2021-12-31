@@ -114,16 +114,16 @@
   ],
   "card-price": [
     {
-      "title": "content.title",
-      "subtitle": "content.subtitle",
+      "title": "Aziz",
+      "subtitle": "Io sono il capo",
       "features": [
         {
-          "feature": "dddddd",
-          "value": "hahahah"
+          "feature": "vendo",
+          "value": "I miei vestiti"
         },
         {
-          "feature": "dddddd",
-          "value": "hahahah"
+          "feature": "compro",
+          "value": "Altri vestiti"
         }
       ],
       "price": 50,
@@ -131,20 +131,20 @@
       "background": "red"
     },
     {
-      "title": "fffff",
-      "subtitle": "cgggggg",
+      "title": "Ahmed",
+      "subtitle": "Io non so chi sono",
       "features": [
         {
-          "feature": "gggg",
-          "value": "hahahah"
+          "feature": "vendo",
+          "value": "pizza"
         },
         {
-          "feature": "gggg",
-          "value": "hahahah"
+          "feature": "compro",
+          "value": "farina"
         },
         {
-          "feature": "gggg",
-          "value": "hahahah"
+          "feature": "mmmmm",
+          "value": "non so che dire"
         }
       ],
       "price": 30,
@@ -152,20 +152,20 @@
       "background": "green"
     },
     {
-      "title": "eeeee",
-      "subtitle": "hhhhh",
+      "title": "Zakaria",
+      "subtitle": "hah ah aha hah aha ha ahah",
       "features": [
         {
-          "feature": "kkkk",
-          "value": "qqqqq"
+          "feature": "velocità parlata",
+          "value": "x 0.25"
         },
         {
-          "feature": "kkkk",
-          "value": "qqqqq"
+          "feature": "vorrei",
+          "value": "parlare più veloce"
         },
         {
-          "feature": "kkkk",
-          "value": "qqqqq"
+          "feature": "vendo",
+          "value": "profumi rubati pure tarocchi"
         }
       ],
       "price": 10,
