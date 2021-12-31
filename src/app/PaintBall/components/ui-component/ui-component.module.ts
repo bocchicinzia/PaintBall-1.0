@@ -26,6 +26,7 @@ import { CarouselComponent } from "./carousel/carousel.component";
 import { HeaderComponent } from "./header/header.component";
 import { CardPriceComponent } from './card-price/card-price.component';
 import { TabComponent } from './tab/tab.component';
+import { GalleryManagerComponent } from './gallery-manager/gallery-manager.component';
 
 
 @NgModule( {
@@ -47,6 +48,7 @@ import { TabComponent } from './tab/tab.component';
 } )
 export class UIComponentsModule {
   public static components = [
+    GalleryManagerComponent,
     TabComponent,
     CardPriceComponent,
     FooterComponent,
