@@ -4,8 +4,10 @@
   box-shadow: var(--shadow-card-description-lightMode);
   border-top: 2px solid var(--orange);
   padding: 30px;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 8%;
+  margin-bottom: 8%;
   overflow: hidden;
   position: relative;
   & .item {
@@ -37,7 +39,6 @@
     color: var(--white);
     font-weight: bold;
     box-shadow: 0px 2px 3px rgb(136 136 136 / 25%);
-    // background: #4dbe3b;
     transform: rotate(45deg);
     position: absolute;
     right: -41px;
@@ -63,14 +64,9 @@
   }
 }
 
-.darkMode .card-price {
-  box-shadow: var(--shadow-card-description-darkMode);
-}
-
 @media (max-width: $mobile-big) {
   .card-price {
-    margin-left: 0;
-    margin-right: 0;
+    margin: 11%;
     & .ribbon {
       font-size: var(--fontExtraSmall);
       width: 160px;
