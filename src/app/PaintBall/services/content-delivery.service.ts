@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HomePageModel } from '../pages/home-pages/home-page.model';
-import { PricePageModel } from '../pages/price/price-page.model';
+import { HomePageModel } from '../pages/home-page/home-page.model';
+import { PricePageModel } from '../pages/price-page/price-page.model';
 
 @Injectable( {
   providedIn: 'root'
