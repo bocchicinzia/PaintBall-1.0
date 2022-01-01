@@ -1,1 +1,41 @@
-<p>gallery-manager works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center my-2">
+      <h4>Tutte le foto disponibile</h4>
+    </div>
+  </div>
+  <div class="portfolio-menu mt-2 mb-4">
+    <ul (click)="onClick($event.target)">
+      <li class="btn btn-outline-dark active" data-filter="*">All</li>
+      <li class="btn btn-outline-dark" data-filter=".gts">Girls T-shirt</li>
+      <li class="btn btn-outline-dark" data-filter=".lap">Laptops</li>
+      <li class="btn btn-outline-dark text" data-filter=".selfie">selfie</li>
+    </ul>
+  </div>
+  <div class="portfolio-item row">
+    <div
+      class="item col-lg-3 col-md-4 col-6 col-sm-4"
+      *ngFor="let img of getImg; let i = index"
+    >
+      <div class="container">
+        <img
+          class="img-fluid"
+          [src]="img.imgUrl"
+          [alt]=""
+          (click)="showImg(img.imgUrl)"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid preview" *ngIf="img">
+  <div class="position-absolute d-flex w-100 justify-content-center showImg">
+    <img class="w-auto animate__animated" [src]="img" alt="" #animateImg />
+  </div>
+  <div class="layout" (click)="hideImg()"></div>
+  <div class="close" (click)="hideImg()">
+    <mat-icon>close</mat-icon>
+  </div>
+  <div class="before"><mat-icon>navigate_before</mat-icon></div>
+  <div class="next"><mat-icon>navigate_next</mat-icon></div>
+</div>
