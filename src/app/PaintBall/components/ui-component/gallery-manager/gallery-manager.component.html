@@ -28,14 +28,21 @@
     </div>
   </div>
 </div>
-<div class="container-fluid preview" *ngIf="img">
+<div class="container-fluid preview">
   <div class="position-absolute d-flex w-100 justify-content-center showImg">
-    <img class="w-auto animate__animated" [src]="img" alt="" #animateImg />
+    <img
+      class="w-auto animate__animated"
+      [class.d-none]="!img"
+      [src]="img"
+      alt=""
+    />
   </div>
-  <div class="layout" (click)="hideImg()"></div>
-  <div class="close" (click)="hideImg()">
-    <mat-icon>close</mat-icon>
+  <div class="all-option" *ngIf="img">
+    <div class="layout" (click)="hideImg()"></div>
+    <div class="close" (click)="hideImg()">
+      <mat-icon>close</mat-icon>
+    </div>
+    <div class="before"><mat-icon>navigate_before</mat-icon></div>
+    <div class="next"><mat-icon>navigate_next</mat-icon></div>
   </div>
-  <div class="before"><mat-icon>navigate_before</mat-icon></div>
-  <div class="next"><mat-icon>navigate_next</mat-icon></div>
 </div>

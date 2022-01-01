@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { GalleryManager } from './gallery-manager.class';
 import { ContentDeliveryServiceGalleryPage } from './service/content-delivery.service';
 
@@ -8,10 +8,10 @@ import { ContentDeliveryServiceGalleryPage } from './service/content-delivery.se
   styleUrls: ['./gallery-manager.component.scss']
 } )
 export class GalleryManagerComponent implements OnInit {
-  @ViewChild( 'animateImg' ) animate: any;
-
+  @Output() isOpenFullScreen = new EventEmitter<boolean>();
   getImg: GalleryManager[];
-  img: string;
+  img: string = "";
+  animate: any;
 
   urls: any[] = [
     { id: 1, path: 'https://media.gadventures.com/media-server/cache/12/59/12591a5497a563245d0255824103842e.jpg' },
@@ -34,6 +34,7 @@ export class GalleryManagerComponent implements OnInit {
 
   ngOnInit(): void {
     this.getImg = this.service.images( this.urls );
+    this.animate = this.el.nativeElement.querySelector( '.animate__animated' );
   }
 
   onClick( e: any ) {
@@ -50,14 +51,18 @@ export class GalleryManagerComponent implements OnInit {
   }
 
   showImg( img: string ) {
+    this.animate.classList.remove( "animate__backOutDown" );
+    this.animate.classList.add( 'animate__backInDown' );
     this.img = img;
-    console.log( this.animate );
-    // let selected = this.animate.nativeElement.querySelectorAll( '.animate__animated' );
-
-    // this.animate.classList.add( 'animate__backInDown' );
+    this.isOpenFullScreen.emit( true )
   }
   hideImg() {
-    this.img = "";
+    this.animate.classList.remove( "animate__backInDown" );
+    this.animate.classList.add( 'animate__backOutDown' );
+    setTimeout( () => {
+      this.img = "";
+    }, 1000 );
+    this.isOpenFullScreen.emit( false );
   }
 
 }

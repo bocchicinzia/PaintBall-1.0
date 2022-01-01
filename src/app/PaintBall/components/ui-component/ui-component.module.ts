@@ -27,6 +27,7 @@ import { HeaderComponent } from "./header/header.component";
 import { CardPriceComponent } from './card-price/card-price.component';
 import { TabComponent } from './tab/tab.component';
 import { GalleryManagerComponent } from './gallery-manager/gallery-manager.component';
+import { ContentDeliveryServiceGalleryPage } from "./gallery-manager/service/content-delivery.service";
 
 
 @NgModule( {
@@ -44,7 +45,8 @@ import { GalleryManagerComponent } from './gallery-manager/gallery-manager.compo
   exports: [
     UIComponentsModule.material,
     UIComponentsModule.components,
-  ]
+  ],
+  providers: [ContentDeliveryServiceGalleryPage]
 } )
 export class UIComponentsModule {
   public static components = [

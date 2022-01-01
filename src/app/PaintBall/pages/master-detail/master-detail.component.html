@@ -1,5 +1,5 @@
 <ng-container *ngIf="menu">
-  <div class="container-fluid">
+  <div class="container-fluid" *ngIf="!openImageFullScreen">
     <app-header></app-header>
     <mat-toolbar [class.sticky]="sticky">
       <app-navbar

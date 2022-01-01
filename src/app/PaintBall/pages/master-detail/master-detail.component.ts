@@ -3,6 +3,7 @@ import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { Copyright } from '../../components/ui-component/footer/model/copyright.class';
 import { MenuNavbar } from '../../components/ui-component/navbar/menuNavbar.class';
 import { ContentDeliveryService } from '../../services/content-delivery.service';
+import { SaveChangeService } from '../gallery-page/service/save-change.service';
 
 @Component( {
   selector: 'app-master-detail',
@@ -16,10 +17,18 @@ export class MasterDetailComponent implements OnInit {
   theme: boolean;
   menu: MenuNavbar[];
   copy: Copyright[];
+  openImageFullScreen: boolean = false;
 
   sticky: boolean = false;
   elementPosition: any;
-  constructor( private overlayContainer: OverlayContainer, private contentDeleveryService: ContentDeliveryService ) {}
+  constructor( private overlayContainer: OverlayContainer,
+    private contentDeleveryService: ContentDeliveryService,
+    private saveChangeService: SaveChangeService ) {
+    saveChangeService.changeEmitted$.subscribe(
+      change => {
+        this.openImageFullScreen = change;
+      } );
+  }
 
   ngOnInit(): void {
     this.contentDeleveryService.getAllContentHomePage( 'vertical-menu', 'vertical-menu' ).subscribe( res => this.menu = res.menu );
@@ -53,5 +62,9 @@ export class MasterDetailComponent implements OnInit {
       this.setTheme = localStorage.setItem( 'theme', 'false' );
       classes.remove( darkModeClass );
     }
+  }
+  isOpenFullScreen( event: any ) {
+    console.log( event );
+
   }
 }
