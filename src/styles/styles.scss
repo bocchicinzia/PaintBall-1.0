@@ -65,6 +65,7 @@ body {
 //content to master-detail
 .mat-drawer-content {
   overflow: hidden !important;
+  min-height: 100vh;
 }
 
 //style to hr with class hr-horizontal
