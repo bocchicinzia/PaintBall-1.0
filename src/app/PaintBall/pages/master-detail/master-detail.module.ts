@@ -11,6 +11,7 @@ import { ContentDeliveryService } from "../../services/content-delivery.service"
 import { PriceComponent } from "../price-page/price.component";
 import { GalleryPageComponent } from "../gallery-page/gallery-page.component";
 import { SaveChangeService } from "../gallery-page/service/save-change.service";
+import { GalleryModule } from "../../components/ui-component/gallery-manager/gallery.module";
 
 @NgModule( {
   declarations: [
@@ -21,6 +22,7 @@ import { SaveChangeService } from "../gallery-page/service/save-change.service";
     HttpClientModule,
     DragDropModule,
     MasterDetailRoutingModule,
+    GalleryModule,
     UIComponentsModule,
     CommonModule
   ],
