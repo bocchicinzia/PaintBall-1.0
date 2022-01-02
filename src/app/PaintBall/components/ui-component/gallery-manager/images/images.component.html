@@ -1,1 +1,15 @@
-<p>images works!</p>
+<div class="portfolio-item row">
+  <div
+    class="item col-lg-3 col-md-4 col-6 col-sm-4"
+    *ngFor="let img of getImg; let i = index"
+  >
+    <div class="container">
+      <img
+        class="img-fluid"
+        [src]="img.imgUrl"
+        [alt]=""
+        (click)="showImg(img.imgUrl)"
+      />
+    </div>
+  </div>
+</div>

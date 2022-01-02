@@ -7,12 +7,8 @@ import { SaveChangeService } from './service/save-change.service';
   styleUrls: ['./gallery-page.component.scss']
 } )
 export class GalleryPageComponent implements OnInit {
-  constructor( private SaveChangeservice: SaveChangeService ) {}
+  constructor() {}
 
   ngOnInit(): void {
-  }
-
-  isOpen( event: any ) {
-    this.SaveChangeservice.emitChange( event );
   }
 }

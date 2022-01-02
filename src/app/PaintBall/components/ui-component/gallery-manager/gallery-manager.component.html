@@ -12,21 +12,7 @@
       <li class="btn btn-outline-dark text" data-filter=".selfie">selfie</li>
     </ul>
   </div>
-  <div class="portfolio-item row">
-    <div
-      class="item col-lg-3 col-md-4 col-6 col-sm-4"
-      *ngFor="let img of getImg; let i = index"
-    >
-      <div class="container">
-        <img
-          class="img-fluid"
-          [src]="img.imgUrl"
-          [alt]=""
-          (click)="showImg(img.imgUrl)"
-        />
-      </div>
-    </div>
-  </div>
+  <app-images (img)="showImg($event)"></app-images>
 </div>
 <div class="container-fluid preview" [class.rotateMobile]="rotate">
   <div
