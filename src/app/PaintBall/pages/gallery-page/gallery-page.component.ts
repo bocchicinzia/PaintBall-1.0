@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { SaveChangeService } from './service/save-change.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component( {
   selector: 'app-gallery-page',

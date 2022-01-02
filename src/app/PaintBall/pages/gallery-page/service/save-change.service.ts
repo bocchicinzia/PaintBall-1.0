@@ -7,13 +7,18 @@ import { Subject } from 'rxjs';
 } )
 export class SaveChangeService {
   private emitChangeSource = new Subject<any>();
+  private emitChangeSourceString = new Subject<any>();
 
   constructor() {}
 
   changeEmitted$ = this.emitChangeSource.asObservable();
+  changeEmittedString$ = this.emitChangeSourceString.asObservable();
 
   emitChange( change: any ) {
-    this.emitChangeSource.next( change );
+    if ( typeof change === 'string' )
+      this.emitChangeSourceString.next( change );
+    else
+      this.emitChangeSource.next( change );
   }
 
 }
