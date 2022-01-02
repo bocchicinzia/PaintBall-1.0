@@ -199,3 +199,10 @@ app-navbar {
     padding: 0px;
   }
 }
+
+//darkMode for gallery image
+.darkMode .portfolio-item .item {
+  & .container {
+    box-shadow: var(--text-shadow-darkMode) !important;
+  }
+}

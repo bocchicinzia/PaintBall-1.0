@@ -44,9 +44,18 @@
       (mouseenter)="showBackgroundIcon = true"
       (mouseleave)="showBackgroundIcon = false"
     >
-      <img class="w-100 h-100" [src]="img" alt="" />
+      <img
+        class="w-100 h-100"
+        [src]="img"
+        alt=""
+        [class.imgHover]="showBackgroundIcon"
+      />
 
-      <div class="all-option" *ngIf="img">
+      <div
+        class="all-option"
+        *ngIf="img"
+        [class.showOpacity]="showBackgroundIcon"
+      >
         <ng-container *ngIf="showBackgroundIcon">
           <div class="close" (click)="hideImg()">
             <mat-icon>close</mat-icon>

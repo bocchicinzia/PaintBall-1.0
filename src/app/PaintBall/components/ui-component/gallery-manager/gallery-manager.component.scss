@@ -29,14 +29,20 @@
   & .container {
     overflow: hidden;
     padding: 0;
+    box-shadow: var(--text-shadow-lightMode);
     & img {
-      transition: 2s ease;
+      -webkit-transition: all 2s ease;
+      -moz-transition: all 2s ease;
+      -ms-transition: all 2s ease;
+      -o-transition: all 2s ease;
+      transition: all 2s ease;
       &:hover {
         transform: scale(1.1);
       }
     }
   }
 }
+
 ul {
   padding: 0;
 }
@@ -58,10 +64,28 @@ ul {
       & img {
         z-index: 1;
         position: relative;
+        opacity: 1;
+        -webkit-transition: all 500ms ease;
+        -moz-transition: all 500ms ease;
+        -ms-transition: all 500ms ease;
+        -o-transition: all 500ms ease;
+        transition: all 500ms ease;
+        &.imgHover {
+          opacity: 0.7;
+        }
       }
     }
   }
   & .all-option {
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+    opacity: 0;
+    &.showOpacity {
+      opacity: 1;
+    }
     & .close {
       position: fixed;
       top: 7%;
@@ -77,6 +101,7 @@ ul {
         width: auto;
         height: auto;
         padding: 5px;
+        color: var(--red);
       }
     }
     & .before,
@@ -95,6 +120,7 @@ ul {
         width: auto;
         height: auto;
         padding: 7px;
+        color: var(--red);
       }
       &:hover {
         border: 1px dashed var(--red);

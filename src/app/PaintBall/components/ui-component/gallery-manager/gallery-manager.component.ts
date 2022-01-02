@@ -70,11 +70,4 @@ export class GalleryManagerComponent implements OnInit {
     }, 1000 );
     this.isOpenFullScreen.emit( false );
   }
-
-
-  // @HostListener( 'window:orientationchange', ['$event'] )
-  // onOrientationChange( event: any ) {
-  //   console.log( 'orientationChanged', event );
-  // }
-
 }
