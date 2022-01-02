@@ -28,21 +28,35 @@
     </div>
   </div>
 </div>
-<div class="container-fluid preview">
-  <div class="position-absolute d-flex w-100 justify-content-center showImg">
-    <img
-      class="w-auto animate__animated"
-      [class.d-none]="!img"
-      [src]="img"
-      alt=""
-    />
-  </div>
-  <div class="all-option" *ngIf="img">
-    <div class="layout" (click)="hideImg()"></div>
-    <div class="close" (click)="hideImg()">
-      <mat-icon>close</mat-icon>
+<div class="container-fluid preview" [class.rotateMobile]="rotate">
+  <div
+    class="position-fixed w-100 justify-content-center showImg"
+    [ngClass]="!img ? 'd-none' : 'd-flex'"
+  >
+    <div
+      class="
+        position-absolute
+        w-100
+        h-100
+        animate__animated
+        container-all-content-fullImg
+      "
+      (mouseenter)="showBackgroundIcon = true"
+      (mouseleave)="showBackgroundIcon = false"
+    >
+      <img class="w-100 h-100" [src]="img" alt="" />
+
+      <div class="all-option" *ngIf="img">
+        <ng-container *ngIf="showBackgroundIcon">
+          <div class="close" (click)="hideImg()">
+            <mat-icon>close</mat-icon>
+          </div>
+          <div class="background-icon bk-btn-top"></div>
+          <div class="before"><mat-icon>navigate_before</mat-icon></div>
+          <div class="next"><mat-icon>navigate_next</mat-icon></div>
+          <div class="background-icon bk-btn-bottom"></div>
+        </ng-container>
+      </div>
     </div>
-    <div class="before"><mat-icon>navigate_before</mat-icon></div>
-    <div class="next"><mat-icon>navigate_next</mat-icon></div>
   </div>
 </div>

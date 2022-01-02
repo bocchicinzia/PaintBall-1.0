@@ -44,36 +44,34 @@ ul {
 //show image full display
 .preview {
   & .showImg {
-    top: 10%;
-    z-index: 1;
-    & img {
-      height: 65%;
-      position: fixed;
-      margin-top: 3%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #a6a9a8c7;
+    & .container-all-content-fullImg {
+      padding-bottom: 10%;
+      padding-left: 4%;
+      padding-right: 4%;
+      padding-top: 3%;
+      max-height: 100%;
+      left: 0;
+      & img {
+        z-index: 1;
+        position: relative;
+      }
     }
   }
   & .all-option {
-    & .layout {
-      position: absolute;
-      width: 100%;
-      background: #a6a9a8c7;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 0;
-      display: block;
-    }
-
     & .close {
       position: fixed;
-      top: 2%;
-      right: 10%;
+      top: 7%;
+      right: 5%;
       width: auto;
       height: auto;
       border: 1px solid var(--red);
       border-radius: 50%;
       cursor: pointer;
+      z-index: 3;
       & .mat-icon {
         font-size: $fontIconThemeExtraLarge;
         width: auto;
@@ -84,17 +82,22 @@ ul {
     & .before,
     & .next {
       position: fixed;
-      bottom: 5%;
+      bottom: 22%;
       width: auto;
       height: auto;
-      border: 1px solid var(--red);
       border-radius: 50%;
+      border: 1px solid var(--red);
       cursor: pointer;
+      z-index: 3;
       & .mat-icon {
+        display: block;
         font-size: $fontIconThemeExtraLarge;
         width: auto;
         height: auto;
         padding: 7px;
+      }
+      &:hover {
+        border: 1px dashed var(--red);
       }
     }
     & .before {
@@ -106,31 +109,101 @@ ul {
   }
 }
 
+//background icon on hover full image
+.background-icon {
+  position: fixed;
+  width: 92%;
+  margin-left: 4%;
+  height: 15%;
+  z-index: 2;
+  left: 0;
+  &.bk-btn-top {
+    background: linear-gradient(180deg, #000000d6, #50505066, transparent);
+    top: 0;
+    margin-top: 3%;
+  }
+  &.bk-btn-bottom {
+    background: linear-gradient(0deg, #000000d6, #50505066, transparent);
+    bottom: 0;
+    margin-bottom: 10%;
+  }
+}
+
+//on rotate mobile open image full screen
+.preview.rotateMobile {
+  & .showImg {
+    & .container-all-content-fullImg {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+
+      & .close {
+        top: 2%;
+        & .mat-icon {
+          font-size: $fontIconThemeSmall;
+        }
+      }
+      & .before,
+      & .next {
+        bottom: 2%;
+        & .mat-icon {
+          font-size: $fontIconThemeSmall;
+        }
+      }
+      & .background-icon {
+        width: 100%;
+        margin-left: 0;
+        height: 20%;
+        &.bk-btn-top {
+          margin: 0;
+        }
+        &.bk-btn-bottom {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $laptop) {
+  .all-option {
+    & .before,
+    & .next {
+      position: fixed;
+      bottom: 17%;
+    }
+  }
+}
+
 @media (max-width: $mobile-big) {
   .preview {
     padding: 0;
     & .showImg {
-      top: 10% !important;
-      & img {
+      & .container-all-content-fullImg {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 50% !important;
         width: 100% !important;
         height: auto !important;
       }
     }
     & .all-option {
       & .close {
+        margin-top: 45%;
         right: 3%;
         cursor: pointer;
         & .mat-icon {
-          font-size: $fontIconTheme;
+          font-size: $fontIconThemeSmall;
           padding: 5px;
         }
       }
       & .before,
       & .next {
-        bottom: 20%;
+        bottom: 10%;
         cursor: pointer;
         & .mat-icon {
-          font-size: $fontIconTheme;
+          font-size: $fontIconThemeSmall;
         }
       }
       & .before {
@@ -140,15 +213,36 @@ ul {
         right: 30%;
       }
     }
+    & .background-icon {
+      left: 0;
+      width: 100%;
+      margin-left: 0;
+      &.bk-btn-top {
+        margin-top: 50% !important;
+      }
+    }
   }
 }
 
 @media (max-width: $mobile-small) {
   .preview {
+    & .showImg {
+      & .container-all-content-fullImg {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
     & .all-option {
+      & .close {
+        & .mat-icon {
+          font-size: $fontIconThemeExtraSmall;
+        }
+      }
       & .before,
       & .next {
-        bottom: 50%;
+        & .mat-icon {
+          font-size: $fontIconThemeExtraSmall;
+        }
       }
     }
   }

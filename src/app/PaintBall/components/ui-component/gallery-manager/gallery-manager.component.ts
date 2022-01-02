@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output, ViewChild } from '@angular/core';
 import { GalleryManager } from './gallery-manager.class';
 import { ContentDeliveryServiceGalleryPage } from './service/content-delivery.service';
 
@@ -12,6 +12,9 @@ export class GalleryManagerComponent implements OnInit {
   getImg: GalleryManager[];
   img: string = "";
   animate: any;
+  showBackgroundIcon: boolean;
+  landscape = window.matchMedia( "(orientation: landscape)" );
+  rotate: boolean;
 
   urls: any[] = [
     { id: 1, path: 'https://media.gadventures.com/media-server/cache/12/59/12591a5497a563245d0255824103842e.jpg' },
@@ -30,7 +33,10 @@ export class GalleryManagerComponent implements OnInit {
     { id: 14, path: 'https://image.freepik.com/free-photo/blonde-tourist-taking-selfie_23-2147978899.jpg' },
   ];
 
-  constructor( private el: ElementRef, private service: ContentDeliveryServiceGalleryPage ) {}
+  constructor( private el: ElementRef,
+    private service: ContentDeliveryServiceGalleryPage, ) {
+    this.landscape.addEventListener( "change", ev => this.rotate = this.landscape.matches );
+  }
 
   ngOnInit(): void {
     this.getImg = this.service.images( this.urls );
@@ -54,7 +60,7 @@ export class GalleryManagerComponent implements OnInit {
     this.animate.classList.remove( "animate__backOutDown" );
     this.animate.classList.add( 'animate__backInDown' );
     this.img = img;
-    this.isOpenFullScreen.emit( true )
+    this.isOpenFullScreen.emit( true );
   }
   hideImg() {
     this.animate.classList.remove( "animate__backInDown" );
@@ -64,5 +70,11 @@ export class GalleryManagerComponent implements OnInit {
     }, 1000 );
     this.isOpenFullScreen.emit( false );
   }
+
+
+  // @HostListener( 'window:orientationchange', ['$event'] )
+  // onOrientationChange( event: any ) {
+  //   console.log( 'orientationChanged', event );
+  // }
 
 }
