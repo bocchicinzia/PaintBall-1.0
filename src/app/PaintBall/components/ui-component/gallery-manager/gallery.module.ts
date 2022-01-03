@@ -7,6 +7,7 @@ import { GalleryManagerComponent } from "./gallery-manager.component";
 import { ImagesComponent } from "./images/images.component";
 import { ContentDeliveryServiceGalleryPage } from "./service/content-delivery.service";
 import { ImageFullScreenComponent } from './image-full-screen/image-full-screen.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule( {
   declarations: [
@@ -25,6 +26,7 @@ import { ImageFullScreenComponent } from './image-full-screen/image-full-screen.
 } )
 export class GalleryModule {
   public static components = [
+    ButtonComponent,
     ImageFullScreenComponent,
     ImagesComponent,
     GalleryManagerComponent,
