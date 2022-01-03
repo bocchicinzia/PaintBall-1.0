@@ -47,47 +47,81 @@ export class ImageFullScreenComponent implements OnInit {
       this.rotate = true;
     else
       this.rotate = false;
+
   }
 
+  //show and hide image full screen
   showImg( event: any ) {
-    this.animate.classList.remove( "animate__backOutDown" );
-    this.animate.classList.add( 'animate__backInDown' );
+    this.animationComponent( 'showDiv' );
     this.img = this.urls[event].path;
     this.count = event;
-
   }
 
   hideImg() {
-    this.animate.classList.remove( "animate__rotateIn" );
-    this.animate.classList.remove( "animate__backInDown" );
-    this.animate.classList.add( 'animate__backOutDown' );
+    this.animationComponent( 'hideDiv' );
     setTimeout( () => {
       this.img = "";
     }, 1000 );
     this.saveChangeservice.emitChange( false );
   }
+
+  //next and before image on carousel
   nextImg() {
     if ( this.count < this.urls.length - 1 ) {
-      this.animate.classList.add( 'animate__rotateOut' );
-      this.animate.classList.remove( "animate__rotateIn" );
+      this.animationComponent( 'showNextImg' );
       this.count++;
       setTimeout( () => {
-        this.animate.classList.remove( 'animate__rotateOut' );
         this.img = this.urls[this.count].path;
-        this.animate.classList.add( 'animate__rotateIn' );
+        this.animationComponent( 'hideNextImg' );
       }, 1000 );
     } else {
+      this.animationComponent( 'showNextImg' );
       this.count = 0;
-      this.img = this.urls[this.count].path;
+      setTimeout( () => {
+        this.img = this.urls[this.count].path;
+        this.animationComponent( 'hideNextImg' );
+      }, 1000 );
     }
   }
+
   beforeImg() {
     if ( this.count > 0 ) {
+      this.animationComponent( 'showNextImg' );
       this.count--;
-      this.img = this.urls[this.count].path;
+      setTimeout( () => {
+        this.img = this.urls[this.count].path;
+        this.animationComponent( 'hideNextImg' );
+      }, 1000 );
     } else {
+      this.animationComponent( 'showNextImg' );
       this.count = this.urls.length - 1;
-      this.img = this.urls[this.count].path;
+      setTimeout( () => {
+        this.img = this.urls[this.count].path;
+        this.animationComponent( 'hideNextImg' );
+      }, 1000 );
+    }
+  }
+
+  //switch case for animation
+  private animationComponent( event: string ) {
+    switch ( event ) {
+      case 'showDiv':
+        this.animate.classList.remove( "animate__backOutDown" );
+        this.animate.classList.add( 'animate__backInDown' );
+        break;
+      case 'hideDiv':
+        this.animate.classList.remove( "animate__rotateIn" );
+        this.animate.classList.remove( "animate__backInDown" );
+        this.animate.classList.add( 'animate__backOutDown' );
+        break;
+      case 'showNextImg':
+        this.animate.classList.add( 'animate__rotateOut' );
+        this.animate.classList.remove( "animate__rotateIn" );
+        break;
+      case 'hideNextImg':
+        this.animate.classList.remove( 'animate__rotateOut' );
+        this.animate.classList.add( 'animate__rotateIn' );
+        break;
     }
   }
 }
