@@ -6,10 +6,18 @@
   </div>
   <div class="portfolio-menu mt-2 mb-4">
     <ul (click)="onClick($event.target)">
-      <li class="btn btn-outline-dark active" data-filter="*">All</li>
-      <li class="btn btn-outline-dark" data-filter=".gts">Girls T-shirt</li>
-      <li class="btn btn-outline-dark" data-filter=".lap">Laptops</li>
-      <li class="btn btn-outline-dark text" data-filter=".selfie">selfie</li>
+      <li class="active" data-filter="*">
+        <button class="withSpecialHover">all</button>
+      </li>
+      <li class="" data-filter=".gts">
+        <button class="withSpecialHover">foto del 21/04/2022</button>
+      </li>
+      <li class="" data-filter=".lap">
+        <button class="withSpecialHover">foto del 23/04/2022</button>
+      </li>
+      <li class="text" data-filter=".selfie">
+        <button class="withSpecialHover">foto del 27/04/2022</button>
+      </li>
     </ul>
   </div>
   <app-images (img)="showImg($event)"></app-images>

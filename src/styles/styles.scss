@@ -84,11 +84,81 @@ mat-sidenav-container {
   position: relative;
   height: auto !important;
 }
+
 //button generico
 button {
+  position: relative;
+  padding: 1em 1.5em;
   border: none;
-  background-color: var(--transparent-grey);
-  margin: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  margin: 1em 0.8em;
+
+  &.withSpecialHover {
+    color: var(--black);
+  }
+  &.withSpecialHover::after,
+  &.withSpecialHover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border: 2px solid;
+    transition: all 0.6s ease;
+    border-radius: 2px;
+  }
+
+  &.withSpecialHover::after {
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: var(--orange);
+    border-right-color: var(--orange);
+  }
+
+  &.withSpecialHover::before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: var(--orange);
+    border-left-color: var(--orange);
+  }
+
+  &.withSpecialHover:hover:after,
+  &.withSpecialHover:hover:before {
+    border-bottom-color: var(--orange);
+    border-right-color: var(--orange);
+    border-top-color: var(--orange);
+    border-left-color: var(--orange);
+    width: 100%;
+    height: 100%;
+  }
+  &.withSpecialHover.active {
+    border: 2px solid var(--orange);
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(#fff, 0);
+
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+}
+.darkMode button {
+  &.withSpecialHover {
+    color: var(--white);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--red);
+  }
 }
 
 //navbar mobile
