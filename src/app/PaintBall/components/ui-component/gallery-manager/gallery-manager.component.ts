@@ -8,8 +8,7 @@ import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/
 } )
 export class GalleryManagerComponent implements OnInit {
 
-  constructor( private el: ElementRef,
-    private SaveChangeservice: SaveChangeService ) {
+  constructor( private el: ElementRef ) {
 
   }
 
