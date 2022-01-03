@@ -42,7 +42,7 @@ export class ImageFullScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.animate = this.el.nativeElement.querySelector( '.animate__animated' );
+    this.animate = this.el.nativeElement.querySelector( '.animate__animated:first-child' );
     if ( window.orientation === 90 )
       this.rotate = true;
     else
@@ -58,6 +58,7 @@ export class ImageFullScreenComponent implements OnInit {
   }
 
   hideImg() {
+    this.animate.classList.remove( "animate__rotateIn" );
     this.animate.classList.remove( "animate__backInDown" );
     this.animate.classList.add( 'animate__backOutDown' );
     setTimeout( () => {
@@ -67,8 +68,14 @@ export class ImageFullScreenComponent implements OnInit {
   }
   nextImg() {
     if ( this.count < this.urls.length - 1 ) {
+      this.animate.classList.add( 'animate__rotateOut' );
+      this.animate.classList.remove( "animate__rotateIn" );
       this.count++;
-      this.img = this.urls[this.count].path;
+      setTimeout( () => {
+        this.animate.classList.remove( 'animate__rotateOut' );
+        this.img = this.urls[this.count].path;
+        this.animate.classList.add( 'animate__rotateIn' );
+      }, 1000 );
     } else {
       this.count = 0;
       this.img = this.urls[this.count].path;
