@@ -19,8 +19,8 @@ export class ImagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getImg = this.service.getAllContentGalleryPage( 'gallery-page' );
-
   }
+
   showImg( indexImage: number ) {
     this.SaveChangeservice.emitChange( indexImage );
     this.SaveChangeservice.emitChange( true );

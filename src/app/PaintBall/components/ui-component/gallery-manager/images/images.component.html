@@ -1,11 +1,11 @@
-<div class="portfolio-item row" *ngIf="getImg | async as i">
+<div class="portfolio-item row" *ngIf="getImg | async as images">
   <div
     class="item col-lg-3 col-md-4 col-6 col-sm-4"
-    *ngFor="let img of i; let i = index"
+    *ngFor="let img of images; let i = index"
   >
     <div class="container">
       <img
-        class="img-fluid {{ img.id }}"
+        class="img-fluid"
         [id]="img.id"
         [src]="img.path"
         [alt]="img.alt"
