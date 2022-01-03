@@ -15,10 +15,10 @@ export class SaveChangeService {
   changeEmittedString$ = this.emitChangeSourceString.asObservable();
 
   emitChange( change: any ) {
-    if ( typeof change === 'string' )
-      this.emitChangeSourceString.next( change );
-    else
+    if ( typeof change === 'boolean' )
       this.emitChangeSource.next( change );
+    else
+      this.emitChangeSourceString.next( change );
   }
 
 }

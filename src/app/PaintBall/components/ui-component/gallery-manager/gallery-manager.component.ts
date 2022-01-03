@@ -28,9 +28,4 @@ export class GalleryManagerComponent implements OnInit {
 
     this.el.nativeElement.querySelector( '.portfolio-item' );
   }
-
-
-  showImg( event: string ) {
-    this.SaveChangeservice.emitChange( event );
-  }
 }

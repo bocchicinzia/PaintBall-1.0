@@ -1,5 +1,5 @@
 export class GalleryManager {
   id: string;
-  imgUrl: string;
-  alt: string;
+  path: string;
+  alt?: string;
 }

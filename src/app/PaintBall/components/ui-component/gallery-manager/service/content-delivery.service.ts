@@ -13,7 +13,7 @@ export class ContentDeliveryServiceGalleryPage {
 
   images( urls: any ): GalleryManager[] {
     this.getImg = urls.map( ( res: any ) => <GalleryManager>{
-      imgUrl: res.path
+      path: res.path
     } );
     return this.getImg;
   }
