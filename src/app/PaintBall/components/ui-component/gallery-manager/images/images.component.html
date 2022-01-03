@@ -1,11 +1,12 @@
-<div class="portfolio-item row">
+<div class="portfolio-item row" *ngIf="getImg | async as i">
   <div
     class="item col-lg-3 col-md-4 col-6 col-sm-4"
-    *ngFor="let img of getImg; let i = index"
+    *ngFor="let img of i; let i = index"
   >
     <div class="container">
       <img
-        class="img-fluid"
+        class="img-fluid {{ img.id }}"
+        [id]="img.id"
         [src]="img.path"
         [alt]="img.alt"
         (click)="showImg(i)"

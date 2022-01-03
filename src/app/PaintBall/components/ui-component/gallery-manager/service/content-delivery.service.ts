@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { GalleryManager } from '../gallery-manager.class';
 
 @Injectable( {
@@ -7,23 +10,26 @@ import { GalleryManager } from '../gallery-manager.class';
 export class ContentDeliveryServiceGalleryPage {
   getImg: GalleryManager[];
 
-  constructor() {}
+  private url: string = "http://localhost:3000/";
+
+  constructor( private http: HttpClient ) {}
 
 
+  getAllContentGalleryPage( projectId: string ): Observable<GalleryManager[]> {
+    return this.http.get<GalleryManager>( this.url + projectId ).pipe(
+      map( res => {
+        return this.images( res );
+      } )
+    );
+  }
 
-  images( urls: any ): GalleryManager[] {
-    this.getImg = urls.map( ( res: any ) => <GalleryManager>{
-      path: res.path
+
+  private images( urls: any ): GalleryManager[] {
+    this.getImg = urls.map( ( res: any ) => <GalleryManager[]><unknown>{
+      id: res.id,
+      path: res.path,
+      alt: res.alt
     } );
     return this.getImg;
   }
-
-  id( urls: any ): string[] {
-    let objId = urls.map( ( res: any ) => <GalleryManager>{
-      id: res.id
-    } );
-    let stringId = objId.map( ( el: any ) => { return el.id } );
-    return stringId;
-  }
-
 }
