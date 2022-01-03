@@ -1,4 +1,8 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
+import { GalleryManager } from '../gallery-manager.class';
+import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.service';
 
 @Component( {
   selector: 'app-button',
@@ -7,9 +11,16 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 } )
 export class ButtonComponent implements OnInit {
 
-  constructor( private el: ElementRef ) {}
+  getImg: GalleryManager[];
+
+  constructor( private el: ElementRef,
+    private service: ContentDeliveryServiceGalleryPage,
+    private saveChange: SaveChangeService ) {}
 
   ngOnInit(): void {
+    this.service.getAllContentGalleryPage( 'gallery-page' ).subscribe( res => {
+      this.getImg = res;
+    } );
   }
 
 
@@ -21,9 +32,15 @@ export class ButtonComponent implements OnInit {
     e.classList.add( 'active' );
 
     let attr = e.getAttribute( 'data-filter' );
-    console.log( e );
+    this.fetchData( attr );
 
-    this.el.nativeElement.querySelector( '.portfolio-item' );
+    // this.el.nativeElement.querySelector( '.portfolio-item' );
+  }
+
+  fetchData( attr: any ) {
+    this.getImg = this.getImg.filter( res => res.email === attr );
+    console.log( this.getImg, attr );
+    this.saveChange.emitChange( this.getImg );
   }
 
 }

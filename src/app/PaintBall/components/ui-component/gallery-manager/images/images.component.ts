@@ -12,10 +12,11 @@ import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.s
 export class ImagesComponent implements OnInit {
   getImg: Observable<GalleryManager[]>;
 
-  urls: GalleryManager[];
-
   constructor( private service: ContentDeliveryServiceGalleryPage,
-    private SaveChangeservice: SaveChangeService ) {}
+    private SaveChangeservice: SaveChangeService ) {
+    this.getImg = this.SaveChangeservice.changeEmittedObject$;
+    this.getImg.subscribe( a => { return console.log( a ) } );
+  }
 
   ngOnInit(): void {
     this.getImg = this.service.getAllContentGalleryPage( 'gallery-page' );

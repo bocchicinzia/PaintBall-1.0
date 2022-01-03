@@ -24,8 +24,8 @@ export class ImageFullScreenComponent implements OnInit {
     private saveChangeservice: SaveChangeService,
     private service: ContentDeliveryServiceGalleryPage ) {
     this.landscape.addEventListener( "change", ev => this.rotate = this.landscape.matches );
-    saveChangeservice.changeEmittedString$.subscribe(
-      change => {
+    saveChangeservice.changeEmittedNumber$.subscribe(
+      ( change: number ) => {
         this.showImg( change );
       } );
   }
@@ -48,7 +48,7 @@ export class ImageFullScreenComponent implements OnInit {
   }
 
   //show and hide image full screen
-  showImg( event: any ) {
+  showImg( event: number ) {
     this.animationComponent( 'showDiv' );
     this.img = this.galleryContent[event].path;
     this.count = event;

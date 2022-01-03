@@ -28,6 +28,7 @@ export class ContentDeliveryServiceGalleryPage {
     this.getImg = urls.map( ( res: any ) => <GalleryManager[]><unknown>{
       id: res.id,
       path: res.path,
+      email: res.email,
       alt: res.alt
     } );
     return this.getImg;
