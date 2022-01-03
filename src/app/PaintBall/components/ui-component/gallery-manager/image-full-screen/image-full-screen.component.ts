@@ -24,6 +24,10 @@ export class ImageFullScreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.animate = this.el.nativeElement.querySelector( '.animate__animated' );
+    if ( window.orientation === 90 )
+      this.rotate = true;
+    else
+      this.rotate = false;
   }
 
 
