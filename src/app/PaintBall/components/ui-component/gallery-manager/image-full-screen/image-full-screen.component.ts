@@ -11,7 +11,7 @@ export class ImageFullScreenComponent implements OnInit {
   img: string = "";
   count: number;
   animate: any;
-  showBackgroundIcon: boolean;
+  showBackgroundIcon: boolean = true;
   landscape = window.matchMedia( "(orientation: landscape)" );
   rotate: boolean;
 
@@ -48,6 +48,11 @@ export class ImageFullScreenComponent implements OnInit {
     else
       this.rotate = false;
 
+  }
+  showAllOption() {
+    console.log( this.showBackgroundIcon );
+
+    this.showBackgroundIcon = !this.showBackgroundIcon;
   }
 
   //show and hide image full screen

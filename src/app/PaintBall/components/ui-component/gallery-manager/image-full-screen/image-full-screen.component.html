@@ -4,13 +4,7 @@
     [ngClass]="!img ? 'd-none' : 'd-flex'"
   >
     <div
-      class="
-        position-absolute
-        w-100
-        h-100
-        animate__animated
-        container-all-content-fullImg
-      "
+      class="position-absolute w-100 h-100 animate__animated container-all-content-fullImg"
       (mouseenter)="showBackgroundIcon = true"
       (mouseleave)="showBackgroundIcon = false"
     >
@@ -19,7 +13,7 @@
         [src]="img"
         alt=""
         [class.imgHover]="showBackgroundIcon"
-        (click)="showBackgroundIcon = !showBackgroundIcon"
+        (click)="showAllOption()"
       />
 
       <div
