@@ -18,7 +18,6 @@ export class ButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   onClick( e: any ) {
@@ -31,8 +30,4 @@ export class ButtonComponent implements OnInit {
     let attr = e.getAttribute( 'data-filter' );
     this.saveChange.emitChange( attr );
   }
-
-
-
-
 }

@@ -2,11 +2,10 @@
   <div
     *ngFor="let img of images; let i = index"
     class="item col-lg-3 col-md-4 col-6 col-sm-4 animate__animated animate__jackInTheBox"
-    [id]="img.id"
   >
     <div class="container">
       <img
-        class="img-fluid {{ img.email }}"
+        class="img-fluid"
         [src]="img.path"
         [alt]="img.alt"
         (click)="showImg(i)"
