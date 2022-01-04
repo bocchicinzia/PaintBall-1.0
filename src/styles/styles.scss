@@ -93,7 +93,7 @@ button {
   background-color: transparent;
   cursor: pointer;
   outline: none;
-  font-size: 18px;
+  font-size: $fontMedium;
   margin: 1em 0.8em;
 
   &.withSpecialHover {
@@ -158,6 +158,13 @@ button {
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 var(--red);
+  }
+}
+
+@media (max-width: $mobile-big) {
+  button {
+    font-size: $fontExtraSmall;
+    padding: 1em 1em;
   }
 }
 

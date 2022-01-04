@@ -29,8 +29,6 @@ export class ImagesComponent implements OnInit {
     this.SaveChangeservice.emitChange( true );
   }
 
-
-
   getImages( attr: string ) {
     this.animation();
     setTimeout( () => {

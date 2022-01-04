@@ -1,6 +1,6 @@
 <div class="portfolio-menu mt-2 mb-4" *ngIf="button | async as data">
-  <ul (click)="onClick($event.target)" *ngFor="let b of data">
-    <li>
+  <ul (click)="onClick($event.target)">
+    <li *ngFor="let b of data">
       <button class="withSpecialHover" [id]="b.dataFilter">
         {{ b.label }}
       </button>

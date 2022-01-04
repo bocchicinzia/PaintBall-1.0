@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
 import { GalleryManager } from '../gallery-manager.class';
 import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.service';
