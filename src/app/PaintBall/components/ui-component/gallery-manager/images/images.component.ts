@@ -32,18 +32,10 @@ export class ImagesComponent implements OnInit {
 
 
   getImages( attr: string ) {
-    this.attr = attr;
-    if ( attr === '*' || attr === '' ) {
-      this.animation();
-      setTimeout( () => {
-        this.getImg = this.fetchData();
-      }, 1000 );
-    } else {
-      this.animation();
-      setTimeout( () => {
-        this.getImg = this.filterData( this.fetchData(), attr );
-      }, 1000 );
-    }
+    this.animation();
+    setTimeout( () => {
+      this.getImg = this.filterData( this.fetchData(), attr );
+    }, 1000 );
   }
 
   private fetchData() {
