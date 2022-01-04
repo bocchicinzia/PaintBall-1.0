@@ -18,7 +18,6 @@ export class ImageFullScreenComponent implements OnInit {
   rotate: boolean;
 
   galleryContent: GalleryManager[];
-  unsubscription: Subscription;
 
   constructor( private el: ElementRef,
     private saveChangeservice: SaveChangeService,
@@ -28,6 +27,7 @@ export class ImageFullScreenComponent implements OnInit {
       ( change: number ) => {
         this.showImg( change );
       } );
+    saveChangeservice.changeEmittedString$.subscribe( change => this.getImages( change ) );
   }
 
   ngOnInit(): void {
@@ -36,11 +36,11 @@ export class ImageFullScreenComponent implements OnInit {
       this.rotate = true;
     else
       this.rotate = false;
-    this.unsubscription = this.service.getAllContentGalleryPage( 'gallery-page' ).subscribe( res => this.galleryContent = res );
+    this.getImages( '*' );
   }
 
-  ngOnDestroy(): void {
-    this.unsubscription.unsubscribe();
+  getImages( attr: string ) {
+    this.service.getAllImages( attr ).subscribe( res => this.galleryContent = res );
   }
 
   showAllOption() {

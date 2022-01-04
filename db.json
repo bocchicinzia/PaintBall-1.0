@@ -207,56 +207,74 @@
     {
       "id": "6",
       "path": "https://i.pinimg.com/originals/1c/aa/c5/1caac55143e3e11461c6ae5962403deb.jpg",
-      "email": "*",
+      "email": "mario@rossi.it",
       "alt": "image"
     },
     {
       "id": "7",
       "path": "https://media.gadventures.com/media-server/cache/12/59/12591a5497a563245d0255824103842e.jpg",
-      "email": "*",
+      "email": "mario@rossi.it",
       "alt": "image"
     },
     {
       "id": "8",
       "path": "https://i.pinimg.com/originals/1c/aa/c5/1caac55143e3e11461c6ae5962403deb.jpg",
-      "email": "nicola",
+      "email": "rosso@rosso.it",
       "alt": "image"
     },
     {
       "id": "9",
       "path": "https://media.gadventures.com/media-server/cache/12/59/12591a5497a563245d0255824103842e.jpg",
-      "email": "nicola",
+      "email": "rosso@rosso.it",
       "alt": "image"
     },
     {
       "id": "10",
       "path": "https://i.pinimg.com/originals/1c/aa/c5/1caac55143e3e11461c6ae5962403deb.jpg",
-      "email": "nicola",
+      "email": "rosso@mario.it",
       "alt": "image"
     },
     {
       "id": "11",
       "path": "https://image.freepik.com/free-photo/stylish-young-woman-with-bags-taking-selfie_23-2147962203.jpg",
-      "email": "",
+      "email": "rosso@mario.it",
       "alt": "image"
     },
     {
       "id": "12",
       "path": "https://image.freepik.com/free-photo/stylish-young-woman-with-bags-taking-selfie_23-2147962203.jpg",
-      "email": "amedin94@live.it",
+      "email": "mario@rossi.it",
       "alt": "image"
     },
     {
       "id": "13",
       "path": "https://image.freepik.com/free-photo/pretty-girl-near-car_1157-16962.jpg",
-      "email": "amedin94@live.it",
+      "email": "mario@rossi.it",
       "alt": "image"
     },
     {
       "id": "14",
       "path": "https://image.freepik.com/free-photo/blonde-tourist-taking-selfie_23-2147978899.jpg",
-      "email": "amedin94@live.it",
+      "email": "mario@rossi.it",
       "alt": "image"
+    }
+  ],
+  "gallery-button": [
+    {
+      "label": "all",
+      "dataFilter": "*"
+    },
+    {
+      "label": "foto del 21/04/2022",
+      "dataFilter": "mario@rossi.it"
+    },
+    {
+      "label": "foto del 23/04/2022",
+      "dataFilter": "rosso@mario.it"
+    },
+    {
+      "label": "foto del 27/04/2022",
+      "dataFilter": "rosso@rosso.it"
     }
   ]
 }

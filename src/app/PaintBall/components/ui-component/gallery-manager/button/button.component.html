@@ -1,21 +1,8 @@
-<div class="portfolio-menu mt-2 mb-4">
-  <ul (click)="onClick($event.target)">
+<div class="portfolio-menu mt-2 mb-4" *ngIf="button | async as data">
+  <ul (click)="onClick($event.target)" *ngFor="let b of data">
     <li>
-      <button class="withSpecialHover active" data-filter="*">all</button>
-    </li>
-    <li>
-      <button class="withSpecialHover" data-filter="amedin94@live.it">
-        foto del 21/04/2022
-      </button>
-    </li>
-    <li>
-      <button class="withSpecialHover" data-filter="nicola">
-        foto del 23/04/2022
-      </button>
-    </li>
-    <li>
-      <button class="withSpecialHover" data-filter="*">
-        foto del 27/04/2022
+      <button class="withSpecialHover" [id]="b.dataFilter">
+        {{ b.label }}
       </button>
     </li>
   </ul>
