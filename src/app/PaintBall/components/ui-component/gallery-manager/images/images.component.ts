@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
 import { GalleryManager } from '../gallery-manager.class';
 import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.service';
@@ -11,15 +12,15 @@ import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.s
 } )
 export class ImagesComponent implements OnInit {
   getImg: Observable<GalleryManager[]>;
+  attr: string = '*';
 
   constructor( private service: ContentDeliveryServiceGalleryPage,
     private SaveChangeservice: SaveChangeService ) {
-    this.getImg = this.SaveChangeservice.changeEmittedObject$;
-    this.getImg.subscribe( a => { return console.log( a ) } );
+    SaveChangeservice.changeEmittedString$.subscribe( change => this.getImages( change ) );
   }
 
   ngOnInit(): void {
-    this.getImg = this.service.getAllContentGalleryPage( 'gallery-page' );
+    this.getImages( this.attr );
   }
 
   showImg( indexImage: number ) {
@@ -27,4 +28,28 @@ export class ImagesComponent implements OnInit {
     this.SaveChangeservice.emitChange( true );
   }
 
+
+
+  getImages( attr: string ) {
+    if ( attr === '*' || attr === '' ) {
+      this.fetchData();
+    } else {
+      this.getImg = this.filterData( this.fetchData(), attr );
+    }
+  }
+
+  private fetchData() {
+    this.getImg = this.service.getAllContentGalleryPage( 'gallery-page' );
+    return this.getImg;
+  }
+
+  private filterData( data: Observable<GalleryManager[]>, attr: string ): Observable<GalleryManager[]> {
+    return data.pipe(
+      map( employees =>
+        employees.filter( ( { email } ) =>
+          email === attr,
+        ),
+      ),
+    );
+  }
 }

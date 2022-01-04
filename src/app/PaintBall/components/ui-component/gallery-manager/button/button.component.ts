@@ -14,15 +14,12 @@ export class ButtonComponent implements OnInit {
   getImg: GalleryManager[];
 
   constructor( private el: ElementRef,
-    private service: ContentDeliveryServiceGalleryPage,
-    private saveChange: SaveChangeService ) {}
-
-  ngOnInit(): void {
-    this.service.getAllContentGalleryPage( 'gallery-page' ).subscribe( res => {
-      this.getImg = res;
-    } );
+    private saveChange: SaveChangeService ) {
   }
 
+  ngOnInit(): void {
+
+  }
 
   onClick( e: any ) {
     let button = this.el.nativeElement.querySelectorAll( '.active' );
@@ -32,15 +29,10 @@ export class ButtonComponent implements OnInit {
     e.classList.add( 'active' );
 
     let attr = e.getAttribute( 'data-filter' );
-    this.fetchData( attr );
-
-    // this.el.nativeElement.querySelector( '.portfolio-item' );
+    this.saveChange.emitChange( attr );
   }
 
-  fetchData( attr: any ) {
-    this.getImg = this.getImg.filter( res => res.email === attr );
-    console.log( this.getImg, attr );
-    this.saveChange.emitChange( this.getImg );
-  }
+
+
 
 }

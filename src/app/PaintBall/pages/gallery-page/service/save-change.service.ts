@@ -9,13 +9,13 @@ import { GalleryManager } from 'src/app/PaintBall/components/ui-component/galler
 export class SaveChangeService {
   private emitChangeSource = new Subject<boolean>();
   private emitChangeSourceNumber = new Subject<number>();
-  private emitChangeSourceObject = new Subject<GalleryManager[]>();
+  private emitChangeSourceString = new Subject<string>();
 
   constructor() {}
 
   changeEmitted$ = this.emitChangeSource.asObservable();
   changeEmittedNumber$ = this.emitChangeSourceNumber.asObservable();
-  changeEmittedObject$ = this.emitChangeSourceObject.asObservable();
+  changeEmittedString$ = this.emitChangeSourceString.asObservable();
 
   emitChange( change: any ) {
     if ( typeof change === 'boolean' )
@@ -23,7 +23,7 @@ export class SaveChangeService {
     else if ( typeof change === 'number' )
       this.emitChangeSourceNumber.next( change );
     else
-      this.emitChangeSourceObject.next( change );
+      this.emitChangeSourceString.next( change );
   }
 
 }
