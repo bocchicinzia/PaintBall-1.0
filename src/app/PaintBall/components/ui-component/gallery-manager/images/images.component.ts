@@ -32,22 +32,22 @@ export class ImagesComponent implements OnInit {
 
 
   getImages( attr: string ) {
+    this.attr = attr;
     if ( attr === '*' || attr === '' ) {
+      this.animation();
       setTimeout( () => {
-        this.fetchData();
-        this.animation();
-      }, 500 );
+        this.getImg = this.fetchData();
+      }, 1000 );
     } else {
+      this.animation();
       setTimeout( () => {
         this.getImg = this.filterData( this.fetchData(), attr );
-        this.animation();
-      }, 500 );
+      }, 1000 );
     }
   }
 
   private fetchData() {
-    this.getImg = this.service.getAllContentGalleryPage( 'gallery-page' );
-    return this.getImg;
+    return this.service.getAllContentGalleryPage( 'gallery-page' );
   }
 
   private filterData( data: Observable<GalleryManager[]>, attr: string ): Observable<GalleryManager[]> {
@@ -62,15 +62,10 @@ export class ImagesComponent implements OnInit {
 
   private animation() {
     let animation = this.el.nativeElement.querySelectorAll( '.item' );
-
     for ( let i = 0; i < animation.length; i++ ) {
-      animation[i].classList.add( 'animate__hinge' );
       animation[i].classList.remove( 'animate__jackInTheBox' );
-
-      setTimeout( () => {
-        animation[i].classList.remove( 'animate__hinge' );
-        animation[i].classList.add( 'animate__jackInTheBox' );
-      }, 1000 );
+      animation[i].classList.remove( 'animate__hinge' );
+      animation[i].classList.add( 'animate__hinge' );
     }
   }
 }
