@@ -34,23 +34,10 @@ export class ImagesComponent implements OnInit {
   getImages( attr: string ) {
     this.animation();
     setTimeout( () => {
-      this.getImg = this.filterData( this.fetchData(), attr );
+      this.getImg = this.service.getAllImages( attr );
     }, 1000 );
   }
 
-  private fetchData() {
-    return this.service.getAllContentGalleryPage( 'gallery-page' );
-  }
-
-  private filterData( data: Observable<GalleryManager[]>, attr: string ): Observable<GalleryManager[]> {
-    return data.pipe(
-      map( employees =>
-        employees.filter( ( { email } ) =>
-          email === attr,
-        ),
-      ),
-    );
-  }
 
   private animation() {
     let animation = this.el.nativeElement.querySelectorAll( '.item' );

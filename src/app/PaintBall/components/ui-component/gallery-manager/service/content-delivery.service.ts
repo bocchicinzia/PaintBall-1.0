@@ -33,4 +33,23 @@ export class ContentDeliveryServiceGalleryPage {
     } );
     return this.getImg;
   }
+
+
+  getAllImages( attr: string ) {
+    return this.filterData( this.fetchData(), attr );
+  }
+
+  private fetchData() {
+    return this.getAllContentGalleryPage( 'gallery-page' );
+  }
+
+  private filterData( data: Observable<GalleryManager[]>, attr: string ): Observable<GalleryManager[]> {
+    return data.pipe(
+      map( employees =>
+        employees.filter( ( { email } ) =>
+          email === attr,
+        ),
+      ),
+    );
+  }
 }
