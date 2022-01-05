@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
 import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.service';
 import { InputGallery } from './input.class';
 
@@ -10,11 +11,22 @@ import { InputGallery } from './input.class';
 } )
 export class InputComponent implements OnInit {
   input: Observable<InputGallery>;
-  constructor( private service: ContentDeliveryServiceGalleryPage ) {}
+  email: string;
+
+  constructor( private service: ContentDeliveryServiceGalleryPage,
+    private saveChange: SaveChangeService ) {}
 
   ngOnInit(): void {
     this.input = this.service.getInputGalleryPage( 'gallery-input' );
-    this.input.subscribe( a => console.log( a ) );
   }
 
+  getValue() {
+    let filter = this.email;
+    this.email ? filter.trim().toLowerCase() : this.email;
+
+    if ( !filter )
+      filter = '*';
+
+    this.saveChange.emitChange( filter );
+  }
 }

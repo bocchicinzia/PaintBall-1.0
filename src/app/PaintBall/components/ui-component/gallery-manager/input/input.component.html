@@ -1,5 +1,14 @@
 <span id="input-search" *ngIf="input | async as i">
-  <input class="swing" id="song" type="text" [placeholder]="i.placeholder" />
+  <input
+    class="swing"
+    id="song"
+    type="text"
+    [placeholder]="i.placeholder"
+    [(ngModel)]="email"
+    (keyup.enter)="getValue()"
+  />
   <label for="email">{{ i.label }}</label>
-  <button class="search-images">{{ i.buttonValue }}</button>
+  <button class="search-images" (click)="getValue()">
+    {{ i.buttonValue }}
+  </button>
 </span>
