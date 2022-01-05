@@ -283,3 +283,30 @@ app-navbar {
     box-shadow: var(--text-shadow-darkMode) !important;
   }
 }
+
+//darkMode input on gallery manager
+.darkMode #input-search {
+  box-shadow: var(--text-shadow-darkMode) !important;
+  & .swing {
+    color: var(--black);
+    background: var(--white);
+
+    &::-webkit-input-placeholder {
+      color: var(--white);
+    }
+  }
+  & .swing:focus,
+  & .swing:active {
+    color: var(--black);
+    text-indent: 0;
+    background: var(--grey);
+
+    &::-webkit-input-placeholder {
+      color: var(--black);
+    }
+  }
+}
+.darkMode .swing:focus ~ .search-images,
+.darkMode .swing:active ~ .search-images {
+  box-shadow: var(--box-shadow-very-clear-darkMode) !important;
+}
