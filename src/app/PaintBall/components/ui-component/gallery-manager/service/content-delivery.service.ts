@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ButtonGallery } from '../button/button-gallery.class';
 import { GalleryManager } from '../gallery-manager.class';
+import { InputGallery } from '../input/input.class';
 
 @Injectable( {
   providedIn: 'root'
@@ -11,10 +12,35 @@ import { GalleryManager } from '../gallery-manager.class';
 export class ContentDeliveryServiceGalleryPage {
   getImg: GalleryManager[];
   getButton: ButtonGallery[];
+  getInput: InputGallery[];
 
   private url: string = "http://localhost:3000/";
 
   constructor( private http: HttpClient ) {}
+
+  //------------------------------------------------------------------------
+  //get input date
+
+  getInputGalleryPage( projectId: string ): Observable<InputGallery> {
+    return this.http.get<InputGallery>( this.url + projectId ).pipe(
+      map( res => {
+        return this.input( res );
+      } )
+    );
+  }
+
+
+  private input( urls: any ): InputGallery {
+    this.getInput = urls.map( ( res: any ) => <InputGallery>{
+      placeholder: res.placeholder,
+      label: res.label,
+      buttonValue: res.buttonValue
+    } );
+    return this.getInput[0];
+  }
+
+  //----------------------------------------------------------------------
+  //get button
 
   getAllButtonGalleryPage( projectId: string ): Observable<ButtonGallery[]> {
     return this.http.get<ButtonGallery>( this.url + projectId ).pipe(
@@ -32,6 +58,9 @@ export class ContentDeliveryServiceGalleryPage {
     } );
     return this.getButton;
   }
+
+  //-----------------------------------------------------------------------
+  //get all images
 
   getAllImagesGalleryPage( projectId: string ): Observable<GalleryManager[]> {
     return this.http.get<GalleryManager>( this.url + projectId ).pipe(

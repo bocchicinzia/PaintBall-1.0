@@ -276,5 +276,12 @@
       "label": "foto del 27/04/2022",
       "dataFilter": "rosso@rosso.it"
     }
+  ],
+  "gallery-input": [
+    {
+      "placeholder": "Effettua la ricerca tramite email",
+      "label": "Email",
+      "buttonValue": "Cerca"
+    }
   ]
 }
