@@ -89,7 +89,7 @@
   border-right: 0;
 
   &::-webkit-input-placeholder {
-    color: var(--black);
+    color: var(--strong-grey);
   }
   + label {
     animation: swing 1.4s 1 ease-in-out;
@@ -103,4 +103,22 @@
   background-color: var(--grey);
   box-shadow: var(--box-shadow-very-clear-lightMode);
   clip-path: inset(-20px -23px -43px 3px);
+}
+
+@media (max-width: $mobile-small) {
+  .swing {
+    width: 230px;
+    padding: 10px 0 10px 15px;
+
+    &::-webkit-input-placeholder {
+      font-size: $fontExtraSmall;
+    }
+
+    + label {
+      padding: 10px 10px;
+    }
+  }
+  .search-images {
+    padding: 10px 10px;
+  }
 }
