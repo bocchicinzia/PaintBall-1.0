@@ -13,3 +13,17 @@
     </div>
   </div>
 </div>
+<div
+  *ngIf="notExist"
+  class="container text-center information-notExist-images animate__animated animate__flash"
+>
+  <h2>
+    Ci dispiace comunicarvi che non è trovata nessun immagine con questa email
+  </h2>
+  <h3>
+    vi preghiamo di riprovare con l'email lasciata al nostro staff, oppure
+    cliccate qui che troverete i nostri contatti
+  </h3>
+  <h4>Grazie</h4>
+  <mat-icon (click)="navigate()">contact_support</mat-icon>
+</div>

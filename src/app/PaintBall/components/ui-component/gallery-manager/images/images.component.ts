@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
 import { GalleryManager } from '../gallery-manager.class';
 import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.service';
@@ -13,10 +13,12 @@ import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.s
 export class ImagesComponent implements OnInit {
   getImg: Observable<GalleryManager[]>;
   attr: string = '*';
+  notExist: boolean;
 
   constructor( private el: ElementRef,
     private service: ContentDeliveryServiceGalleryPage,
-    private SaveChangeservice: SaveChangeService ) {
+    private SaveChangeservice: SaveChangeService,
+    private router: Router ) {
     SaveChangeservice.changeEmittedString$.subscribe( change => this.getImages( change ) );
   }
 
@@ -33,9 +35,16 @@ export class ImagesComponent implements OnInit {
     this.animation();
     setTimeout( () => {
       this.getImg = this.service.getAllImages( attr );
+      this.getImg.subscribe( img => this.notExistImg( img ) )
     }, 1000 );
   }
 
+  notExistImg( img: any ) {
+    img.length > 0 ? this.notExist = false : this.notExist = true;
+  }
+  navigate() {
+    this.router.navigateByUrl( 'contatti' )
+  }
 
   private animation() {
     let animation = this.el.nativeElement.querySelectorAll( '.item' );
