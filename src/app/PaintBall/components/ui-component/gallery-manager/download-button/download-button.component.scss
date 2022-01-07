@@ -1,0 +1,11 @@
+.download-images {
+  bottom: 2%;
+  left: 50%;
+  cursor: pointer;
+  & .mat-icon {
+    font-size: var(--font-icon-extra-large);
+    &:hover {
+      color: var(--red);
+    }
+  }
+}
