@@ -9,6 +9,8 @@ import { ContentDeliveryServiceGalleryPage } from "./service/content-delivery.se
 import { ImageFullScreenComponent } from './image-full-screen/image-full-screen.component';
 import { ButtonComponent } from "./button/button.component";
 import { InputComponent } from './input/input.component';
+import { DownloadButtonComponent } from './download-button/download-button.component';
+import { DownloadService } from "./download-button/service/download.service";
 
 @NgModule( {
   declarations: [
@@ -23,10 +25,11 @@ import { InputComponent } from './input/input.component';
   exports: [
     GalleryModule.components,
   ],
-  providers: [ContentDeliveryServiceGalleryPage]
+  providers: [ContentDeliveryServiceGalleryPage, DownloadService]
 } )
 export class GalleryModule {
   public static components = [
+    DownloadButtonComponent,
     InputComponent,
     ButtonComponent,
     ImageFullScreenComponent,
