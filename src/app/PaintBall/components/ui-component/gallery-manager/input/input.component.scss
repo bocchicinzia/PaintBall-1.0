@@ -105,6 +105,14 @@
   clip-path: inset(-20px -23px -43px 3px);
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px var(--grey) inset;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px var(--grey) inset;
+}
+
 @media (max-width: $mobile-small) {
   .swing {
     width: 230px;
