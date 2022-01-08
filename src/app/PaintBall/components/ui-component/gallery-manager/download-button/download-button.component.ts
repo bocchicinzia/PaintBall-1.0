@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
+import { GalleryManager } from '../gallery-manager.class';
+import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.service';
 import { DownloadService } from './service/download.service';
 
 @Component( {
@@ -8,13 +10,22 @@ import { DownloadService } from './service/download.service';
   styleUrls: ['./download-button.component.scss']
 } )
 export class DownloadButtonComponent implements OnInit {
+  galleryContent: string[];
 
-  constructor( private serviceDownload: DownloadService ) {}
-
-  ngOnInit(): void {
+  constructor( private serviceDownload: DownloadService,
+    private saveChangeservice: SaveChangeService,
+    private service: ContentDeliveryServiceGalleryPage ) {
+    this.saveChangeservice.changeEmittedString$.subscribe( change => this.getImages( change ) );
   }
 
-  download( urlImg: string ) {
-    this.serviceDownload.download( urlImg )
+  ngOnInit(): void {
+    this.getImages( '*' );
+  }
+
+  private getImages( attr: string ) {
+    this.service.getAllImages( attr ).subscribe( res => this.galleryContent = res.map( path => path.path ) );
+  }
+  download() {
+    this.serviceDownload.downloadAllImages( this.galleryContent );
   }
 }
