@@ -11,6 +11,7 @@
       <img
         class="w-100 h-100"
         [src]="img"
+        [id]="id"
         alt=""
         [class.imgHover]="showBackgroundIcon"
         (click)="showAllOption()"
@@ -22,8 +23,11 @@
         [class.showOpacity]="showBackgroundIcon"
       >
         <ng-container *ngIf="showBackgroundIcon">
-          <div class="close" (click)="hideImg()">
+          <div class="d-inline close" (click)="hideImg()">
             <mat-icon>close</mat-icon>
+          </div>
+          <div class="d-inline download-image" (click)="download(img)">
+            <mat-icon>download</mat-icon>
           </div>
           <div class="background-icon bk-btn-top"></div>
           <div class="before" (click)="beforeImg()">

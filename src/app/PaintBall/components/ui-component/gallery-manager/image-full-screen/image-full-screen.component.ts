@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
+import { DownloadService } from '../download-button/service/download.service';
 import { GalleryManager } from '../gallery-manager.class';
 import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.service';
 
@@ -10,6 +11,7 @@ import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.s
 } )
 export class ImageFullScreenComponent implements OnInit {
   img: string = "";
+  id: string;
   count: number;
   animate: any;
   showBackgroundIcon: boolean = true;
@@ -20,7 +22,8 @@ export class ImageFullScreenComponent implements OnInit {
 
   constructor( private el: ElementRef,
     private saveChangeservice: SaveChangeService,
-    private service: ContentDeliveryServiceGalleryPage ) {
+    private service: ContentDeliveryServiceGalleryPage,
+    private downloadImage: DownloadService ) {
     this.landscape.addEventListener( "change", ev => this.rotate = this.landscape.matches );
     saveChangeservice.changeEmittedNumber$.subscribe(
       ( change: number ) => {
@@ -38,7 +41,7 @@ export class ImageFullScreenComponent implements OnInit {
     this.getImages( '*' );
   }
 
-  getImages( attr: string ) {
+  private getImages( attr: string ) {
     this.service.getAllImages( attr ).subscribe( res => this.galleryContent = res );
   }
 
@@ -50,6 +53,7 @@ export class ImageFullScreenComponent implements OnInit {
   showImg( event: number ) {
     this.animationComponent( 'showDiv' );
     this.img = this.galleryContent[event].path;
+    this.id = this.galleryContent[event].id;
     this.count = event;
   }
 
@@ -119,5 +123,9 @@ export class ImageFullScreenComponent implements OnInit {
         this.animate.classList.add( 'animate__rotateIn' );
         break;
     }
+  }
+
+  download( img: string ) {
+    this.downloadImage.downloadSingleImage( img );
   }
 }
