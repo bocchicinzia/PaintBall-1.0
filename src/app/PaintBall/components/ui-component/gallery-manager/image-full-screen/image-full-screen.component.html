@@ -26,8 +26,19 @@
           <div class="d-inline close" (click)="hideImg()">
             <mat-icon>close</mat-icon>
           </div>
-          <div class="d-inline download-image" (click)="download(img)">
+          <div
+            class="d-inline download-image"
+            (click)="download(img)"
+            [ngClass]="[
+              deleteIcon ? 'delete-icon' : '',
+              complete ? 'complete' : ''
+            ]"
+          >
             <mat-icon>download</mat-icon>
+            <span
+              [class.alreadyDownloaded]="alreadyDownloaded"
+              class="spin circle"
+            ></span>
           </div>
           <div class="background-icon bk-btn-top"></div>
           <div class="before" (click)="beforeImg()">

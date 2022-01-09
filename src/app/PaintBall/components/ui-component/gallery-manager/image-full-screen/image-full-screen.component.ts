@@ -20,6 +20,10 @@ export class ImageFullScreenComponent implements OnInit {
 
   galleryContent: GalleryManager[];
 
+  alreadyDownloaded = false;
+  deleteIcon = false;
+  complete = false;
+
   constructor( private el: ElementRef,
     private saveChangeservice: SaveChangeService,
     private service: ContentDeliveryServiceGalleryPage,
@@ -63,6 +67,9 @@ export class ImageFullScreenComponent implements OnInit {
       this.img = "";
     }, 1000 );
     this.saveChangeservice.emitChange( false );
+    this.alreadyDownloaded = false;
+    this.deleteIcon = false;
+    this.complete = false;
   }
 
   //next and before image on carousel
@@ -126,6 +133,12 @@ export class ImageFullScreenComponent implements OnInit {
   }
 
   download( img: string ) {
-    this.downloadImage.downloadSingleImage( img );
+    this.deleteIcon = true;
+    this.alreadyDownloaded = true;
+
+    setTimeout( () => {
+      this.complete = true;
+      this.downloadImage.downloadSingleImage( img );
+    }, 6000 );
   }
 }
