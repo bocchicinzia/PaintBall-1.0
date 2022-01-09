@@ -1,11 +1,172 @@
-.download-images {
-  bottom: 2%;
-  left: 50%;
+@import "/src/styles/sass-variables";
+@import "/src/styles/media-screen-variables";
+
+.download-btn {
   cursor: pointer;
-  & .mat-icon {
-    font-size: var(--font-icon-extra-large);
-    &:hover {
-      color: var(--red);
-    }
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  bottom: 2%;
+  margin-top: 20px;
+  text-align: center;
+}
+.download {
+  fill: var(--red);
+  stroke: var(--red);
+  stroke-dashoffset: 10%;
+}
+.download--animate {
+  animation: circle-animate-1 2s forwards, circle-animate-2 0.5s 4s forwards;
+}
+.bar {
+  stroke: var(--red);
+}
+.bar--animate {
+  animation-name: bar-animate;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+.btn--icon {
+  transition: 0.3s;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+i {
+  font-size: $fontIconTheme;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100%;
+}
+.btn__arrow {
+  color: var(--white);
+  opacity: 1;
+}
+.btn__arrow--animate {
+  animation-name: arrow-animate;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.btn__stop {
+  color: var(--red);
+  opacity: 0;
+}
+.btn__stop--animate {
+  animation-name: stop-animate;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+.btn__done {
+  color: var(--white);
+  opacity: 0;
+}
+.btn__done--animate {
+  animation-name: done-animate;
+  animation-duration: 1s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+@keyframes arrow-animate {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+}
+@keyframes stop-animate {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+}
+@keyframes done-animate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes circle-animate-1 {
+  0% {
+    fill: var(--red);
+    stroke: var(--red);
+  }
+  100% {
+    fill: transparent;
+    stroke: var(--light-orange);
+  }
+}
+@keyframes circle-animate-2 {
+  0% {
+    fill: transparent;
+    stroke: var(--light-orange);
+  }
+  100% {
+    fill: var(--green-ok);
+    stroke: var(--green-ok);
+  }
+}
+@keyframes bar-animate {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+    stroke-dashoffset: 565px;
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    stroke-dashoffset: 450px;
+  }
+  50% {
+    stroke-dashoffset: 350px;
+  }
+  75% {
+    stroke-dashoffset: 250px;
+  }
+  99% {
+    stroke-dashoffset: 20px;
+    stroke: var(--red);
+  }
+  100% {
+    stroke-dashoffset: 5px;
+    stroke: var(--green-ok);
+  }
+}
+
+@media (max-width: $mobile-small) {
+  svg {
+    width: 80px;
+    height: 80px;
+  }
+  circle {
+    r: 30;
+    cx: 40;
+    cy: 40;
+    stroke-width: 10;
+  }
+  i {
+    font-size: $fontIconThemeSmall;
   }
 }
