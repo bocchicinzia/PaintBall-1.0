@@ -12,6 +12,7 @@ import { PriceComponent } from "../price-page/price.component";
 import { GalleryPageComponent } from "../gallery-page/gallery-page.component";
 import { SaveChangeService } from "../gallery-page/service/save-change.service";
 import { GalleryModule } from "../../components/ui-component/gallery-manager/gallery.module";
+import { ContactsPageComponent } from "../contacts-page/contacts-page.component";
 
 @NgModule( {
   declarations: [
@@ -30,6 +31,7 @@ import { GalleryModule } from "../../components/ui-component/gallery-manager/gal
 } )
 export class MasterDetailModule {
   public static component = [
+    ContactsPageComponent,
     GalleryPageComponent,
     PriceComponent,
     HomePageComponent,
