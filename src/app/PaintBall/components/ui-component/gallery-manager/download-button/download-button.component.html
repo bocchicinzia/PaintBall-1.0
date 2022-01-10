@@ -1,39 +1,47 @@
-<div class="download-btn" (click)="download()">
-  <div class="btn__circle">
-    <svg width="100" height="100">
-      <circle
-        r="40"
-        cx="50"
-        cy="50"
-        class="download"
-        stroke-width="10"
-        [class.download--animate]="downloadAnimate"
-      ></circle>
-      <circle
-        class="bar"
-        stroke-width="10"
-        r="40"
-        cx="50"
-        cy="50"
-        fill="transparent"
-        stroke="red"
-        stroke-dasharray="565.48"
-        stroke-dashoffset="565.48"
-        [class.bar--animate]="barAnimate"
-      ></circle>
-    </svg>
-  </div>
+<ng-container *ngIf="galleryContent">
+  <div class="download-btn" (click)="download()">
+    <div class="btn__circle">
+      <svg width="100" height="100">
+        <circle
+          r="40"
+          cx="50"
+          cy="50"
+          class="download"
+          stroke-width="10"
+          [class.download--animate]="downloadAnimate"
+        ></circle>
+        <circle
+          class="bar"
+          stroke-width="10"
+          r="40"
+          cx="50"
+          cy="50"
+          fill="transparent"
+          stroke="red"
+          stroke-dasharray="565.48"
+          stroke-dashoffset="565.48"
+          [class.bar--animate]="barAnimate"
+        ></circle>
+      </svg>
+    </div>
 
-  <div
-    class="btn__arrow btn--icon"
-    [class.btn__arrow--animate]="btnArrowAnimate"
-  >
-    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+    <div
+      class="btn__arrow btn--icon"
+      [class.btn__arrow--animate]="btnArrowAnimate"
+    >
+      <i class="fa fa-arrow-down" aria-hidden="true"></i>
+    </div>
+    <div
+      class="btn__stop btn--icon"
+      [class.btn__stop--animate]="btnStopAnimate"
+    >
+      <i class="fa fa-pause" aria-hidden="true"></i>
+    </div>
+    <div
+      class="btn__done btn--icon"
+      [class.btn__done--animate]="btnDoneAnimate"
+    >
+      <i class="fa fa-check" aria-hidden="true"></i>
+    </div>
   </div>
-  <div class="btn__stop btn--icon" [class.btn__stop--animate]="btnStopAnimate">
-    <i class="fa fa-pause" aria-hidden="true"></i>
-  </div>
-  <div class="btn__done btn--icon" [class.btn__done--animate]="btnDoneAnimate">
-    <i class="fa fa-check" aria-hidden="true"></i>
-  </div>
-</div>
+</ng-container>

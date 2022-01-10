@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as JSZip from 'jszip';
 import { saveAs } from 'file-saver';
+import { forkJoin } from 'rxjs';
 @Injectable( {
   providedIn: 'root'
 } )
@@ -28,20 +29,26 @@ export class DownloadService {
     } );
   }
 
+  getRequests: any[];
 
-  downloadAllImages( urlImage: string[] ) {
-    let count = 0;
-    const zip = new JSZip();
-    let img = zip.folder( 'images' );
-    urlImage.forEach( ( url ) => {
-      console.log( url );
-      const fileName = `image ${count}.png`;
-      img?.file( fileName, url, { base64: false } );
-      count++;
-    } )
+  downloadZip( images: string[] ) {
+    this.getRequests = [];
+    this.createGetRequets( images );
 
-    zip.generateAsync( { type: 'blob' } ).then( ( content ) => {
-      saveAs( content, 'images.zip' )
-    } )
+    forkJoin( ...this.getRequests ).subscribe( ( res ) => {
+      const zip = new JSZip();
+
+      res.forEach( ( f: any, i: any ) => {
+        zip.file( `image ${i}.png`, f );
+      } );
+
+      zip.generateAsync( { type: 'blob' } )
+        .then( blob => saveAs( blob, 'images.zip' ) );
+    } );
   }
+
+  private createGetRequets( data: string[] ) {
+    data.forEach( url => this.getRequests.push( this.http.get( url, { responseType: 'blob' } ) ) );
+  }
+
 }

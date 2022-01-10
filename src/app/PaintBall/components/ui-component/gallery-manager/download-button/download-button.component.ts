@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
 import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.service';
 import { DownloadService } from './service/download.service';
@@ -11,10 +12,18 @@ import { DownloadService } from './service/download.service';
 export class DownloadButtonComponent implements OnInit {
   galleryContent: string[];
 
+  downloadAnimate = false;
+  barAnimate = false;
+  btnArrowAnimate = false;
+  btnStopAnimate = false;
+  btnDoneAnimate = false;
+
+  unsubscription: Subscription;
+
   constructor( private serviceDownload: DownloadService,
     private saveChangeservice: SaveChangeService,
-    private service: ContentDeliveryServiceGalleryPage,
-    private el: ElementRef ) {
+    private service: ContentDeliveryServiceGalleryPage
+  ) {
     this.saveChangeservice.changeEmittedString$.subscribe( change => this.getImages( change ) );
   }
 
@@ -23,13 +32,12 @@ export class DownloadButtonComponent implements OnInit {
   }
 
   private getImages( attr: string ) {
-    this.service.getAllImages( attr ).subscribe( res => this.galleryContent = res.map( path => path.path ) );
+    this.unsubscription = this.service.getAllImages( attr ).subscribe( res => this.galleryContent = res.map( path => path.path ) );
   }
-  downloadAnimate = false;
-  barAnimate = false;
-  btnArrowAnimate = false;
-  btnStopAnimate = false;
-  btnDoneAnimate = false;
+
+  ngOnDestroy(): void {
+    this.unsubscription.unsubscribe();
+  }
 
   download() {
 
@@ -41,7 +49,7 @@ export class DownloadButtonComponent implements OnInit {
 
     if ( this.downloadAnimate ) {
       setTimeout( () => {
-        this.serviceDownload.downloadAllImages( this.galleryContent );
+        this.serviceDownload.downloadZip( this.galleryContent );
       }, 3000 );
     }
   }
