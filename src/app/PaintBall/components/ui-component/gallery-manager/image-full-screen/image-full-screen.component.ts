@@ -136,9 +136,11 @@ export class ImageFullScreenComponent implements OnInit {
     this.deleteIcon = true;
     this.alreadyDownloaded = true;
 
-    setTimeout( () => {
-      this.complete = true;
-      this.downloadImage.downloadSingleImage( img );
-    }, 6000 );
+    if ( !this.complete ) {
+      setTimeout( () => {
+        this.complete = true;
+        this.downloadImage.downloadSingleImage( img );
+      }, 6000 );
+    }
   }
 }
