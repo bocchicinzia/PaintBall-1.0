@@ -1,11 +1,9 @@
 <div class="simple-card" *ngIf="model as m" [class.card-with-img]="m.urlImg">
   <mat-card>
     <mat-card-title-group>
-      <mat-card-title
-        ><p>{{ m.title }}</p>
-      </mat-card-title>
+      <mat-card-title><p [innerHTML]="m.title"></p> </mat-card-title>
       <mat-card-subtitle>
-        <p>{{ m.category }}</p>
+        <p [innerHTML]="m.category"></p>
       </mat-card-subtitle>
       <div [class.img-background]="m.urlBackground" [hidden]="!m.urlBackground">
         <img [src]="m.urlBackground" />
@@ -17,9 +15,8 @@
           class="description animate__animated"
           *ngFor="let desc of m.description; let i = index"
           [class.active-description]="m.urlImg"
-        >
-          {{ desc }}
-        </p>
+          [innerHTML]="desc"
+        ></p>
       </div>
       <div [class.img-inline]="m.urlImg" [hidden]="!m.urlImg">
         <swiper

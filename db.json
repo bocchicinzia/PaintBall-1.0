@@ -20,9 +20,9 @@
   "card": [
     {
       "category": "PaintBall",
-      "title": "Piccola descrizione della nostra attivià",
+      "title": "INTRODUZIONE",
       "description": [
-        "What all of these have in common is that they're pulling information out of the app or the service and making it relevant to the moment.What all of these have in common is that they're pulling information out of the app or the service and making it relevant to the moment. What all of these have in common is that they're pulling information out of the app or the service and making it relevant to the moment."
+        "L'adrenalina ed il ritmo veloce uniti all’entusiasmo dei partecipanti rendono il Paintball una eccelente esperienza di gioco di squadra.Per vincere,nel Paintball ,i componenti del team devono lavorare insieme,rispettare i propri ruoli in campo, cordinarsi, communicare , correre dei rischi e sacrificarsi per il bene della squadra.In sostanza questi sono i valori che trasformano un gruppo di persone in una squadra vincente.Il nostro campo e progettato e costruito per dare atutti voi oppurtunità,non solo di giocare,ma di vivere una vera e propria esperienza di squadra."
       ],
       "urlBackground": [
         "https://material.angular.io/assets/img/examples/shiba2.jpg"
@@ -30,11 +30,11 @@
     },
     {
       "category": "PaintBall",
-      "title": "Piccola descrizione della nostra attivià",
+      "title": "Piccola descrizione e la storia della nostra attivià",
       "description": [
-        "What all of these have in common is that they're pulling information out of the app or the service and making it relevant to the moment. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type andscrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing",
-        "What all of these have in common is that they're pulling information out of the app or the service and making it relevant to the moment.",
-        "hahhhhhhhhhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhh hhhhhhhhhh hhhhhaaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaaaaahhhh"
+        "Ideato nel 1981 da Hayes Noel, Bob Gurnsey e Charles Gaines, fu giocato per la prima volta nel New Hampshire usando una pistola a vernice per segnare gli alberi. Il paintball è diventato rapidamente popolare, specialmente negli USA e ha raccolto una folta schiera di partecipanti in tutto il mondo.",
+        "l paintball è un gioco che ha lo scopo, nei casi più comuni, di conquistare la base avversaria (push the button) oppure di eliminare l'avversario colpendolo con delle palline , riempite di vernice, sparate mediante apposite attrezzature ad aria compressa chiamati marker (marcatori). Data l’alta velocità con cui viene sparata la pallina, la capsula si rompe con l'impatto sugli avversari, rilasciando il contenuto della paintball sugli abiti o sul marcatore eliminando la persona marcata. Contrassegnato una volta da una paintball, un giocatore è eliminato. Questo sport viene regolarmente praticato anche a livello agonistico in competizioni, tornei e campionati in tutto il mondo. Le paline sono totalmente biodegradabili, atossiche ed ecocompatibili.",
+        "Tutto quello che ti serve per giocare a Paintball te lo fornisce la nostra associazione ed è compreso nel prezzo dell’affitto del campo da gioco. Per tua comodità però ti consigliamo di venire vestito in maniera adeguata. Ecco cosa ti consigliamo :<br><br> <strong>Felpa o maglia a maniche lunghe.</strong><br><br> <strong>In alternativa una tuta da ginnastica.</strong><br><br> <strong>Un paio di scarpe da ginnastica comode.</strong><br><br> <strong>Pantaloni lunghi.</strong>"
       ],
       "urlImg": [
         "https://material.angular.io/assets/img/examples/shiba2.jpg",
