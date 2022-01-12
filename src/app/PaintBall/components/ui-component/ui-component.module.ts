@@ -26,6 +26,7 @@ import { CarouselComponent } from "./carousel/carousel.component";
 import { HeaderComponent } from "./header/header.component";
 import { CardPriceComponent } from './card-price/card-price.component';
 import { TabComponent } from './tab/tab.component';
+import { TabContactsComponent } from './tab-contacts/tab-contacts.component';
 
 @NgModule( {
   declarations: [
@@ -47,6 +48,7 @@ import { TabComponent } from './tab/tab.component';
 } )
 export class UIComponentsModule {
   public static components = [
+    TabContactsComponent,
     TabComponent,
     CardPriceComponent,
     FooterComponent,
