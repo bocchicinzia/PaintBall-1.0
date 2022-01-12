@@ -208,12 +208,12 @@ app-navbar {
 }
 
 // price-card animation border on active tab
-.mat-tab-label {
+.tab-price-card .mat-tab-label {
   border-left: 0;
   border-right: 0;
 }
 
-.mat-tab-label-active {
+.tab-price-card .mat-tab-label-active {
   border-left: 2px solid;
   border-right: 2px solid;
   opacity: 1 !important;
@@ -236,27 +236,27 @@ app-navbar {
 }
 
 //size and color tab label
-.darkMode .mat-tab-label-active {
+.darkMode .tab-price-card .mat-tab-label-active {
   opacity: 1;
   & .mat-tab-label-content {
     color: var(--red);
   }
 }
-.mat-tab-label-content {
+.tab-price-card .mat-tab-label-content {
   font-size: $fontMedium;
   color: var(--black);
 }
-.darkMode .mat-tab-label-content {
+.darkMode .tab-price-card .mat-tab-label-content {
   color: var(--white);
 }
-.mat-tab-group.mat-primary .mat-ink-bar,
-.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+.tab-price-card .mat-tab-group.mat-primary .mat-ink-bar,
+.tab-price-card .mat-tab-nav-bar.mat-primary .mat-ink-bar {
   background-color: var(--black) !important;
   position: absolute;
   top: 0;
 }
-.darkMode .mat-tab-group.mat-primary .mat-ink-bar,
-.darkMode .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+.darkMode .tab-price-card .mat-tab-group.mat-primary .mat-ink-bar,
+.darkMode .tab-price-card .mat-tab-nav-bar.mat-primary .mat-ink-bar {
   background-color: var(--white) !important;
 }
 
@@ -309,4 +309,33 @@ app-navbar {
 .darkMode .swing:focus ~ .search-images,
 .darkMode .swing:active ~ .search-images {
   box-shadow: var(--box-shadow-very-clear-darkMode) !important;
+}
+
+//tab group contacts
+#contacts-tab-group {
+  position: relative;
+  top: 50px;
+  margin-top: 50px;
+  margin-bottom: 20%;
+  padding: 3%;
+
+  .mat-ripple {
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50%;
+    margin: 1% 3%;
+  }
+}
+#contacts-tab-group .mat-tab-label {
+  color: transparent !important;
+  transition: 1s ease-out;
+  transform: scale(0.8);
+  opacity: 0.4;
+  &.mat-tab-label-active {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+#contacts-tab-group mat-ink-bar.mat-ink-bar {
+  visibility: hidden !important;
 }
