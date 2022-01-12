@@ -1,0 +1,25 @@
+.mat-tab-label {
+  transition: 1s ease-out;
+  transform: scale(0.8);
+  opacity: 0.8;
+  &.mat-tab-label-active {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.image-contact {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  & img {
+    vertical-align: middle;
+    border-style: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--orange);
+  }
+}
