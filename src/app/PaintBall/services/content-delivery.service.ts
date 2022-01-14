@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ContactsPageModel } from '../pages/contacts-page/contacts-page-model';
 import { HomePageModel } from '../pages/home-page/home-page.model';
 import { PricePageModel } from '../pages/price-page/price-page.model';
 
@@ -38,5 +39,18 @@ export class ContentDeliveryService {
 
   private contentMapperPricePage( json: any, className: string ) {
     return new PricePageModel( json, className );
+  }
+
+  //contacts page
+  getAllContentContactsPage( projectId: string, className: string ): Observable<ContactsPageModel> {
+    return this.http.get<ContactsPageModel>( this.url + projectId ).pipe(
+      map( res => {
+        return this.contentMapperContactsPage( res, className );
+      } )
+    );
+  }
+
+  private contentMapperContactsPage( json: any, className: string ) {
+    return new ContactsPageModel( json, className );
   }
 }
