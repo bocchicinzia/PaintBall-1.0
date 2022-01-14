@@ -1,16 +1,46 @@
-<mat-card class="example-card">
+<mat-card class="card-contact" *ngIf="content as c">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>CONTATTI</mat-card-title>
     <mat-card-subtitle>Paintball</mat-card-subtitle>
   </mat-card-header>
+  <hr class="hr-horizontal" />
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz
-      breeds of dog from Japan. A small, agile dog that copes very well with
-      mountainous terrain, the Shiba Inu was originally bred for hunting.
-    </p>
+    <div class="d-flex justify-content-around mt-4 mb-4">
+      <div class="m-4 phone" *ngFor="let i of content">
+        <div class="icon text-center mb-4">
+          <mat-icon>{{ i.icon }}</mat-icon>
+        </div>
+        <div class="content text-center">
+          <a href="tel:'{{ i.content }}'">
+            <p>{{ i.content }}</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- <div class="m-4 email" *ngFor="let cont of c.contentCard">
+        <div class="icon text-center mb-4">
+          <mat-icon>{{ cont.icon }}</mat-icon>
+        </div>
+        <div class="content text-center">
+          <a href="tel:'{{ cont.content }}'">
+            <p>{{ cont.content }}</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="m-4 location" *ngFor="let cont of c.contentCard">
+        <div class="icon text-center mb-4">
+          <mat-icon>{{ cont.icon }}</mat-icon>
+        </div>
+        <div class="content text-center">
+          <a href="tel:'{{ cont.content }}'">
+            <p>{{ cont.content }}</p>
+          </a>
+        </div>
+      </div> -->
+    </div>
   </mat-card-content>
+  <hr class="hr-horizontal" />
   <mat-card-actions>
     <button mat-button>LIKE</button>
     <button mat-button>SHARE</button>

@@ -1,0 +1,26 @@
+.card-contact {
+  box-shadow: var(--shadow-card-description-lightMode);
+  padding: 30px;
+  margin-left: 17%;
+  margin-right: 17%;
+  margin-top: 5%;
+  margin-bottom: 8%;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -26px;
+    left: 0;
+    border-style: solid;
+    border-width: 27px 50px 0;
+    border-color: var(--white) transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    transform: scaleY(-1);
+  }
+  & .mat-icon {
+    font-size: var(--font-icon-theme);
+  }
+}
