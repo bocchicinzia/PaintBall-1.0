@@ -1,5 +1,8 @@
 <div class="container" id="contacts-tab-group">
-  <mat-tab-group mat-align-tabs="center">
+  <mat-tab-group
+    mat-align-tabs="center"
+    (selectedIndexChange)="selectedIndex($event)"
+  >
     <mat-tab *ngFor="let c of content">
       <ng-template mat-tab-label>
         <div
@@ -11,7 +14,10 @@
           <img [src]="c.path" [alt]="c.alt" />
         </div>
       </ng-template>
-      <app-card-contact></app-card-contact>
     </mat-tab>
   </mat-tab-group>
+  <app-card-contact
+    [selectedIndex]="selectedIndexChange"
+    [cardContents]="cardContents"
+  ></app-card-contact>
 </div>
