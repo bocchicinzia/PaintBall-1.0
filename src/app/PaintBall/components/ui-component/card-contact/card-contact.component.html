@@ -11,35 +11,21 @@
           <mat-icon>{{ content[selectedIndex][i].icon }}</mat-icon>
         </div>
         <div class="content text-center">
-          <a href="tel:'{{ content[selectedIndex][i].content }}'">
+          <a
+            href="{{
+              (content[selectedIndex][i].icon === 'phonelink_ring'
+                ? 'tel:'
+                : '' || content[selectedIndex][i].icon === 'alternate_email'
+                ? 'mailto:'
+                : '') + content[selectedIndex][i].content
+            }}"
+          >
             <p>
               {{ content[selectedIndex][i].content }}
             </p>
           </a>
         </div>
       </div>
-
-      <!-- <div class="m-4 email" *ngFor="let cont of c.contentCard">
-        <div class="icon text-center mb-4">
-          <mat-icon>{{ cont.icon }}</mat-icon>
-        </div>
-        <div class="content text-center">
-          <a href="tel:'{{ cont.content }}'">
-            <p>{{ cont.content }}</p>
-          </a>
-        </div>
-      </div>
-
-      <div class="m-4 location" *ngFor="let cont of c.contentCard">
-        <div class="icon text-center mb-4">
-          <mat-icon>{{ cont.icon }}</mat-icon>
-        </div>
-        <div class="content text-center">
-          <a href="tel:'{{ cont.content }}'">
-            <p>{{ cont.content }}</p>
-          </a>
-        </div>
-      </div> -->
     </div>
   </mat-card-content>
   <hr class="hr-horizontal" />
