@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ContactsPageModel } from 'src/app/PaintBall/pages/contacts-page/contacts-page-model';
 import { CardContact } from './card-contact-model.class';
 
@@ -11,17 +11,20 @@ import { CardContact } from './card-contact-model.class';
 export class CardContactComponent implements OnInit {
   @Input() selectedIndex: number;
   @Input() cardContents: Observable<ContactsPageModel>;
-  content: CardContact[];
+  content: any[];
+  unsubscription: Subscription;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.cardContents.subscribe( res => {
+    this.unsubscription = this.cardContents.subscribe( res => {
       this.content = res.contentCard
-      console.log( this.content );
     } );
-
     this.selectedIndex = 0;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscription.unsubscribe();
   }
 
 }

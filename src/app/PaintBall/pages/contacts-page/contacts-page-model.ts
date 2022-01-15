@@ -19,16 +19,6 @@ export class ContactsPageModel {
 
       case 'card-contacts':
         this.contentCard = json.map( ( content: CardContact[] ) => {
-          console.log( content );
-
-          // for ( let i = 0; i < content.length; i++ ) {
-          //   console.log( content );
-
-          //   return {
-          //     icon: content[i].icon,
-          //     content: content[i].content,
-          //   }
-          // }
           return content;
         } );
         break;

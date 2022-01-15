@@ -1,4 +1,4 @@
-<mat-card class="card-contact" *ngIf="content as c">
+<mat-card class="card-contact" *ngIf="content">
   <mat-card-header>
     <mat-card-title>CONTATTI</mat-card-title>
     <mat-card-subtitle>Paintball</mat-card-subtitle>
@@ -6,13 +6,15 @@
   <hr class="hr-horizontal" />
   <mat-card-content>
     <div class="d-flex justify-content-around mt-4 mb-4">
-      <div class="m-4 phone" *ngFor="let i of content">
+      <div class="m-4 phone" *ngFor="let c of content; let i = index">
         <div class="icon text-center mb-4">
-          <mat-icon>{{ i.icon }}</mat-icon>
+          <mat-icon>{{ content[selectedIndex][i].icon }}</mat-icon>
         </div>
         <div class="content text-center">
-          <a href="tel:'{{ i.content }}'">
-            <p>{{ i.content }}</p>
+          <a href="tel:'{{ content[selectedIndex][i].content }}'">
+            <p>
+              {{ content[selectedIndex][i].content }}
+            </p>
           </a>
         </div>
       </div>
