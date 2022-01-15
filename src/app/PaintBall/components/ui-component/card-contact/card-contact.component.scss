@@ -23,4 +23,7 @@
   & .mat-icon {
     font-size: var(--font-icon-theme);
   }
+  & .content {
+    animation-duration: 1s;
+  }
 }

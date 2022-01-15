@@ -6,11 +6,11 @@
   <hr class="hr-horizontal" />
   <mat-card-content>
     <div class="d-flex justify-content-around mt-4 mb-4">
-      <div class="m-4 phone" *ngFor="let c of content; let i = index">
+      <div class="m-4" *ngFor="let c of content; let i = index">
         <div class="icon text-center mb-4">
           <mat-icon>{{ content[selectedIndex][i].icon }}</mat-icon>
         </div>
-        <div class="content text-center">
+        <div class="content text-center animate__animated animate__zoomIn">
           <a
             href="{{
               (content[selectedIndex][i].icon === 'phonelink_ring'

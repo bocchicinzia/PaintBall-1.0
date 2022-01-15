@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ContactsPageModel } from 'src/app/PaintBall/pages/contacts-page/contacts-page-model';
-import { CardContact } from './card-contact-model.class';
 
 @Component( {
   selector: 'app-card-contact',
@@ -9,18 +8,31 @@ import { CardContact } from './card-contact-model.class';
   styleUrls: ['./card-contact.component.scss']
 } )
 export class CardContactComponent implements OnInit {
+
   @Input() selectedIndex: number;
   @Input() cardContents: Observable<ContactsPageModel>;
   content: any[];
   unsubscription: Subscription;
 
-  constructor() {}
+  constructor( private el: ElementRef ) {}
 
   ngOnInit(): void {
     this.unsubscription = this.cardContents.subscribe( res => {
-      this.content = res.contentCard
+      this.content = res.contentCard;
     } );
     this.selectedIndex = 0;
+  }
+
+  ngOnChanges( changes: SimpleChanges ): void {
+    let animate = this.el.nativeElement.querySelectorAll( '.content' );
+    if ( changes.selectedIndex ) {
+      animate.forEach( ( element: any ) => {
+        element.classList.remove( 'animate__zoomIn' );
+        setTimeout( () => {
+          element.classList.add( 'animate__zoomIn' );
+        }, 0 );
+      } );
+    }
   }
 
   ngOnDestroy(): void {
