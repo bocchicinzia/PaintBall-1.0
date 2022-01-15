@@ -331,28 +331,22 @@ app-navbar {
   box-shadow: var(--box-shadow-very-clear-darkMode) !important;
 }
 
-//tab group contacts
-// .mat-tab-body-content {
-//   height: 100%;
-//   overflow: hidden !important;
-// }
+//contacts page
 #contacts-tab-group {
   position: relative;
   top: 50px;
   margin-top: 50px;
-  margin-bottom: 20%;
+  margin-bottom: 10%;
   padding: 3%;
   & .mat-tab-body-wrapper {
     display: none;
   }
+
   & .mat-tab-nav-bar,
   & .mat-tab-header {
     border-bottom: none;
   }
-  // & .mat-tab-body {
-  //   padding: 0 50px 50px;
-  //   margin: 0;
-  // }
+
   & .mat-ripple {
     width: 200px !important;
     height: 200px !important;
