@@ -29,6 +29,7 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "animate.css": "^4.1.1",
     "bootstrap": "^4.5.0",
+    "file-saver": "^2.0.5",
     "font-awesome": "^4.7.0",
     "jszip": "^3.7.1",
     "rxjs": "~6.6.0",
@@ -37,7 +38,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.2.8",
+    "@angular-devkit/build-angular": "^12.2.8",
     "@angular/cli": "~12.2.8",
     "@angular/compiler-cli": "~12.2.0",
     "@types/file-saver": "^2.0.4",
