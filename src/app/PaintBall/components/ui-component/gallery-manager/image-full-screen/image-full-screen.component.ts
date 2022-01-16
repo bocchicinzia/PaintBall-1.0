@@ -74,6 +74,9 @@ export class ImageFullScreenComponent implements OnInit {
 
   //next and before image on carousel
   nextImg() {
+    this.alreadyDownloaded = false;
+    this.deleteIcon = false;
+    this.complete = false;
     if ( this.count < this.galleryContent.length - 1 ) {
       this.animationComponent( 'showNextImg' );
       this.count++;
@@ -92,6 +95,9 @@ export class ImageFullScreenComponent implements OnInit {
   }
 
   beforeImg() {
+    this.alreadyDownloaded = false;
+    this.deleteIcon = false;
+    this.complete = false;
     if ( this.count > 0 ) {
       this.animationComponent( 'showNextImg' );
       this.count--;

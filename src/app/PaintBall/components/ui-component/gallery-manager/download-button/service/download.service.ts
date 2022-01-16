@@ -22,7 +22,6 @@ export class DownloadService {
 
   downloadSingleImage( urlImage: string ) {
     this.http.get( urlImage, { responseType: 'blob' } ).subscribe( val => {
-      console.log( val );
       const url = URL.createObjectURL( val );
       this.downloadUrl( url, 'image.png' );
       URL.revokeObjectURL( url );
