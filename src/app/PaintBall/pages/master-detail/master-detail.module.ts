@@ -16,6 +16,7 @@ import { ContactsPageComponent } from "../contacts-page/contacts-page.component"
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from "src/environments/environment";
+import { BookNowPageComponent } from "../book-now-page/book-now-page.component";
 import { FeedbackManagerModule } from "../../components/ui-component/feedback/feedback-manager.module";
 
 @NgModule( {
@@ -38,6 +39,7 @@ import { FeedbackManagerModule } from "../../components/ui-component/feedback/fe
 } )
 export class MasterDetailModule {
   public static component = [
+    BookNowPageComponent,
     ContactsPageComponent,
     GalleryPageComponent,
     PriceComponent,
