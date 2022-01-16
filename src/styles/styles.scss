@@ -376,3 +376,12 @@ app-navbar {
     border-color: var(--background) transparent !important;
   }
 }
+@media (max-width: $mobile-big) {
+  #contacts-tab-group .mat-ripple {
+    width: 110px !important;
+    height: 110px !important;
+    &.mat-tab-header-pagination {
+      display: none;
+    }
+  }
+}

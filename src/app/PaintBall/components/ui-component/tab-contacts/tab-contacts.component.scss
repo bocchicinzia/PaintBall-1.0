@@ -1,3 +1,5 @@
+@import "/src/styles/media-screen-variables";
+
 .mat-tab-label {
   transition: 1s ease-out;
   transform: scale(0.8);
@@ -21,5 +23,11 @@
     object-fit: cover;
     border-radius: 50%;
     border: 5px solid var(--orange);
+  }
+}
+
+@media (max-width: $mobile-big) {
+  #contacts-tab-group {
+    max-width: 100%;
   }
 }

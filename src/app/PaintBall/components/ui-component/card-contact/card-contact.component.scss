@@ -1,22 +1,4 @@
-// $pos: 8%;
-// @mixin direction($className) {
-//   @if $className == left {
-//     $pos: 8%;
-//   } @else if $className == right {
-//     $pos: 92%;
-//   } @else if $className == center {
-//     $pos: 50%;
-//   }
-// }
-// .card-contact.left {
-//   @include direction(left);
-// }
-// .card-contact.right {
-//   @include direction(right);
-// }
-// .card-contact.center {
-//   @include direction(center);
-// }
+@import "/src/styles/media-screen-variables";
 
 .card-contact {
   box-shadow: var(--shadow-card-description-lightMode);
@@ -52,5 +34,44 @@
   }
   & .content {
     animation-duration: 1s;
+  }
+}
+
+@media (max-width: $laptop) {
+  .card-contact {
+    margin-left: 16%;
+    margin-right: 16%;
+  }
+}
+
+@media (max-width: $tablet) {
+  .card-contact {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media (max-width: $mobile-big) {
+  .card-contact {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media (max-width: $mobile-small) {
+  .card-contact {
+    margin-top: 10%;
+    margin-left: 4%;
+    margin-right: 4%;
+    & .mat-card-content .d-flex {
+      justify-content: space-between !important;
+      flex-direction: column;
+    }
+    & .m-4 {
+      margin: 0 !important;
+      & .mat-icon {
+        font-size: var(--font-icon-theme-extraSmall);
+      }
+    }
   }
 }
