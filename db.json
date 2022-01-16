@@ -15,6 +15,10 @@
     {
       "label": "Contatti",
       "path": "contatti"
+    },
+    {
+      "label": "Prenota ora",
+      "path": "prenota"
     }
   ],
   "card": [
