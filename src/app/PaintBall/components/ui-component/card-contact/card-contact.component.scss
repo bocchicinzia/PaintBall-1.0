@@ -33,6 +33,7 @@
     font-size: var(--font-icon-theme);
   }
   & .content {
+    cursor: pointer;
     animation-duration: 1s;
   }
 }

@@ -19,19 +19,32 @@
           <mat-icon>{{ content[selectedIndex][i].icon }}</mat-icon>
         </div>
         <div class="content text-center animate__animated animate__zoomIn">
-          <a
-            href="{{
-              (content[selectedIndex][i].icon === 'phonelink_ring'
-                ? 'tel:'
-                : '' || content[selectedIndex][i].icon === 'alternate_email'
-                ? 'mailto:'
-                : '') + content[selectedIndex][i].content
-            }}"
+          <ng-container
+            *ngIf="
+              content[selectedIndex][i].icon === 'phonelink_ring' ||
+              content[selectedIndex][i].icon === 'alternate_email'
+            "
           >
-            <p>
-              {{ content[selectedIndex][i].content }}
-            </p>
-          </a>
+            <a
+              href="{{
+                (content[selectedIndex][i].icon === 'phonelink_ring'
+                  ? 'tel:'
+                  : 'mailto:') + content[selectedIndex][i].content
+              }}"
+            >
+              <p>
+                {{ content[selectedIndex][i].content }}
+              </p>
+            </a>
+          </ng-container>
+
+          <ng-container *ngIf="content[selectedIndex][i].icon === 'pin_drop'">
+            <a (click)="viewPortScroller()">
+              <p>
+                {{ content[selectedIndex][i].content }}
+              </p>
+            </a>
+          </ng-container>
         </div>
       </div>
     </div>

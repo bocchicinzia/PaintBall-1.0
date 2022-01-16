@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ContactsPageModel } from 'src/app/PaintBall/pages/contacts-page/contacts-page-model';
 
@@ -39,4 +39,7 @@ export class CardContactComponent implements OnInit {
     this.unsubscription.unsubscribe();
   }
 
+  viewPortScroller() {
+    window.scrollTo( 0, document.body.scrollHeight );
+  }
 }
