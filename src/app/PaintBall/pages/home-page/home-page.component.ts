@@ -25,6 +25,7 @@ export class HomePageComponent implements OnInit, ContentMapper<HomePageModel>{
 
   constructor( private contentDeleveryService: ContentDeliveryService ) {}
 
+
   ngOnInit(): void {
     this.cardSub = this.contentDeleveryService.get( 'card', 'card', this ).subscribe( res => this.cardDescription = res );
     this.carousel = this.contentDeleveryService.get( 'carousel', 'carousel', this ).subscribe( res => this.imgUrl = res.carousel );
@@ -35,7 +36,6 @@ export class HomePageComponent implements OnInit, ContentMapper<HomePageModel>{
   map( json: any, className: string ) {
     return new HomePageModel( json, className );
   }
-
 
   ngOnDestroy(): void {
     this.cardSub.unsubscribe();
