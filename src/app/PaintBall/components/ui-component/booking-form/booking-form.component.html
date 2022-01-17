@@ -1,0 +1,85 @@
+<div class="container text-center custom-container">
+  <form [formGroup]="form">
+    <div class="d-flex justify-content-around">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Nome" formControlName="firstname" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cognome</mat-label>
+        <input matInput placeholder="Cognome" formControlName="lastName" />
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-around">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Telefono</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Telefono"
+          formControlName="phone"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-around">
+      <mat-form-field appearance="outline">
+        <mat-label>Numero giocatori</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Numero totale giocatori"
+          formControlName="numGaming"
+        />
+      </mat-form-field>
+      <mat-form-field class="dateTime">
+        <input
+          matInput
+          type="datetime-local"
+          placeholder="Data e ora prenotazione"
+          formControlName="dateTime"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-around">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome Squadra 1</mat-label>
+        <input
+          matInput
+          placeholder="Nome Squadra 1"
+          formControlName="firstNameTeam"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nome Squadra 2</mat-label>
+        <input
+          matInput
+          placeholder="Nome Squadra 2"
+          formControlName="secondNameTeam"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-center message">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Lascia un messaggio</mat-label>
+        <textarea
+          matInput
+          placeholder="Scrivimi un messaggio"
+          formControlName="message"
+          [cols]="70"
+          [rows]="10"
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+  <button (click)="send()">Invia</button>
+</div>

@@ -27,10 +27,11 @@ import { CarouselComponent } from "./carousel/carousel.component";
 import { HeaderComponent } from "./header/header.component";
 import { CardPriceComponent } from './card-price/card-price.component';
 import { TabComponent } from './tab/tab.component';
-import { TabContactsComponent } from './tab-contacts/tab-contacts.component';
 import { CardContactComponent } from './card-contact/card-contact.component';
-import { MapsComponent } from './maps/maps.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
+import { BookingFormComponent } from './booking-form/booking-form.component';
+import { MapsComponent } from "./maps/maps.component";
+import { TabContactsComponent } from "./tab-contacts/tab-contacts.component";
 
 @NgModule( {
   declarations: [
@@ -53,6 +54,7 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 export class UIComponentsModule {
   public static components = [
     ScrollToTopComponent,
+    BookingFormComponent,
     MapsComponent,
     CardContactComponent,
     TabContactsComponent,
