@@ -1,4 +1,4 @@
-<div class="container tab-price-card" *ngIf="cardPrice.length">
+<div class="container tab-price-card custom-container" *ngIf="cardPrice.length">
   <mat-tab-group mat-stretch-tabs>
     <mat-tab *ngFor="let c of cardPrice" label="{{ c.price }} &euro;">
       <app-card-price [cardPrice]="c"></app-card-price>
