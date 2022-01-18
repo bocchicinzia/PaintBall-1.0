@@ -1,4 +1,3 @@
-@import "/src/styles/sass-variables";
 @import "/src/styles/media-screen-variables";
 
 //show image full display
@@ -51,7 +50,7 @@
       cursor: pointer;
       z-index: 3;
       & .mat-icon {
-        font-size: $fontIconThemeExtraLarge;
+        font-size: var(--font-icon-extra-large);
         width: auto;
         height: auto;
         padding: 5px;
@@ -68,7 +67,7 @@
       cursor: pointer;
       z-index: 3;
       & .mat-icon {
-        font-size: $fontIconThemeExtraLarge;
+        font-size: var(--font-icon-extra-large);
         width: auto;
         height: auto;
         padding: 5px;
@@ -87,7 +86,7 @@
       z-index: 3;
       & .mat-icon {
         display: block;
-        font-size: $fontIconThemeExtraLarge;
+        font-size: var(--font-icon-extra-large);
         width: auto;
         height: auto;
         padding: 7px;
@@ -138,13 +137,13 @@
       & .close {
         top: 2%;
         & .mat-icon {
-          font-size: $fontIconThemeSmall;
+          font-size: var(--font-icon-theme-small);
         }
       }
       & .download-image {
         top: 2%;
         & .mat-icon {
-          font-size: $fontIconThemeSmall;
+          font-size: var(--font-icon-theme-small);
         }
       }
       & .delete-icon.complete {
@@ -152,17 +151,17 @@
         height: 37px !important;
       }
       & .delete-icon::after {
-        font-size: $fontIconThemeSmall;
+        font-size: var(--font-icon-theme-small);
       }
 
       & .delete-icon.complete::after {
-        font-size: $fontIconThemeSmall;
+        font-size: var(--font-icon-theme-small);
       }
       & .before,
       & .next {
         bottom: 2%;
         & .mat-icon {
-          font-size: $fontIconThemeSmall;
+          font-size: var(--font-icon-theme-small);
         }
       }
       & .background-icon {
@@ -208,7 +207,7 @@
         right: 3%;
         cursor: pointer;
         & .mat-icon {
-          font-size: $fontIconThemeSmall;
+          font-size: var(--font-icon-theme-small);
           padding: 5px;
         }
       }
@@ -216,7 +215,7 @@
         margin-top: 45%;
         cursor: pointer;
         & .mat-icon {
-          font-size: $fontIconThemeSmall;
+          font-size: var(--font-icon-theme-small);
           padding: 5px;
         }
       }
@@ -225,11 +224,11 @@
         height: 35px !important;
       }
       & .delete-icon::after {
-        font-size: $fontIconThemeSmall;
+        font-size: var(--font-icon-theme-small);
       }
 
       & .delete-icon.complete::after {
-        font-size: $fontIconThemeSmall;
+        font-size: var(--font-icon-theme-small);
       }
 
       & .before,
@@ -237,7 +236,7 @@
         bottom: 10%;
         cursor: pointer;
         & .mat-icon {
-          font-size: $fontIconThemeSmall;
+          font-size: var(--font-icon-theme-small);
         }
       }
       & .before {
@@ -269,12 +268,12 @@
     & .all-option {
       & .close {
         & .mat-icon {
-          font-size: $fontIconThemeExtraSmall;
+          font-size: var(--font-icon-theme-extra-small);
         }
       }
       & .download-image {
         & .mat-icon {
-          font-size: $fontIconThemeExtraSmall;
+          font-size: var(--font-icon-theme-extra-small);
         }
       }
       & .delete-icon.complete {
@@ -282,16 +281,16 @@
         height: 25px !important;
       }
       & .delete-icon::after {
-        font-size: $fontIconThemeExtraSmall;
+        font-size: var(--font-icon-theme-extra-small);
       }
 
       & .delete-icon.complete::after {
-        font-size: $fontIconThemeExtraSmall;
+        font-size: var(--font-icon-theme-extra-small);
       }
       & .before,
       & .next {
         & .mat-icon {
-          font-size: $fontIconThemeExtraSmall;
+          font-size: var(--font-icon-theme-extra-small);
         }
       }
     }
@@ -382,7 +381,7 @@ span::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: $fontIconThemeExtraLarge;
+  font-size: var(--font-icon-extra-large);
   transition: all 3s ease;
   transform: scale(0);
 }
@@ -400,5 +399,5 @@ span::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: $fontIconThemeExtraLarge;
+  font-size: var(--font-icon-extra-large);
 }
