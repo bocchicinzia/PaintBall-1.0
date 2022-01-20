@@ -16,48 +16,7 @@
 </div>
 
 <div class="container text-center formFeedback">
-  <form [formGroup]="formFeedback">
-    <div class="d-flex justify-content-around">
-      <mat-form-field appearance="outline">
-        <mat-label>Nome</mat-label>
-        <input
-          matInput
-          placeholder="Scrivi il tuo nome"
-          formControlName="name"
-        />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="mario@rossi.it" formControlName="email" />
-        <mat-icon matSuffix>alternate_email</mat-icon>
-      </mat-form-field>
-    </div>
-    <div class="d-flex justify-content-center">
-      <mat-form-field appearance="fill">
-        <mat-label>Feedback</mat-label>
-        <textarea
-          rows="10"
-          cols="60"
-          matInput
-          formControlName="message"
-          placeholder="Lascia un commento"
-          (keydown)="errorMessage($event)"
-        ></textarea>
-        <div class="mandatory-nature-message d-flex">
-          <span *ngIf="characterLength < 50"
-            ><mat-icon>error_outline</mat-icon> Lunghezza minima messaggio 50
-            caratteri</span
-          >
-          <span *ngIf="characterLength > 200"
-            ><mat-icon>error_outline</mat-icon> Lunghezza massima 200
-            caratteri</span
-          >
-        </div>
-      </mat-form-field>
-    </div>
-  </form>
+  <app-form (valueForm)="valueForm($event)"></app-form>
 
   <div>
     <div

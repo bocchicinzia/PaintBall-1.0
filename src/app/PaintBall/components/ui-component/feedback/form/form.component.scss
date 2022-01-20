@@ -1,0 +1,14 @@
+.mandatory-nature-message {
+  & span {
+    font-size: var(--font-extra-small);
+    color: var(--red);
+    display: inline-flex;
+  }
+  & mat-icon {
+    font-size: var(--font-normal);
+    color: var(--red);
+    width: auto;
+    height: auto;
+    margin-right: 5px;
+  }
+}

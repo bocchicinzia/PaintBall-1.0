@@ -10,12 +10,6 @@ import { FormFeedback } from './feedback.class';
   styleUrls: ['./feedback.component.scss']
 } )
 export class FeedbackComponent implements OnInit {
-  formFeedback = new FormGroup( {
-    name: new FormControl( '', [Validators.required] ),
-    email: new FormControl( '', [Validators.required, Validators.email] ),
-    message: new FormControl( '', [Validators.required, Validators.maxLength( 200 ), Validators.minLength( 50 )] ),
-    dateTime: new FormControl( '' )
-  } );
 
   private _pageSlice: any;
 
@@ -26,6 +20,7 @@ export class FeedbackComponent implements OnInit {
     return this._pageSlice;
   }
 
+  formFeedback: FormGroup;
   feedbackLength: number;
   arrayReverse: any[];
   noCommentYet: boolean = false;
@@ -57,8 +52,7 @@ export class FeedbackComponent implements OnInit {
     }
   }
 
-  characterLength: number;
-  errorMessage( e: any ) {
-    this.characterLength = e.target.value.length;
+  valueForm( e: any ) {
+    this.formFeedback = e;
   }
 }
