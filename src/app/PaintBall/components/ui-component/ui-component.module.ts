@@ -17,6 +17,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { VerticalMenuComponent } from "./vertical-menu/vertical-menu.component";
 import { CardComponent } from './card/card.component';
@@ -29,6 +30,7 @@ import { TabComponent } from './tab/tab.component';
 import { TabContactsComponent } from './tab-contacts/tab-contacts.component';
 import { CardContactComponent } from './card-contact/card-contact.component';
 import { MapsComponent } from './maps/maps.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule( {
   declarations: [
@@ -50,6 +52,7 @@ import { MapsComponent } from './maps/maps.component';
 } )
 export class UIComponentsModule {
   public static components = [
+    FeedbackComponent,
     MapsComponent,
     CardContactComponent,
     TabContactsComponent,
@@ -63,6 +66,7 @@ export class UIComponentsModule {
     NavbarComponent
   ]
   public static material = [
+    MatPaginatorModule,
     MatTabsModule,
     MatTooltipModule,
     MatFormFieldModule,
