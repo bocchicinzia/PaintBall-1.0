@@ -1,3 +1,5 @@
+@import "/src/styles/media-screen-variables";
+
 mat-card {
   margin-top: 15%;
   padding: 4% 7% 3%;
@@ -23,5 +25,25 @@ mat-card {
     z-index: 1;
     border-radius: 50%;
     border: 1px solid var(--red);
+  }
+}
+
+@media (max-width: $laptop) {
+  .image-unknown {
+    width: 70px;
+    height: 70px;
+  }
+}
+@media (max-width: $tablet) {
+  .image-unknown {
+    width: 50px;
+    height: 50px;
+  }
+  .mat-card-title {
+    font-size: var(--font-large);
+  }
+  .mat-card-subtitle,
+  p {
+    font-size: var(--font-extra-small);
   }
 }
