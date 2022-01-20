@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { FormFeedback } from './feedback.class';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
-import { ModalResponse } from './modal-confirm/modal-response.enum';
 
 @Component( {
   selector: 'app-feedback',
