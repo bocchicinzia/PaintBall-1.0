@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { FormFeedback } from './feedback.class';
 
 @Component( {
   selector: 'app-feedback',
-  templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.scss']
+  templateUrl: './feedback-manager.component.html',
+  styleUrls: ['./feedback-manager.component.scss']
 } )
-export class FeedbackComponent implements OnInit {
+export class FeedbackManagerComponent implements OnInit {
 
   private _pageSlice: any;
 

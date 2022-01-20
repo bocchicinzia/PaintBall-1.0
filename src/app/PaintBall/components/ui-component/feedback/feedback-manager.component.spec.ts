@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeedbackComponent } from './feedback.component';
+import { FeedbackManagerComponent } from './feedback-manager.component';
 
-describe( FeedbackComponent.name, () => {
-  let component: FeedbackComponent;
-  let fixture: ComponentFixture<FeedbackComponent>;
+describe( FeedbackManagerComponent.name, () => {
+  let component: FeedbackManagerComponent;
+  let fixture: ComponentFixture<FeedbackManagerComponent>;
 
   beforeEach( async () => {
     await TestBed.configureTestingModule( {
-      declarations: [FeedbackComponent]
+      declarations: [FeedbackManagerComponent]
     } )
       .compileComponents();
   } );
 
   beforeEach( () => {
-    fixture = TestBed.createComponent( FeedbackComponent );
+    fixture = TestBed.createComponent( FeedbackManagerComponent );
     component = fixture.componentInstance;
     fixture.detectChanges();
   } );

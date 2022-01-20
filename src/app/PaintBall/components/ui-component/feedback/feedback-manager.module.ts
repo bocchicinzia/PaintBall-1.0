@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { UIComponentsModule } from "../ui-component.module";
 import { CardFeedbackComponent } from "./card-feedback/card-feedback.component";
-import { FeedbackComponent } from "./feedback.component";
+import { FeedbackManagerComponent } from "./feedback-manager.component";
 import { PaginatorComponent } from './paginator/paginator.component';
 import { FormComponent } from './form/form.component';
 
@@ -28,6 +28,6 @@ export class FeedbackManagerModule {
     FormComponent,
     PaginatorComponent,
     CardFeedbackComponent,
-    FeedbackComponent,
+    FeedbackManagerComponent,
   ]
 }
