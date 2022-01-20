@@ -105,6 +105,12 @@ mat-sidenav-container {
   position: relative;
   height: auto !important;
 }
+mat-card {
+  box-shadow: var(--shadow-card-description-lightMode) !important;
+}
+.darkMode mat-card {
+  box-shadow: var(--shadow-card-description-darkMode) !important;
+}
 
 //button generico
 button {
@@ -120,8 +126,8 @@ button {
   &.withSpecialHover {
     color: var(--black);
   }
-  &.withSpecialHover::after,
-  &.withSpecialHover::before {
+  &.withSpecialHover:not([disabled])::after,
+  &.withSpecialHover:not([disabled])::before {
     content: "";
     display: block;
     position: absolute;
@@ -132,7 +138,7 @@ button {
     border-radius: 2px;
   }
 
-  &.withSpecialHover::after {
+  &.withSpecialHover:not([disabled])::after {
     bottom: 0;
     right: 0;
     border-top-color: transparent;
@@ -141,7 +147,7 @@ button {
     border-right-color: var(--orange);
   }
 
-  &.withSpecialHover::before {
+  &.withSpecialHover:not([disabled])::before {
     top: 0;
     left: 0;
     border-bottom-color: transparent;
@@ -150,8 +156,8 @@ button {
     border-left-color: var(--orange);
   }
 
-  &.withSpecialHover:hover:after,
-  &.withSpecialHover:hover:before {
+  &.withSpecialHover:hover:not([disabled]):after,
+  &.withSpecialHover:hover:not([disabled]):before {
     border-bottom-color: var(--orange);
     border-right-color: var(--orange);
     border-top-color: var(--orange);
@@ -168,6 +174,11 @@ button {
     &::before {
       display: none;
     }
+  }
+  &:disabled {
+    background: var(--grey);
+    cursor: unset;
+    color: var(--darrk-grey);
   }
 }
 .darkMode button {
@@ -286,9 +297,7 @@ app-navbar {
   padding: 50px;
   margin: 0;
 }
-.darkMode .card-price {
-  box-shadow: var(--shadow-card-description-darkMode) !important;
-}
+
 @media (max-width: $mobile-small) {
   .mat-tab-label-content {
     font-size: $fontExtraSmall;
@@ -385,4 +394,16 @@ app-navbar {
       display: none;
     }
   }
+}
+
+//feedback
+.mat-form-field-infix {
+  width: auto !important;
+}
+.darkMode .formFeedback {
+  box-shadow: var(--text-shadow-darkMode) !important;
+}
+
+.darkMode .container.comment {
+  box-shadow: var(--text-shadow-darkMode) !important;
 }
