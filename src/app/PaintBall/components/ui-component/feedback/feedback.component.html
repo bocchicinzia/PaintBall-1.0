@@ -2,34 +2,17 @@
   <h1>Lascia un commento</h1>
 
   <div *ngFor="let item of pageSlice">
-    <div class="image-unknown">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/1200px-Unknown_person.jpg"
-        alt=""
-      />
-    </div>
-    <mat-card>
-      <small>{{ item.dateTime }}</small>
-      <mat-card-title>{{ item.name }}</mat-card-title>
-      <mat-card-subtitle>{{ item.email }}</mat-card-subtitle>
-      <mat-card-actions>
-        <p>{{ item.message }}</p>
-      </mat-card-actions>
-    </mat-card>
+    <app-card-feedback [item]="item"></app-card-feedback>
   </div>
 
   <div class="noCommentYet text-center" *ngIf="noCommentYet">
     <span>Non è ancora presente nessun commento</span>
   </div>
-
-  <mat-paginator
-    [length]="feedbackLength"
-    [pageSize]="3"
-    [pageSizeOptions]="[3, 5, 7]"
-    (page)="onPageChange($event)"
-    aria-label="Select page"
-  >
-  </mat-paginator>
+  <app-paginator
+    [feedbackLength]="feedbackLength"
+    [arrayReverse]="arrayReverse"
+    [(pageSlice)]="pageSlice"
+  ></app-paginator>
 </div>
 
 <div class="container text-center formFeedback">

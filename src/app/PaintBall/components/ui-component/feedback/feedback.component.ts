@@ -18,8 +18,16 @@ export class FeedbackComponent implements OnInit {
     dateTime: new FormControl( '' )
   } );
 
+  private _pageSlice: any;
+
+  set pageSlice( value: any ) {
+    this._pageSlice = value
+  }
+  get pageSlice() {
+    return this._pageSlice;
+  }
+
   feedbackLength: number;
-  pageSlice: any;
   arrayReverse: any[];
   noCommentYet: boolean = false;
   feedback: Observable<FormFeedback[]> | Observable<any[]>;
@@ -38,12 +46,6 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // getErrorMessage() {
-  //   if ( this.formFeedback.email.hasError( 'required' ) ) {
-  //     return 'You must enter a value';
-  //   }
-  //   return this.email.hasError( 'email' ) ? 'Non è un email valida' : '';
-  // }
 
   sendForm() {
     if ( this.formFeedback.valid ) {
@@ -53,20 +55,9 @@ export class FeedbackComponent implements OnInit {
       this.db.list( 'feedback' ).push( this.formFeedback.value );
       this.noCommentYet = false;
       this.formFeedback.reset();
-    } else {
-      console.log( this.formFeedback.value );
-
     }
   }
 
-  onPageChange( event: PageEvent ) {
-    const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
-    if ( endIndex > this.feedbackLength ) {
-      endIndex = this.feedbackLength;
-    }
-    this.pageSlice = this.arrayReverse.slice( startIndex, endIndex ).reverse();
-  }
   characterLength: number;
   errorMessage( e: any ) {
     this.characterLength = e.target.value.length;
