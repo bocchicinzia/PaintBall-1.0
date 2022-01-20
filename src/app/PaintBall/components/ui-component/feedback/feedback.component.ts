@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PageEvent } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { FormFeedback } from './feedback.class';
 

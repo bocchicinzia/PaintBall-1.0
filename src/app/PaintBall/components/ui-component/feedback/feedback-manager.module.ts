@@ -6,6 +6,7 @@ import { UIComponentsModule } from "../ui-component.module";
 import { CardFeedbackComponent } from "./card-feedback/card-feedback.component";
 import { FeedbackComponent } from "./feedback.component";
 import { PaginatorComponent } from './paginator/paginator.component';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule( {
@@ -24,6 +25,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
 } )
 export class FeedbackManagerModule {
   public static components = [
+    FormComponent,
     PaginatorComponent,
     CardFeedbackComponent,
     FeedbackComponent,
