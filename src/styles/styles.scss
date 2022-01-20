@@ -407,3 +407,7 @@ app-navbar {
 .darkMode .container.comment {
   box-shadow: var(--text-shadow-darkMode) !important;
 }
+//modal confirm
+.mat-dialog-container {
+  overflow: visible !important;
+}

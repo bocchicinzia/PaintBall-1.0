@@ -1,0 +1,22 @@
+p {
+  font-size: var(--font-extra-small);
+}
+.done {
+  position: relative;
+  width: 60px;
+  margin: 0 auto;
+  height: auto;
+  & .mat-icon {
+    position: absolute;
+    top: -70px;
+    font-size: var(--font-icon-extra-large);
+    background: var(--green);
+    border-radius: 50%;
+    width: auto;
+    height: auto;
+    padding: 20%;
+  }
+}
+.mat-success {
+  color: var(--green);
+}
