@@ -13,12 +13,17 @@ import { GalleryPageComponent } from "../gallery-page/gallery-page.component";
 import { SaveChangeService } from "../gallery-page/service/save-change.service";
 import { GalleryModule } from "../../components/ui-component/gallery-manager/gallery.module";
 import { ContactsPageComponent } from "../contacts-page/contacts-page.component";
+import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from "src/environments/environment";
 
 @NgModule( {
   declarations: [
     MasterDetailModule.component
   ],
   imports: [
+    AngularFireModule.initializeApp( environment.firebase ),
+    AngularFireDatabaseModule,
     NgbModule,
     HttpClientModule,
     DragDropModule,
