@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Conferma pubblicazione feedback</h1>
+<div mat-dialog-content>
+  <p>Sei sicuro di voler pubblicare questo feedback?</p>
+  <p>
+    Si ricorda che una volta pubblicato il post non si può più cancellare!!!
+  </p>
+  <p>Se lo si vuole fare, si prega di contattarci</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="confirm()">Confermo</button>
+  <button mat-button mat-dialog-close (click)="goToBack()">Indietro</button>
+</div>

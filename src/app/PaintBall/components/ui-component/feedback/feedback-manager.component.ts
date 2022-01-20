@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { FormFeedback } from './feedback.class';
+import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
+import { ModalResponse } from './modal-confirm/modal-response.enum';
 
 @Component( {
   selector: 'app-feedback',
@@ -26,7 +29,7 @@ export class FeedbackManagerComponent implements OnInit {
   noCommentYet: boolean = false;
   feedback: Observable<FormFeedback[]> | Observable<any[]>;
 
-  constructor( private db: AngularFireDatabase ) {
+  constructor( private db: AngularFireDatabase, private modal: MatDialog ) {
     this.feedback = db.list( 'feedback' ).valueChanges();
     this.feedback.subscribe( res => this.feedbackLength = res.length );
     this.feedback.subscribe( res => {
@@ -44,11 +47,16 @@ export class FeedbackManagerComponent implements OnInit {
   sendForm() {
     if ( this.formFeedback.valid ) {
       let dateTime = new Date().toLocaleString();
+      const response = this.modal.open( ModalConfirmComponent );
 
-      this.formFeedback.patchValue( { dateTime: dateTime } )
-      this.db.list( 'feedback' ).push( this.formFeedback.value );
-      this.noCommentYet = false;
-      this.formFeedback.reset();
+      response.afterClosed().subscribe( result => {
+        if ( result ) {
+          this.formFeedback.patchValue( { dateTime: dateTime } )
+          this.db.list( 'feedback' ).push( this.formFeedback.value );
+          this.noCommentYet = false;
+          this.formFeedback.reset();
+        }
+      } );
     }
   }
 

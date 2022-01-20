@@ -7,6 +7,7 @@ import { CardFeedbackComponent } from "./card-feedback/card-feedback.component";
 import { FeedbackManagerComponent } from "./feedback-manager.component";
 import { PaginatorComponent } from './paginator/paginator.component';
 import { FormComponent } from './form/form.component';
+import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 
 
 @NgModule( {
@@ -25,6 +26,7 @@ import { FormComponent } from './form/form.component';
 } )
 export class FeedbackManagerModule {
   public static components = [
+    ModalConfirmComponent,
     FormComponent,
     PaginatorComponent,
     CardFeedbackComponent,
