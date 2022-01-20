@@ -16,6 +16,7 @@ import { ContactsPageComponent } from "../contacts-page/contacts-page.component"
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from "src/environments/environment";
+import { FeedbackManagerModule } from "../../components/ui-component/feedback/feedback-manager.module";
 
 @NgModule( {
   declarations: [
@@ -29,6 +30,7 @@ import { environment } from "src/environments/environment";
     DragDropModule,
     MasterDetailRoutingModule,
     GalleryModule,
+    FeedbackManagerModule,
     UIComponentsModule,
     CommonModule
   ],
