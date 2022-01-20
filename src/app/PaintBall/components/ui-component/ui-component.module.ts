@@ -30,7 +30,6 @@ import { TabComponent } from './tab/tab.component';
 import { TabContactsComponent } from './tab-contacts/tab-contacts.component';
 import { CardContactComponent } from './card-contact/card-contact.component';
 import { MapsComponent } from './maps/maps.component';
-import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule( {
   declarations: [
@@ -52,7 +51,6 @@ import { FeedbackComponent } from './feedback/feedback.component';
 } )
 export class UIComponentsModule {
   public static components = [
-    FeedbackComponent,
     MapsComponent,
     CardContactComponent,
     TabContactsComponent,
