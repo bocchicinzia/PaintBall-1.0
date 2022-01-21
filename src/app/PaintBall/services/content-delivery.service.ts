@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ContentMapper } from './content-mapper.interface';
 
@@ -8,13 +7,17 @@ import { ContentMapper } from './content-mapper.interface';
   providedIn: 'root'
 } )
 export class ContentDeliveryService {
-  private url: string = "http://localhost:3000/";
+  private url: string = "https://ahmedri94.github.io/paintball-json/db.json";
 
-  constructor( private http: HttpClient ) {}
+  constructor() {}
 
+  private fetchGeneric<T>( projectId: any ) {
+    return from<Promise<T>>( fetch( this.url ).then( res => res.json() ).then( res => res[projectId] ) );
+  }
 
   get<T>( projectId: string, className: string, contentMapper: ContentMapper<T> ): Observable<T> {
-    return this.http.get<T>( this.url + projectId ).pipe(
+    let date = this.fetchGeneric<T>( projectId );
+    return date.pipe(
       map( res => {
         return contentMapper.map( res, className );
       } )
