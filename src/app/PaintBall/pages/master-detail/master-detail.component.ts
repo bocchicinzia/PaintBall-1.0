@@ -3,14 +3,16 @@ import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { Copyright } from '../../components/ui-component/footer/model/copyright.class';
 import { MenuNavbar } from '../../components/ui-component/navbar/menuNavbar.class';
 import { ContentDeliveryService } from '../../services/content-delivery.service';
+import { ContentMapper } from '../../services/content-mapper.interface';
 import { SaveChangeService } from '../gallery-page/service/save-change.service';
+import { HomePageModel } from '../home-page/home-page.model';
 
 @Component( {
   selector: 'app-master-detail',
   templateUrl: './master-detail.component.html',
   styleUrls: ['./master-detail.component.scss']
 } )
-export class MasterDetailComponent implements OnInit {
+export class MasterDetailComponent implements OnInit, ContentMapper<HomePageModel> {
 
   setTheme: any;
   getTheme: any;
@@ -29,14 +31,17 @@ export class MasterDetailComponent implements OnInit {
         this.openImageFullScreen = change;
       } );
   }
-
   ngOnInit(): void {
-    this.contentDeleveryService.getAllContentHomePage( 'vertical-menu', 'vertical-menu' ).subscribe( res => this.menu = res.menu );
-    this.contentDeleveryService.getAllContentHomePage( 'footer', 'footer_copyright' ).subscribe( res => this.copy = res.footer_copyright );
+    this.contentDeleveryService.get( 'vertical-menu', 'vertical-menu', this ).subscribe( res => this.menu = res.menu );
+    this.contentDeleveryService.get( 'footer', 'footer_copyright', this ).subscribe( res => this.copy = res.footer_copyright );
 
     this.getTheme = localStorage.getItem( 'theme' );
     this.getTheme === 'false' ? this.theme = false : this.theme = true;
     this.themeChange( this.theme );
+  }
+
+  map( json: any, className: string ) {
+    return new HomePageModel( json, className );
   }
 
   @HostListener( 'window:scroll', ['$event'] )
