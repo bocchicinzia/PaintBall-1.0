@@ -1,24 +1,29 @@
-<div class="done">
-  <mat-icon>done_outline</mat-icon>
-</div>
-<h1 mat-dialog-title>Conferma pubblicazione feedback</h1>
-<div mat-dialog-content>
-  <p>Sei sicuro di voler pubblicare questo feedback?</p>
-  <p>
-    Si ricorda che una volta pubblicato il post non si può più cancellare!!!
-  </p>
-  <p>Se lo si vuole fare, si prega di contattarci</p>
-</div>
-<div mat-dialog-actions>
-  <button
-    mat-stroked-button
-    color="success"
-    mat-dialog-close
-    (click)="confirm()"
-  >
-    Confermo
-  </button>
-  <button mat-stroked-button color="warn" mat-dialog-close (click)="goToBack()">
-    Indietro
-  </button>
-</div>
+<ng-container *ngIf="content | async as c">
+  <div class="done">
+    <mat-icon>{{ c.contentModalConfirm[0].icon }}</mat-icon>
+  </div>
+  <h1 mat-dialog-title>{{ c.contentModalConfirm[0].title }}</h1>
+  <div mat-dialog-content>
+    <ng-container *ngFor="let item of c.contentModalConfirm[0].paragraph">
+      <p>{{ item }}</p>
+    </ng-container>
+  </div>
+  <div mat-dialog-actions>
+    <button
+      mat-stroked-button
+      color="success"
+      mat-dialog-close
+      (click)="confirm()"
+    >
+      {{ c.contentModalConfirm[0].forwardButton }}
+    </button>
+    <button
+      mat-stroked-button
+      color="warn"
+      mat-dialog-close
+      (click)="goToBack()"
+    >
+      {{ c.contentModalConfirm[0].backwardButton }}
+    </button>
+  </div>
+</ng-container>
