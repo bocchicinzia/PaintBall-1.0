@@ -1,15 +1,16 @@
-<form [formGroup]="formFeedback">
+<form [formGroup]="formFeedback" *ngIf="content | async as c">
   <div class="d-flex justify-content-around">
-    <mat-form-field appearance="outline">
-      <mat-label>Nome</mat-label>
-      <input matInput placeholder="Scrivi il tuo nome" formControlName="name" />
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="mario@rossi.it" formControlName="email" />
-      <mat-icon matSuffix>alternate_email</mat-icon>
+    <mat-form-field
+      appearance="outline"
+      *ngFor="let item of c.contentFeedbackFormInput"
+    >
+      <mat-label>{{ item.label }}</mat-label>
+      <input
+        matInput
+        [placeholder]="item.placeholder"
+        formControlName="{{ item.formControlName }}"
+      />
+      <mat-icon matSuffix>{{ item.icon }}</mat-icon>
     </mat-form-field>
   </div>
   <div class="d-flex justify-content-center">
@@ -19,8 +20,8 @@
         rows="10"
         cols="60"
         matInput
-        formControlName="message"
         placeholder="Lascia un commento"
+        formControlName="message"
         (keydown)="errorMessage($event)"
       ></textarea>
       <div class="mandatory-nature-message d-flex">

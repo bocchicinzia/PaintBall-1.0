@@ -15,8 +15,8 @@
   ></app-paginator>
 </div>
 
-<div class="container text-center formFeedback">
-  <app-form (valueForm)="valueForm($event)"></app-form>
+<div class="container text-center formFeedback" *ngIf="content | async">
+  <app-form [content]="content"></app-form>
 
   <div>
     <div

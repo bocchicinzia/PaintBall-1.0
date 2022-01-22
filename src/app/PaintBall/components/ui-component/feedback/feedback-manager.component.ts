@@ -3,6 +3,10 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
+import { ContactsPageModel } from 'src/app/PaintBall/pages/contacts-page/contacts-page-model';
+import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
+import { ContentDeliveryService } from 'src/app/PaintBall/services/content-delivery.service';
+import { ContentMapper } from 'src/app/PaintBall/services/content-mapper.interface';
 import { FormFeedback } from './feedback.class';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 
@@ -11,8 +15,8 @@ import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
   templateUrl: './feedback-manager.component.html',
   styleUrls: ['./feedback-manager.component.scss']
 } )
-export class FeedbackManagerComponent implements OnInit {
-
+export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsPageModel> {
+  content: Observable<ContactsPageModel>
   private _pageSlice: any;
 
   set pageSlice( value: any ) {
@@ -28,7 +32,13 @@ export class FeedbackManagerComponent implements OnInit {
   noCommentYet: boolean = false;
   feedback: Observable<FormFeedback[]> | Observable<any[]>;
 
-  constructor( private db: AngularFireDatabase, private modal: MatDialog ) {
+  constructor( private db: AngularFireDatabase,
+    private modal: MatDialog,
+    private deliveryService: ContentDeliveryService,
+    private saveChange: SaveChangeService ) {
+
+    this.saveChange.changeEmittedString$.subscribe( res => this.formFeedback = res );
+
     this.feedback = db.list( 'feedback' ).valueChanges();
     this.feedback.subscribe( res => this.feedbackLength = res.length );
     this.feedback.subscribe( res => {
@@ -37,10 +47,14 @@ export class FeedbackManagerComponent implements OnInit {
       if ( !this.pageSlice.length )
         this.noCommentYet = true;
     } );
+  }
 
+  map( json: any, className: string ) {
+    return new ContactsPageModel( json, className );
   }
 
   ngOnInit(): void {
+    this.content = this.deliveryService.get( 'feedback-form', 'feedback-form-input', this );
   }
 
   sendForm() {
@@ -57,9 +71,5 @@ export class FeedbackManagerComponent implements OnInit {
         }
       } );
     }
-  }
-
-  valueForm( e: any ) {
-    this.formFeedback = e;
   }
 }

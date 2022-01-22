@@ -1,5 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { ContactsPageModel } from 'src/app/PaintBall/pages/contacts-page/contacts-page-model';
+import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
 
 @Component( {
   selector: 'app-form',
@@ -7,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./form.component.scss']
 } )
 export class FormComponent implements OnInit {
-  @Output() valueForm = new EventEmitter<any>();
+  @Input() content: Observable<ContactsPageModel>;
 
   characterLength: number;
 
@@ -17,11 +20,11 @@ export class FormComponent implements OnInit {
     message: new FormControl( '', [Validators.required, Validators.maxLength( 200 ), Validators.minLength( 50 )] ),
     dateTime: new FormControl( '' )
   } );
-  constructor() {
+  constructor( private saveChange: SaveChangeService ) {
+    this.saveChange.emitChange( this.formFeedback );
   }
 
   ngOnInit(): void {
-    this.valueForm.emit( this.formFeedback );
   }
 
   errorMessage( e: any ) {

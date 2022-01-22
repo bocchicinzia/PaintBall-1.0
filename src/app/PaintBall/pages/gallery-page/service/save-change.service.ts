@@ -9,7 +9,7 @@ import { GalleryManager } from 'src/app/PaintBall/components/ui-component/galler
 export class SaveChangeService {
   private emitChangeSource = new Subject<boolean>();
   private emitChangeSourceNumber = new Subject<number>();
-  private emitChangeSourceString = new Subject<string>();
+  private emitChangeSourceString = new Subject<any>();
 
   constructor() {}
 
