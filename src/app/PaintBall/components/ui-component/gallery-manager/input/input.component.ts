@@ -17,7 +17,7 @@ export class InputComponent implements OnInit {
     private saveChange: SaveChangeService ) {}
 
   ngOnInit(): void {
-    this.input = this.service.getInputGalleryPage( 'gallery-input' );
+    this.input = this.service.getInputGalleryPage( 'gallery-input', 'input' );
   }
 
   getValue() {

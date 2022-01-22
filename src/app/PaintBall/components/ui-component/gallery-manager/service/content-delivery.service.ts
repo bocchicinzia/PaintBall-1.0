@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { GalleryPageModel } from 'src/app/PaintBall/pages/gallery-page/gallery-page.model';
 import { ButtonGallery } from '../button/button-gallery.class';
 import { GalleryManager } from '../gallery-manager.class';
 import { InputGallery } from '../input/input.class';
@@ -14,40 +15,38 @@ export class ContentDeliveryServiceGalleryPage {
   getButton: ButtonGallery[];
   getInput: InputGallery[];
 
-  private url: string = "http://localhost:3000/";
+  private url: string = "https://ahmedri94.github.io/paintball-json/db.json";
 
-  constructor( private http: HttpClient ) {}
+
+  constructor() {}
+
+  private fetchGeneric( projectId: any ) {
+    return from( fetch( this.url ).then( res => res.json() ).then( res => res[projectId] ) );
+  }
 
   //------------------------------------------------------------------------
   //get input date
 
-  getInputGalleryPage( projectId: string ): Observable<InputGallery> {
-    return this.http.get<InputGallery>( this.url + projectId ).pipe(
+  getInputGalleryPage( projectId: string, className: string ): Observable<InputGallery> {
+    let date = this.fetchGeneric( projectId );
+    return date.pipe(
       map( res => {
-        return this.input( res );
+        return new GalleryPageModel( res, className ).getInput[0];
+
       } )
-    );
-  }
-
-
-  private input( urls: any ): InputGallery {
-    this.getInput = urls.map( ( res: any ) => <InputGallery>{
-      placeholder: res.placeholder,
-      label: res.label,
-      buttonValue: res.buttonValue
-    } );
-    return this.getInput[0];
+    )
   }
 
   //----------------------------------------------------------------------
   //get button
 
   getAllButtonGalleryPage( projectId: string ): Observable<ButtonGallery[]> {
-    return this.http.get<ButtonGallery>( this.url + projectId ).pipe(
+    let date = this.fetchGeneric( projectId );
+    return date.pipe(
       map( res => {
         return this.button( res );
       } )
-    );
+    )
   }
 
 
@@ -63,11 +62,12 @@ export class ContentDeliveryServiceGalleryPage {
   //get all images
 
   getAllImagesGalleryPage( projectId: string ): Observable<GalleryManager[]> {
-    return this.http.get<GalleryManager>( this.url + projectId ).pipe(
+    let date = this.fetchGeneric( projectId );
+    return date.pipe(
       map( res => {
         return this.images( res );
       } )
-    );
+    )
   }
 
 
@@ -98,5 +98,9 @@ export class ContentDeliveryServiceGalleryPage {
         ),
       ),
     );
+  }
+
+  private parseToObservable<T>( date: any ): Observable<T> {
+    return date;
   }
 }
