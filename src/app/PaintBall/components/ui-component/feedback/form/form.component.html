@@ -1,4 +1,4 @@
-<form [formGroup]="formFeedback" *ngIf="content | async as c">
+<form [formGroup]="formFeedback" *ngIf="inputContent | async as c">
   <div class="d-flex justify-content-around">
     <mat-form-field
       appearance="outline"
@@ -8,31 +8,39 @@
       <input
         matInput
         [placeholder]="item.placeholder"
-        formControlName="{{ item.formControlName }}"
+        [formControlName]="item.formControlName"
       />
       <mat-icon matSuffix>{{ item.icon }}</mat-icon>
     </mat-form-field>
   </div>
-  <div class="d-flex justify-content-center">
-    <mat-form-field appearance="fill">
-      <mat-label>Feedback</mat-label>
+  <div
+    class="d-flex justify-content-center"
+    *ngIf="textAreaContent | async as text"
+  >
+    <mat-form-field
+      appearance="fill"
+      *ngFor="let t of text.contentFeedbackFormTextArea"
+    >
+      <mat-label>{{ t.label }}</mat-label>
       <textarea
         rows="10"
         cols="60"
         matInput
-        placeholder="Lascia un commento"
-        formControlName="message"
+        [placeholder]="t.placeholder"
+        [formControlName]="t.formControlName"
         (keydown)="errorMessage($event)"
       ></textarea>
-      <div class="mandatory-nature-message d-flex">
-        <span *ngIf="characterLength < 50"
-          ><mat-icon>error_outline</mat-icon> Lunghezza minima messaggio 50
-          caratteri</span
-        >
-        <span *ngIf="characterLength > 200"
-          ><mat-icon>error_outline</mat-icon> Lunghezza massima 200
-          caratteri</span
-        >
+      <div
+        class="mandatory-nature-message d-flex"
+        *ngIf="t.msgError![0] as msg"
+      >
+        <span>
+          <mat-icon *ngIf="characterLength < 50 || characterLength > 200">{{
+            msg?.icon
+          }}</mat-icon>
+          <p *ngIf="characterLength < 50">{{ msg.label[0] }}</p>
+          <p *ngIf="characterLength > 200">{{ msg.label[1] }}</p>
+        </span>
       </div>
     </mat-form-field>
   </div>

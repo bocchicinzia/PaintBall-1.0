@@ -15,8 +15,11 @@
   ></app-paginator>
 </div>
 
-<div class="container text-center formFeedback" *ngIf="content | async">
-  <app-form [content]="content"></app-form>
+<div class="container text-center formFeedback" *ngIf="inputContent | async">
+  <app-form
+    [textAreaContent]="textAreaContent"
+    [inputContent]="inputContent"
+  ></app-form>
 
   <div>
     <div

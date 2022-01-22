@@ -2,5 +2,6 @@ export class FeedbackInputForm {
   label: string;
   placeholder: string;
   formControlName: string;
-  icon: string;
+  icon?: string;
+  msgError?: [];
 }

@@ -16,7 +16,8 @@ import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
   styleUrls: ['./feedback-manager.component.scss']
 } )
 export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsPageModel> {
-  content: Observable<ContactsPageModel>
+  inputContent: Observable<ContactsPageModel>
+  textAreaContent: Observable<ContactsPageModel>
   private _pageSlice: any;
 
   set pageSlice( value: any ) {
@@ -54,7 +55,8 @@ export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsP
   }
 
   ngOnInit(): void {
-    this.content = this.deliveryService.get( 'feedback-form', 'feedback-form-input', this );
+    this.inputContent = this.deliveryService.get( 'feedback-form', 'feedback-form-input', this );
+    this.textAreaContent = this.deliveryService.get( 'feedback-form', 'feedback-form-text-area', this )
   }
 
   sendForm() {

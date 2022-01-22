@@ -6,6 +6,7 @@ export class ContactsPageModel {
   contentTabs: TabGroupContacts[];
   contentCard: CardContact[];
   contentFeedbackFormInput: FeedbackInputForm[];
+  contentFeedbackFormTextArea: FeedbackInputForm[];
 
   constructor( json: any, projectId: string ) {
     switch ( projectId ) {
@@ -27,6 +28,14 @@ export class ContactsPageModel {
 
       case 'feedback-form-input':
         this.contentFeedbackFormInput = json[0].input.map( ( content: FeedbackInputForm[] ) => {
+          return content;
+        } );
+        break;
+
+      case 'feedback-form-text-area':
+        this.contentFeedbackFormTextArea = json[0]['text-area'].map( ( content: FeedbackInputForm[] ) => {
+          console.log( content );
+
           return content;
         } );
         break;

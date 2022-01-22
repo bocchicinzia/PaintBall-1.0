@@ -10,7 +10,8 @@ import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/
   styleUrls: ['./form.component.scss']
 } )
 export class FormComponent implements OnInit {
-  @Input() content: Observable<ContactsPageModel>;
+  @Input() inputContent: Observable<ContactsPageModel>;
+  @Input() textAreaContent: Observable<any>
 
   characterLength: number;
 
