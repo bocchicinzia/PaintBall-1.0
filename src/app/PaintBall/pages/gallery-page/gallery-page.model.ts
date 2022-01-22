@@ -24,7 +24,7 @@ export class GalleryPageModel {
           return res;
         } );
         break;
-      case 'images':
+      case 'all-images':
         this.getImg = json.map( ( res: GalleryManager[] ) => {
           return res
         } );

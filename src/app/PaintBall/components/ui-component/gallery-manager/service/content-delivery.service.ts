@@ -52,24 +52,13 @@ export class ContentDeliveryServiceGalleryPage {
   //-----------------------------------------------------------------------
   //get all images
 
-  getAllImagesGalleryPage( projectId: string ): Observable<GalleryManager[]> {
+  private getAllImagesGalleryPage( projectId: string ): Observable<GalleryManager[]> {
     let date = this.fetchGeneric( projectId );
     return date.pipe(
       map( res => {
-        return this.images( res );
+        return new GalleryPageModel( res, 'all-images' ).getImg;
       } )
     )
-  }
-
-
-  private images( urls: any ): GalleryManager[] {
-    this.getImg = urls.map( ( res: any ) => <GalleryManager[]><unknown>{
-      id: res.id,
-      path: res.path,
-      email: res.email,
-      alt: res.alt
-    } );
-    return this.getImg;
   }
 
 
@@ -89,9 +78,5 @@ export class ContentDeliveryServiceGalleryPage {
         ),
       ),
     );
-  }
-
-  private parseToObservable<T>( date: any ): Observable<T> {
-    return date;
   }
 }
