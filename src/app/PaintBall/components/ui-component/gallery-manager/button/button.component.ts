@@ -21,7 +21,7 @@ export class ButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.button = this.service.getAllButtonGalleryPage( 'gallery-button' );
+    this.button = this.service.getAllButtonGalleryPage( 'gallery-button', 'button' );
     setTimeout( () => {
       this.el.nativeElement.querySelector( 'button:first-child' ).classList.add( 'active' );
     }, 1000 );

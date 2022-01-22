@@ -40,22 +40,13 @@ export class ContentDeliveryServiceGalleryPage {
   //----------------------------------------------------------------------
   //get button
 
-  getAllButtonGalleryPage( projectId: string ): Observable<ButtonGallery[]> {
+  getAllButtonGalleryPage( projectId: string, className: string ): Observable<ButtonGallery[]> {
     let date = this.fetchGeneric( projectId );
     return date.pipe(
       map( res => {
-        return this.button( res );
+        return new GalleryPageModel( res, className ).getButton;
       } )
     )
-  }
-
-
-  private button( urls: any ): ButtonGallery[] {
-    this.getButton = urls.map( ( res: any ) => <ButtonGallery[]><unknown>{
-      label: res.label,
-      dataFilter: res.dataFilter,
-    } );
-    return this.getButton;
   }
 
   //-----------------------------------------------------------------------
