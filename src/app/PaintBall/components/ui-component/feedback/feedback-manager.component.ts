@@ -7,7 +7,7 @@ import { ContactsPageModel } from 'src/app/PaintBall/pages/contacts-page/contact
 import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
 import { ContentDeliveryService } from 'src/app/PaintBall/services/content-delivery.service';
 import { ContentMapper } from 'src/app/PaintBall/services/content-mapper.interface';
-import { FormFeedback } from './feedback.class';
+import { CardFeedbackFirebasePrint } from './feedback.class';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 
 @Component( {
@@ -16,11 +16,13 @@ import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
   styleUrls: ['./feedback-manager.component.scss']
 } )
 export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsPageModel> {
-  inputContent: Observable<ContactsPageModel>
-  textAreaContent: Observable<ContactsPageModel>
-  private _pageSlice: any;
+  inputContent: Observable<ContactsPageModel>;
+  textAreaContent: Observable<ContactsPageModel>;
+  feedbackManager: Observable<ContactsPageModel>;
 
-  set pageSlice( value: any ) {
+  private _pageSlice: CardFeedbackFirebasePrint[];
+
+  set pageSlice( value: CardFeedbackFirebasePrint[] ) {
     this._pageSlice = value
   }
   get pageSlice() {
@@ -31,12 +33,14 @@ export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsP
   feedbackLength: number;
   arrayReverse: any[];
   noCommentYet: boolean = false;
-  feedback: Observable<FormFeedback[]> | Observable<any[]>;
+  feedback: Observable<CardFeedbackFirebasePrint[]> | Observable<any[]>;
 
   constructor( private db: AngularFireDatabase,
     private modal: MatDialog,
     private deliveryService: ContentDeliveryService,
     private saveChange: SaveChangeService ) {
+
+    this.feedbackManager = this.deliveryService.get( 'feedback-manager', 'feedback-manager', this );
 
     this.saveChange.changeEmittedString$.subscribe( res => this.formFeedback = res );
 

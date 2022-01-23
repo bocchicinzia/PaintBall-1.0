@@ -1,44 +1,52 @@
-<div class="container comment">
-  <h1>Lascia un commento</h1>
+<ng-container *ngIf="feedbackManager | async as feed">
+  <ng-container *ngFor="let f of feed.contentFeedbackManager">
+    <div class="container comment">
+      <h1>{{ f.title }}</h1>
 
-  <div *ngFor="let item of pageSlice">
-    <app-card-feedback [item]="item"></app-card-feedback>
-  </div>
+      <div *ngFor="let item of pageSlice">
+        <app-card-feedback [item]="item"></app-card-feedback>
+      </div>
 
-  <div class="noCommentYet text-center" *ngIf="noCommentYet">
-    <span>Non è ancora presente nessun commento</span>
-  </div>
-  <app-paginator
-    [feedbackLength]="feedbackLength"
-    [arrayReverse]="arrayReverse"
-    [(pageSlice)]="pageSlice"
-  ></app-paginator>
-</div>
+      <div class="noCommentYet text-center" *ngIf="noCommentYet">
+        <span>{{ f.msgNoCommentYet }}</span>
+      </div>
+      <app-paginator
+        [feedbackLength]="feedbackLength"
+        [arrayReverse]="arrayReverse"
+        [(pageSlice)]="pageSlice"
+      ></app-paginator>
+    </div>
 
-<div class="container text-center formFeedback" *ngIf="inputContent | async">
-  <app-form
-    [textAreaContent]="textAreaContent"
-    [inputContent]="inputContent"
-  ></app-form>
-
-  <div>
     <div
-      class="alert alert-danger animate__animated"
-      [ngClass]="[
-        formFeedback.invalid ? 'animate__bounceIn' : 'animate__bounceOut'
-      ]"
-      role="alert"
+      class="container text-center formFeedback"
+      *ngIf="inputContent | async"
     >
-      Tutti i campi sono obbligatori
+      <app-form
+        [textAreaContent]="textAreaContent"
+        [inputContent]="inputContent"
+      ></app-form>
+
+      <div>
+        <div
+          class="alert alert-danger animate__animated"
+          [ngClass]="[
+            formFeedback.invalid ? 'animate__bounceIn' : 'animate__bounceOut'
+          ]"
+          role="alert"
+        >
+          {{ f.alertMsg[0] }}
+        </div>
+        <div class="sendForm">
+          <button
+            class="withSpecialHover"
+            (click)="sendForm()"
+            [disabled]="formFeedback.invalid"
+          >
+            <span>{{ f.forwardButton }}</span>
+            <mat-icon>{{ f.iconButton }}</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="sendForm">
-      <button
-        class="withSpecialHover"
-        (click)="sendForm()"
-        [disabled]="formFeedback.invalid"
-      >
-        <span>Pubblica</span> <mat-icon>send</mat-icon>
-      </button>
-    </div>
-  </div>
-</div>
+  </ng-container>
+</ng-container>

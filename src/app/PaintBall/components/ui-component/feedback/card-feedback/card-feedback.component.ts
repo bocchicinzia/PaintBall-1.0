@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CardFeedbackFirebasePrint } from '../feedback.class';
 
 @Component( {
   selector: 'app-card-feedback',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 } )
 export class CardFeedbackComponent implements OnInit {
 
-  @Input() item: any;
+  @Input() item: CardFeedbackFirebasePrint;
 
   constructor() {}
 

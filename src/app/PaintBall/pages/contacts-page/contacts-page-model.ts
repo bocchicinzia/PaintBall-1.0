@@ -1,4 +1,5 @@
 import { CardContact } from "../../components/ui-component/card-contact/card-contact-model.class";
+import { FormFeedbackManager } from "../../components/ui-component/feedback/feedback.class";
 import { FeedbackInputForm } from "../../components/ui-component/feedback/form/form-model/form.model.class";
 import { ModalConfirm } from "../../components/ui-component/feedback/modal-confirm/modal-confirm.class";
 import { TabGroupContacts } from "../../components/ui-component/tab-contacts/tab-group-contacts.model.class";
@@ -6,6 +7,7 @@ import { TabGroupContacts } from "../../components/ui-component/tab-contacts/tab
 export class ContactsPageModel {
   contentTabs: TabGroupContacts[];
   contentCard: CardContact[];
+  contentFeedbackManager: FormFeedbackManager[];
   contentFeedbackFormInput: FeedbackInputForm[];
   contentFeedbackFormTextArea: FeedbackInputForm[];
   contentModalConfirm: ModalConfirm;
@@ -26,6 +28,18 @@ export class ContactsPageModel {
         this.contentCard = json.map( ( content: CardContact[] ) => {
           return content;
         } );
+        break;
+
+      case 'feedback-manager':
+        this.contentFeedbackManager = json.map( ( content: FormFeedbackManager ) => {
+          return {
+            title: content.title,
+            msgNoCommentYet: content.msgNoCommentYet,
+            alertMsg: content.alertMsg,
+            forwardButton: content.forwardButton,
+            iconButton: content.iconButton
+          }
+        } )
         break;
 
       case 'feedback-form-input':
