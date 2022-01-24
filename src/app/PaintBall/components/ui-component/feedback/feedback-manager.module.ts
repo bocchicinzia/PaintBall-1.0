@@ -9,6 +9,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { FormComponent } from './form/form.component';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 import { CheckboxStarComponent } from './checkbox-star/checkbox-star.component';
+import { GoToButtonComponent } from './go-to-button/go-to-button.component';
 
 
 @NgModule( {
@@ -27,6 +28,7 @@ import { CheckboxStarComponent } from './checkbox-star/checkbox-star.component';
 } )
 export class FeedbackManagerModule {
   public static components = [
+    GoToButtonComponent,
     CheckboxStarComponent,
     ModalConfirmComponent,
     FormComponent,
