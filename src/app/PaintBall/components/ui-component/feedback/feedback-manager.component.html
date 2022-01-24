@@ -24,6 +24,8 @@
       <app-form
         [textAreaContent]="textAreaContent"
         [inputContent]="inputContent"
+        (valueFeedbackStar)="valueFeedbackStar($event)"
+        [sendOk]="sendOk"
       ></app-form>
 
       <div>
@@ -35,6 +37,14 @@
           role="alert"
         >
           {{ f.alertMsg[0] }}
+        </div>
+
+        <div
+          class="alert alert-success animate__animated"
+          [ngClass]="[animSendOk ? 'animate__flipInY' : 'animate__flipOutY']"
+          role="alert"
+        >
+          {{ f.alertMsg[1] }}
         </div>
         <div class="sendForm">
           <button
