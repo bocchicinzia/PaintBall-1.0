@@ -40,9 +40,6 @@ export class MasterDetailComponent implements OnInit, ContentMapper<HomePageMode
     this.getTheme === 'false' ? this.theme = false : this.theme = true;
     this.themeChange( this.theme );
   }
-  map( json: any, className: string ) {
-    return new HomePageModel( json, className );
-  }
 
   map( json: any, className: string ) {
     return new HomePageModel( json, className );
