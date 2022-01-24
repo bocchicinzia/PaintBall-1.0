@@ -3,6 +3,7 @@ export class CardFeedbackFirebasePrint {
   email: string;
   message: string;
   dateTime: string;
+  star: string;
 }
 
 export class FormFeedbackManager {

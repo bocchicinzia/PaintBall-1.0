@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { ContactsPageModel } from 'src/app/PaintBall/pages/contacts-page/contacts-page-model';
@@ -34,6 +34,9 @@ export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsP
   arrayReverse: any[];
   noCommentYet: boolean = false;
   feedback: Observable<CardFeedbackFirebasePrint[]> | Observable<any[]>;
+  valueStar: string;
+  sendOk = false;
+  animSendOk = false;
 
   constructor( private db: AngularFireDatabase,
     private modal: MatDialog,
@@ -63,6 +66,10 @@ export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsP
     this.textAreaContent = this.deliveryService.get( 'feedback-form', 'feedback-form-text-area', this )
   }
 
+  valueFeedbackStar( e: any ) {
+    this.valueStar = e;
+  }
+
   sendForm() {
     if ( this.formFeedback.valid ) {
       let dateTime = new Date().toLocaleString();
@@ -70,12 +77,18 @@ export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsP
 
       response.afterClosed().subscribe( result => {
         if ( result ) {
-          this.formFeedback.patchValue( { dateTime: dateTime } )
+          this.formFeedback.patchValue( { dateTime: dateTime, star: this.valueStar } )
           this.db.list( 'feedback' ).push( this.formFeedback.value );
           this.noCommentYet = false;
           this.formFeedback.reset();
+          this.sendOk = true;
+          this.animSendOk = true;
+          setTimeout( () => {
+            this.animSendOk = false
+          }, 6000 );
         }
       } );
     }
+
   }
 }

@@ -8,6 +8,7 @@ import { FeedbackManagerComponent } from "./feedback-manager.component";
 import { PaginatorComponent } from './paginator/paginator.component';
 import { FormComponent } from './form/form.component';
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
+import { CheckboxStarComponent } from './checkbox-star/checkbox-star.component';
 
 
 @NgModule( {
@@ -26,6 +27,7 @@ import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 } )
 export class FeedbackManagerModule {
   public static components = [
+    CheckboxStarComponent,
     ModalConfirmComponent,
     FormComponent,
     PaginatorComponent,
