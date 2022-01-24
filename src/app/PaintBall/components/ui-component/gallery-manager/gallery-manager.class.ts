@@ -4,3 +4,7 @@ export class GalleryManager {
   email: string;
   alt: string;
 }
+export class AlertNothingImages {
+  paragraphs: [];
+  icon: string;
+}

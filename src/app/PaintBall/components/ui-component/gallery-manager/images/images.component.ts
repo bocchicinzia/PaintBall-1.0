@@ -1,7 +1,10 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { GalleryPageModel } from 'src/app/PaintBall/pages/gallery-page/gallery-page.model';
 import { SaveChangeService } from 'src/app/PaintBall/pages/gallery-page/service/save-change.service';
+import { ContentDeliveryService } from 'src/app/PaintBall/services/content-delivery.service';
+import { ContentMapper } from 'src/app/PaintBall/services/content-mapper.interface';
 import { GalleryManager } from '../gallery-manager.class';
 import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.service';
 
@@ -10,16 +13,23 @@ import { ContentDeliveryServiceGalleryPage } from '../service/content-delivery.s
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.scss']
 } )
-export class ImagesComponent implements OnInit {
+export class ImagesComponent implements OnInit, ContentMapper<GalleryPageModel> {
   getImg: Observable<GalleryManager[]>;
   attr: string = '*';
   notExist: boolean;
+  content: Observable<any>;
 
   constructor( private el: ElementRef,
     private service: ContentDeliveryServiceGalleryPage,
+    private deliveryService: ContentDeliveryService,
     private SaveChangeservice: SaveChangeService,
     private router: Router ) {
     SaveChangeservice.changeEmittedString$.subscribe( change => this.getImages( change ) );
+
+    this.content = this.deliveryService.get( 'alert-nothing-images', 'alert-nothing-images', this );
+  }
+  map( json: any, className: string ) {
+    return new GalleryPageModel( json, className );
   }
 
   ngOnInit(): void {

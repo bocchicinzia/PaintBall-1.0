@@ -1,12 +1,13 @@
 import { CardPriceModel } from "../../components/ui-component/card-price/card-price-model.class";
 import { ButtonGallery } from "../../components/ui-component/gallery-manager/button/button-gallery.class";
-import { GalleryManager } from "../../components/ui-component/gallery-manager/gallery-manager.class";
+import { AlertNothingImages, GalleryManager } from "../../components/ui-component/gallery-manager/gallery-manager.class";
 import { InputGallery } from "../../components/ui-component/gallery-manager/input/input.class";
 
 export class GalleryPageModel {
   getInput: InputGallery[];
   getButton: ButtonGallery[];
   getImg: GalleryManager[];
+  nothingImages: AlertNothingImages[];
 
   constructor( json: any, projectId: string ) {
     switch ( projectId ) {
@@ -29,6 +30,13 @@ export class GalleryPageModel {
           return res
         } );
         break;
+      case 'alert-nothing-images':
+        this.nothingImages = json.map( ( res: AlertNothingImages ) => {
+          return {
+            paragraphs: res.paragraphs,
+            icon: res.icon
+          }
+        } )
     }
   }
 }
