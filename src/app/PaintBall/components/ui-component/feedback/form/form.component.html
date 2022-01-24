@@ -44,4 +44,10 @@
       </div>
     </mat-form-field>
   </div>
+  <div>
+    <app-checkbox-star
+      [sendOk]="sendOk"
+      (valueStar)="valueStar($event)"
+    ></app-checkbox-star>
+  </div>
 </form>
