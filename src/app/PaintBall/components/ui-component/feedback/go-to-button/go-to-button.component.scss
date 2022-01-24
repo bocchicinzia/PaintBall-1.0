@@ -102,7 +102,7 @@ $base: 0.6rem;
     padding-top: 10px;
   }
   p {
-    font-size: calc(var(--font-extra-small) - 2);
+    font-size: calc(var(--font-extra-small) - 2px);
   }
   small {
     display: none;

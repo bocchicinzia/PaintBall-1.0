@@ -61,4 +61,17 @@ mat-card {
   p {
     font-size: var(--font-extra-small);
   }
+  mat-card {
+    & small {
+      right: 25%;
+      top: 10%;
+      font-size: calc(var(--font-extra-small) - 3px);
+    }
+  }
+  .star-feedback {
+    margin-top: 2px;
+    & mat-icon {
+      font-size: var(--font-extra-small);
+    }
+  }
 }
