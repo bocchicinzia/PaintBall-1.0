@@ -1,6 +1,7 @@
 <form [formGroup]="formFeedback" *ngIf="inputContent | async as c">
   <div class="d-flex justify-content-around">
     <mat-form-field
+      class="mx-3"
       appearance="outline"
       *ngFor="let item of c.contentFeedbackFormInput"
     >

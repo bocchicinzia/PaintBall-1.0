@@ -18,7 +18,6 @@ export class CheckboxStarComponent implements OnInit {
 
   ngOnChanges( changes: SimpleChanges ): void {
     if ( changes.sendOk.currentValue ) {
-      console.log( this.sendOk );
       this.checkbox.forEach( ( element: any ) => {
         element.checked = false;
       } )

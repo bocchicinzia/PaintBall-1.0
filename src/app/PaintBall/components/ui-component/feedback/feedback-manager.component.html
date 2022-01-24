@@ -30,6 +30,7 @@
 
       <div>
         <div
+          [class.d-none]="animSendOk"
           class="alert alert-danger animate__animated"
           [ngClass]="[
             formFeedback.invalid ? 'animate__bounceIn' : 'animate__bounceOut'
@@ -40,6 +41,7 @@
         </div>
 
         <div
+          [class.d-none]="!animSendOk"
           class="alert alert-success animate__animated"
           [ngClass]="[animSendOk ? 'animate__flipInY' : 'animate__flipOutY']"
           role="alert"
