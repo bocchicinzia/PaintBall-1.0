@@ -6,6 +6,13 @@
 </div>
 <mat-card>
   <small>{{ item.dateTime }}</small>
+  <small class="star-feedback"
+    ><mat-icon
+      [class.positive]="checked > i"
+      *ngFor="let in of counter(); let i = index"
+      >star</mat-icon
+    ></small
+  >
   <mat-card-title>{{ item.name }}</mat-card-title>
   <mat-card-subtitle>{{ item.email }}</mat-card-subtitle>
   <mat-card-actions>

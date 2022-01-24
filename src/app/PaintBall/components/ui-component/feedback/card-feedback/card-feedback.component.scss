@@ -7,11 +7,26 @@ mat-card {
 
   & small {
     position: absolute;
-    right: 10%;
+    right: 20%;
     top: 10%;
     color: var(--grey);
   }
 }
+.star-feedback {
+  position: absolute;
+  right: 10px !important;
+  top: 0%;
+  & mat-icon {
+    color: var(--grey);
+    font-size: var(--font-large);
+    width: auto;
+    height: auto;
+    &.positive {
+      color: var(--yellow-star-checked);
+    }
+  }
+}
+
 .image-unknown {
   position: absolute;
   width: 100px;
