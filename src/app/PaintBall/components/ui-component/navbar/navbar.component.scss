@@ -61,12 +61,12 @@ mat-toolbar-row button {
 //logo
 .logo-navbar {
   position: absolute;
-  top: 4px;
-  max-width: 80px;
-  max-height: inherit;
+  width: 115px;
   img {
     position: relative;
-    width: 55px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -103,8 +103,7 @@ mat-toolbar-row button {
 
 @media (max-width: $mobile-small) {
   .logo-navbar {
-    position: absolute;
-    top: 0;
+    width: 100px;
   }
   .theme {
     & mat-icon {

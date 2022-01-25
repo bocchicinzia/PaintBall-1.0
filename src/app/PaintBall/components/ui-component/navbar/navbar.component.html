@@ -1,18 +1,13 @@
-<mat-toolbar-row>
+<mat-toolbar-row *ngIf="contentNavbar as c">
   <button mat-icon-button (click)="sidenav.toggle()" [fxShow]="isMobile">
-    <mat-icon>menu</mat-icon>
+    <mat-icon>{{ c.icon[0] }}</mat-icon>
   </button>
   <div class="container logo-navbar">
-    <img
-      [src]="
-        'https://image.shutterstock.com/image-vector/paintball-player-stylized-vector-symbol-600w-701302792.jpg'
-      "
-      alt="logo-paintball"
-    />
+    <img [src]="c.logo" alt="logo-paintball" />
   </div>
   <span class="menu-spacer"></span>
   <div class="theme" (click)="changeTheme()">
-    <mat-icon>brightness_medium</mat-icon>
+    <mat-icon>{{ c.icon[1] }}</mat-icon>
   </div>
   <div [fxShow]="!isMobile">
     <mat-list class="inline-list">
