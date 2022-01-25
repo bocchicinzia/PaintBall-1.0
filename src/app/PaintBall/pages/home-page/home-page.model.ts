@@ -3,10 +3,11 @@ import { Carousel } from "../../components/ui-component/carousel/carousel.class"
 import { Copyright } from "../../components/ui-component/footer/model/copyright.class";
 import { FollowUs } from "../../components/ui-component/footer/model/follow-us.class";
 import { Sponsor } from "../../components/ui-component/footer/model/sponsor.class";
-import { MenuNavbar } from "../../components/ui-component/navbar/menuNavbar.class";
+import { ContentNavbar, MenuNavbar } from "../../components/ui-component/navbar/menuNavbar.class";
 
 export class HomePageModel {
   menu: MenuNavbar[] = [];
+  contentNavbar: ContentNavbar[];
   cards: Card[] = [];
   carousel: Carousel[] = [];
   footer_copyright: Copyright[];
@@ -20,6 +21,14 @@ export class HomePageModel {
           return {
             label: menu.label,
             path: menu.path
+          }
+        } );
+        break;
+      case 'content-navbar':
+        this.contentNavbar = json.map( ( content: ContentNavbar ) => {
+          return {
+            logo: content.logo,
+            icon: content.icon
           }
         } );
         break;

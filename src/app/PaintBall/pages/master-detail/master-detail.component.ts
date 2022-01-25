@@ -1,7 +1,7 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, HostBinding, HostListener, OnInit } from '@angular/core';
 import { Copyright } from '../../components/ui-component/footer/model/copyright.class';
-import { MenuNavbar } from '../../components/ui-component/navbar/menuNavbar.class';
+import { ContentNavbar, MenuNavbar } from '../../components/ui-component/navbar/menuNavbar.class';
 import { ContentDeliveryService } from '../../services/content-delivery.service';
 import { ContentMapper } from '../../services/content-mapper.interface';
 import { SaveChangeService } from '../gallery-page/service/save-change.service';
@@ -18,6 +18,7 @@ export class MasterDetailComponent implements OnInit, ContentMapper<HomePageMode
   getTheme: any;
   theme: boolean;
   menu: MenuNavbar[];
+  contentNavbar: ContentNavbar;
   copy: Copyright[];
   openImageFullScreen: boolean = false;
 
@@ -30,10 +31,12 @@ export class MasterDetailComponent implements OnInit, ContentMapper<HomePageMode
       change => {
         this.openImageFullScreen = change;
       } );
-  }
-  ngOnInit(): void {
     this.contentDeleveryService.get( 'vertical-menu', 'vertical-menu', this ).subscribe( res => this.menu = res.menu );
     this.contentDeleveryService.get( 'footer', 'footer_copyright', this ).subscribe( res => this.copy = res.footer_copyright );
+    this.contentDeleveryService.get( 'content-navbar', 'content-navbar', this ).subscribe( res => this.contentNavbar = res.contentNavbar[0] );
+  }
+  ngOnInit(): void {
+    console.log( this.contentNavbar );
 
     this.getTheme = localStorage.getItem( 'theme' );
     this.getTheme === 'false' ? this.theme = false : this.theme = true;
