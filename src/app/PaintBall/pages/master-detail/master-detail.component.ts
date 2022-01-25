@@ -36,8 +36,6 @@ export class MasterDetailComponent implements OnInit, ContentMapper<HomePageMode
     this.contentDeleveryService.get( 'content-navbar', 'content-navbar', this ).subscribe( res => this.contentNavbar = res.contentNavbar[0] );
   }
   ngOnInit(): void {
-    console.log( this.contentNavbar );
-
     this.getTheme = localStorage.getItem( 'theme' );
     this.getTheme === 'false' ? this.theme = false : this.theme = true;
     this.themeChange( this.theme );

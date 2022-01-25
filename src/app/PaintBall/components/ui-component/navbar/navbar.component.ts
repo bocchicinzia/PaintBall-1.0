@@ -26,8 +26,6 @@ export class NavbarComponent implements OnInit {
     this.isMobile = Platform.isMobile();
     this.theme = localStorage.getItem( 'theme' );
     this.isDark = this.theme === 'true' ? true : false;
-    console.log( this.contentNavbar );
-
   }
   changeTheme() {
     this.isDark = !this.isDark;
