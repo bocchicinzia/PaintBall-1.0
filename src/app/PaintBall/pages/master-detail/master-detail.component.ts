@@ -69,8 +69,9 @@ export class MasterDetailComponent implements OnInit, ContentMapper<HomePageMode
       classes.remove( darkModeClass );
     }
   }
-  isOpenFullScreen( event: any ) {
-    console.log( event );
 
+  scrolled: boolean;
+  isScrolled( event: boolean ) {
+    this.scrolled = event;
   }
 }

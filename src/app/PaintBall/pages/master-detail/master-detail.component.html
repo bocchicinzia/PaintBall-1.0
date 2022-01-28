@@ -21,5 +21,8 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
   <app-footer [copyright]="copy"></app-footer>
-  <app-go-to-top></app-go-to-top>
+  <app-go-to-top
+    [class.scrolled]="scrolled"
+    (isScrolled)="isScrolled($event)"
+  ></app-go-to-top>
 </ng-container>
