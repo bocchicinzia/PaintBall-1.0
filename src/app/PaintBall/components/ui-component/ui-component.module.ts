@@ -30,6 +30,7 @@ import { TabComponent } from './tab/tab.component';
 import { TabContactsComponent } from './tab-contacts/tab-contacts.component';
 import { CardContactComponent } from './card-contact/card-contact.component';
 import { MapsComponent } from './maps/maps.component';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 
 @NgModule( {
   declarations: [
@@ -51,6 +52,7 @@ import { MapsComponent } from './maps/maps.component';
 } )
 export class UIComponentsModule {
   public static components = [
+    ScrollToTopComponent,
     MapsComponent,
     CardContactComponent,
     TabContactsComponent,
