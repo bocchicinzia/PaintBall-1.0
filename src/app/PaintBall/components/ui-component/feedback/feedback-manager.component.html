@@ -43,7 +43,7 @@
         <div
           [class.d-none]="!animSendOk"
           class="alert alert-success animate__animated"
-          [ngClass]="[animSendOk ? 'animate__flipInY' : 'animate__flipOutY']"
+          [ngClass]="[animSendOk ? 'animate__bounceIn' : '']"
           role="alert"
         >
           {{ f.alertMsg[1] }}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,6 +19,8 @@ export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsP
   inputContent: Observable<ContactsPageModel>;
   textAreaContent: Observable<ContactsPageModel>;
   feedbackManager: Observable<ContactsPageModel>;
+
+  @Output() viewGoToFeedback = new EventEmitter<boolean>();
 
   private _pageSlice: CardFeedbackFirebasePrint[];
 
@@ -69,11 +71,11 @@ export class FeedbackManagerComponent implements OnInit, ContentMapper<ContactsP
   valueFeedbackStar( e: any ) {
     this.valueStar = e;
   }
-
   sendForm() {
     if ( this.formFeedback.valid ) {
       let dateTime = new Date().toLocaleString();
       const response = this.modal.open( ModalConfirmComponent );
+      this.viewGoToFeedback.emit( false );
 
       response.afterClosed().subscribe( result => {
         if ( result ) {

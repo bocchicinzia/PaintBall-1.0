@@ -2,5 +2,5 @@
 <hr class="hr-horizontal" />
 <app-maps></app-maps>
 <hr class="hr-horizontal" />
-<app-feedback></app-feedback>
-<app-go-to-button></app-go-to-button>
+<app-feedback (viewGoToFeedback)="viewGoToFeedback($event)"></app-feedback>
+<app-go-to-button *ngIf="windowScrolled"></app-go-to-button>
