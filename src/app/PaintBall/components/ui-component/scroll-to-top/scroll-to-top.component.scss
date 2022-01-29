@@ -1,3 +1,5 @@
+@import "/src/styles/media-screen-variables";
+
 :host {
   position: fixed;
   bottom: -60px;
@@ -22,7 +24,7 @@
       & mat-icon {
         width: auto;
         height: 15px;
-        font-size: 25px;
+        font-size: var(--font-icon-theme-small);
         display: block;
         transform: rotateZ(-90deg) scale(1);
         transition: 1s ease;
@@ -34,6 +36,37 @@
       & .scroll-to-top {
         & mat-icon {
           transform: rotateZ(-90deg) scale(1.2);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  :host {
+    padding: 5px 20px;
+    &.scrolled {
+      & .scroll-to-top {
+        padding: 10px;
+        & mat-icon {
+          height: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-big) {
+  :host {
+    bottom: -20px;
+    right: -20px;
+    padding: 5px 10px;
+    &.scrolled {
+      & .scroll-to-top {
+        padding: 5px;
+        & mat-icon {
+          height: 10px;
+          font-size: var(--font-large);
         }
       }
     }
